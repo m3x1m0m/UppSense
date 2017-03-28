@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Author:      Maximilian Stiefel
-%% Date:        17.03.2017
+%% Date:      z  17.03.2017
 %% University:  Uppsala Universitet
 %% Department:  Institutionen för informationsteknologi 
 %% Course:      UppSense
@@ -168,14 +168,25 @@ Assembling    & 0 \$           & can be done by the engineering subgroup        
 \caption{Rough budget estimation for one prototype.}
 \label{tab:prototype_budget}
 \end{table}
-In table \ref{tab:prototype_budget} one can see the rough costs estimation to build one prototype. This one prototype, however, subsumes multiple PCBs, which can be used for multiple assays, which have the common denominator of using a fluoresence technique. 
+In table \ref{tab:prototype_budget} one can see the rough costs estimation to build one prototype. This one prototype, however, subsumes multiple PCBs, which can be used for multiple assays, which have the common denominator of using a fluoresence technique. The component price also includes a lens and light source. The electrical components will roughly be 60 euros per product.
 \section{Estimation Of Product Price}
-
+The estimation of the product price depends on the techniques being used. For now there will be looked at a laser as a light source, which costs around 10 dollars. For the logic part a bluetooth service on chip(SoC) will be used. This saves cost as both the bluetooth controller and the microcontroller will be integrated in one package. The NRF52832 seems like a good pick, as knowledge about the SoC is already among the team which will increase productivity. The SoC, including passives, will cost around 15 dollar. To power everything, multiple Dc/Dc converters will be used, which will roughly come down to a price of 15 dollar. The analogue part requires a accurate high sensitive photodiode, and an amplification circuit. Which will be in the range of 15-25 dollar depending on the requirements of the photodiode. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Gantt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Research}
+In order to facilitate all the functionality, some research will be done to acquire the required knowledge. This research will be targeted towards three fields: Analogue processing, Digital communications, reception of real world signals.
+\section{Reception}
+The real world signal will have to be translated into an electrical signal. This can be either analogue or digital, depending on the sensors used. Different photodiodes are available on the market. Some of which contain a filter. Investigation has to be done to get a better understanding of the filters, and what drawbacks there are when buying a photodiode with filter vs buying a photodiode without. Also some photodiodes contain an internal ic that either does amplification and/or analogue-digital conversion. Once the real world signal has been converted to a electrical signal, it will have to be amplified. The signal will possibly have to be translated to a digital value, depending on the requirements and capabilities of the microcontroller.
+\section{Processing}
+The modulating of the light source will have to be investigated. If this is a option that indeed will increase the signal to noise level, then the effect will have to be demodulated on the microcontroller. Once this is done other filter designs might have to be implemented depending on the quality and fluctuation of the incoming signal.
+\section{Communications}
+Once all this information is available, a way to show it to the user has to be developed. This will be done trough bluetooth, as discussed in earlier chapters. More information has to be gathered about the different bluetooth attributes and whether available Generic Attributes (GATT) can be used or if a serial connection is required. A serial connection would require some sort of higher level protocol, which also has to be looked into. Once the information is received by the mobile phone of the designated user it will have to be processed and shown on the screen.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Gantt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Gantt}
-
+A Gantt chart will be produced after Wednesday 29th of march, as new information will be obtained which is crucial for specifics of the project.
 \printbibliography[heading=bibintoc]
 
 \clearpage
