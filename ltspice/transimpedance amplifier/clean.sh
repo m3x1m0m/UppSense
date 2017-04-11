@@ -1,2 +1,2 @@
 #!/bin/bash
-rm *.log *.raw
+rm *.log *.raw *.plt
