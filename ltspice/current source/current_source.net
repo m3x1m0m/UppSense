@@ -1,0 +1,20 @@
+* C:\Users\elmar\Desktop\UU\UppSense\ltspice\current source\current_source.asc
+R1 N003 0 50
+R2 N001 N002 {R}
+Q1 N002 N004 N003 0 2N3904
+V1 IN N005 1.5
+V2 N001 0 5
+V3 V+ 0 10
+V4 0 V- 10
+V5 N005 0 0
+XU1 IN N003 V+ V- N004 AD8615
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\elmar\OneDrive\Documents\LTspiceXVII\lib\cmp\standard.bjt
+;tran 0 10ms 0 100us
+.include ad8615.cir
+.op 1
+.step param R 50 200 1
+.op
+.backanno
+.end
