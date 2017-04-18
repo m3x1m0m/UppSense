@@ -1,10 +1,9 @@
-Farnell,
-Article, Ordercode, Min. Quantity
+Article, Farnell Ordercode, Min. Quantity
 BPW34FA,1212740, 5
 BPW34,1045425, 5
 UV LED,1057106, 5
 Opamp,2305615, 5
-Jumper,2396303, 10
+Jumper,2396303, 15
 R 10k, 1160359, 3
 R 100k, 2447551, 3
 R 1M, 1576507, 3
@@ -15,4 +14,4 @@ C 1n, 2496935, 3
 C 100p, 2332782, 10
 C 10p, 1759191, 10
 C 1p, 1759179, 10
-Pin Header, 1822166, 2 
+Pin Header, 1822166, 3
