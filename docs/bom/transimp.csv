@@ -1,17 +1,23 @@
-Article, Farnell Ordercode, Min. Quantity
-BPW34FA,1212740, 5
-BPW34,1045425, 5
-UV LED,1057106, 5
-Opamp,AD8616ARZ , 5
-Jumper,2396303, 15
-R 10k, 1160359, 3
-R 100k, 2447551, 3
-R 1M, 1576507, 3
-R 10M, 9238115, 3
-R 100M, 1605131, 3
-C 10n, 2445369, 3
-C 1n, 2496935, 3
-C 100p, 2332782, 10
-C 10p, 1759191, 10
-C 1p, 1759179, 10
-Pin Header, 1822166, 3
+Article, Farnell Ordercode, Min. Quantity, Available?
+BPW34FA,1212740, 5, yes
+BPW34,1045425, 5, yes
+UV LED,1057106, 5, yes
+Opamp,AD8616ARZ , 5, No
+Jumper,2396303, 15, Yes
+R 10k, 1160359, 3, No
+R 100k, 2447551, 3, No
+R 1M, 1576507, 3, No
+R 10M, 9238115, 3, No
+R 100M, 1605131, 3, No
+C 10n, 2445369, 3, No
+C 1n, 2496935, 3, No
+C 100p, 2332782, 10, No
+C 10p, 1759191, 10, No
+C 1p, 1759179, 10, No
+Pin Header, 1822166, 3, No
+M3 screw 8 mm, 2494521, 4, No
+M3 spacing bolts female-male 8 mm, 1466795, 4, No
+M3 spacing bolts female-female 30 mm, 1466803, 4, No
+Washer M3, 1377496, 1, No
+Raw PCB single-sided euro, 1267751, 1, No
+Raw PCB double-sided euro, 149058, 1, No
