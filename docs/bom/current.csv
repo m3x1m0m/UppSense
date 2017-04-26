@@ -1,7 +1,7 @@
-Article, Ordercode,Quantity
-Resistior 100 Ohm, 2504961RL,1 
-MMBT3904,1773602,4 
-Resistor 1k,9237496,10
-Resistor 5 ohm,2502734 ,1
-Resistor 19k,2303683,10
+Article, Farnell Ordercode,Quantity
+Resistior 100 Ohm, 2504961RL,10 
+MMBT3904,1773602,20
+Resistor 1k,9237496,20
+Resistor 5.1 ohm,2502734 ,50
+Resistor 19.1k,2303683,50
 Header right angle,9731199,10
