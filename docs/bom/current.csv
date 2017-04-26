@@ -1,7 +1,7 @@
-Article, Ordercode, Min. Quantity
-100 Ohm, 2504961RL,1 
-mmbt3904,1773602,4 
-1k ohm,9237496,10
-5 ohm,2502734 ,1
-19k ohm,2303683,10
-header right angle,9731199,10
+Article, Ordercode,Quantity
+Resistior 100 Ohm, 2504961RL,1 
+MMBT3904,1773602,4 
+Resistor 1k,9237496,10
+Resistor 5 ohm,2502734 ,1
+Resistor 19k,2303683,10
+Header right angle,9731199,10
