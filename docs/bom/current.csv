@@ -1,10 +1,7 @@
-Article, Ordercode, Min. Quantity
-Differential Amp,1827398,1
-Opamp,2305612,1
-100 Ohm, 2504961RL,1
-Opamp,9425845,1
-mmbt3904,1773602,2
- MCP1702T,1331491,1
-1k ohm,9237496,10
-5 ohm,1353228,1
-19k ohm,2303683,10
+Article, Farnell Ordercode,Quantity
+Resistior 100 Ohm, 2504961RL,10 
+MMBT3904,1773602,20
+Resistor 1k,9237496,20
+Resistor 5.1 ohm,2502734 ,50
+Resistor 19.1k,2303683,50
+Header right angle,9731199,10
