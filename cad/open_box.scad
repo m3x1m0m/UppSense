@@ -11,27 +11,33 @@ module open_box(width, length, height, thickness, allowance)
 	/////////////////////////////////////////////////////////////////////////
 	// Vars
 	/////////////////////////////////////////////////////////////////////////
-	edge_rounding = 6;
-	compensation = abs(thickness-edge_rounding);
+	edge_rounding = 15;
+	compensation = 2*abs(edge_rounding-thickness);
+	width = width + 2*allowance;
+	length = length + 2*allowance;
 
 	/////////////////////////////////////////////////////////////////////////
 	// Action
 	/////////////////////////////////////////////////////////////////////////
-	difference(){		
+	translate([0, 0, 0]) difference(){		
 		// Hull 4 cylinders which are compensated against the thickness
-		// so the actual desired thickness and edge rounding is always achieved.
+		// so the actual desired thickness/2 and edge rounding is always achieved.
 		hull(){
-			translate([+compensation, +compensation, 0])
+			// x=0, y=0
+			translate([edge_rounding, edge_rounding, 0])
 				cylinder(r = edge_rounding, h = height + thickness);
-			translate([width + 2*allowance + 2*thickness - compensation, compensation, 0])
+			// x=width, y=0
+			translate([width + edge_rounding - compensation, edge_rounding, 0])
 				cylinder(r = edge_rounding, h = height + thickness);
-			translate([compensation, length + 2*allowance + 2*thickness - compensation,0])
+			// x=0, y=length
+			translate([edge_rounding, length + edge_rounding - compensation,0])
 				cylinder(r = edge_rounding, h = height + thickness);
-			translate([width + 2*allowance + 2*thickness - compensation, length + 2*allowance + 2*thickness - compensation,0])
+			//x=width, y=length
+			translate([width + edge_rounding - compensation, length + edge_rounding - compensation,0])
 				cylinder(r = edge_rounding, h = height + thickness);
 		}
 
 		translate([thickness, thickness, thickness])
-			cube([width + 2*allowance, length + 2*allowance, height + 1]);
+			cube([width, length, height + 1]);
 	}
 }
