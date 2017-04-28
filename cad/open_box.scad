@@ -2,7 +2,7 @@
 // Module for a open box with rounded edges.
 //
 // Author: 		Maximilian Stiefel
-// Last modification: 	26.04.3017
+// Last modification: 	26.04.2017
 /////////////////////////////////////////////////////////////////////////////////
 
 module open_box(width, length, height, thickness)

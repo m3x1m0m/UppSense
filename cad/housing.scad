@@ -2,7 +2,7 @@
 // Housing box for UppSense first tries.
 //
 // Author:              Maximilian Stiefel
-// Last modification:   26.04.3017
+// Last modification:   26.04.2017
 /////////////////////////////////////////////////////////////////////////////////
 
 use <open_box.scad>
