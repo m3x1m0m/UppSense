@@ -11,18 +11,32 @@ use <open_box.scad>
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
 allowance_pcb = 1;
-allowance_glass = 0.5;
 width = 50 + 2*allowance_pcb; 
 length = 80 + 2*allowance_pcb;
 height = 45;
 thickness = 5;
-lid_depth = 5;
-bolt_diameter = 5.5;		// According to the Farnell datasheet
-bolt_spacing = 5;
-my_color = "DarkRed";
-glass_width = 26;
-glass_height = 2 + allowance_glass;
 
+lid_depth = 5;
+
+bolt_diameter = 6;		// According to the Farnell datasheet
+bolt_spacing = 5;
+
+my_color = "DarkRed";
+
+allowance_glass = 0.5;
+allowance_adapter = 0.5;
+glass_width = 26 + allowance_glass;
+glass_height = 2 + allowance_glass;
+glass_length = 76 + allowance_glass;
+
+slot = 3;
+adapter_length = 2 + 5 + 4 + slot; // 2*allowance_pcb + thickness + distance(glass_slide, wall_inside) + slot;
+
+cables_diameter = 3;
+
+/////////////////////////////////////////////////////////////////////////////////
+// Action
+/////////////////////////////////////////////////////////////////////////////////
 difference(){
 
 	// Using my open box module for creating a simple box 
@@ -45,18 +59,42 @@ difference(){
 		translate([thickness + bolt_spacing, width + thickness - bolt_spacing, 0])
 			cylinder(r=bolt_diameter/2, h=thickness/2+1);
 	}
-	
+
+	// Cylindric holes for cables
+	color(my_color, 1.0) union(){
+		translate([thickness + length - 1, 3*thickness, thickness + (1/4)*height])
+		rotate([0, 90, 0])
+		cylinder(r=cables_diameter, h=thickness + 2);
+
+		translate([thickness + length - 1, 3*thickness, thickness + (3/4)*height])
+		rotate([0, 90, 0])
+		cylinder(r=cables_diameter, h=thickness + 2);
+	}
+
+	// Slots for the glass slide	
 	color(my_color, 0.6) union(){
 		// Slots for glass slide
 		// Slot in the back
-		translate([length + thickness/2, thickness + (width - glass_width)/2, (height + thickness)/2])
-			cube([thickness, glass_width, glass_height]);
+		//translate([length + thickness/2, thickness + (width - glass_width)/2, (height + thickness)/2 - glass_height])
+		translate([length + thickness/2, -(glass_width-1.2*glass_width)/2 + thickness + (width - 1.2*glass_width + allowance_adapter)/2, (3*glass_height + allowance_adapter - glass_height)/2 +(height + thickness)/2])
+		cube([thickness, glass_width, glass_height]);
 		// Slot in the front
-		translate([-1, thickness + (width - glass_width)/2, (height + thickness)/2])
-			cube([thickness + 2, glass_width, glass_height]);
+		translate([thickness + 1, thickness + (width - 1.2*glass_width + allowance_adapter)/2, (height + thickness)/2])
+		rotate([0, 0, 90])
+		cube([1.2*glass_width + allowance_adapter, thickness + 2, 3*glass_height + allowance_adapter]);			
 	}
 }
 
-color(my_color, 0.8)
-translate([thickness/2, thickness/2, height + 10]) 
+/////////////////////////////////////////////////////////////////////////////////
+// Import other models
+/////////////////////////////////////////////////////////////////////////////////
+// Lid
+*color(my_color, 0.8)
+translate([thickness/2, thickness/2, height + 40]) 
 import("lid.stl");
+
+// Adapter
+*color(my_color, 0.8)
+translate([0,thickness + (width - 1.2*glass_width)/2,(height + thickness)/2]) 
+rotate([0, 0, 270])
+import("adapter.stl");
