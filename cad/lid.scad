@@ -1,0 +1,23 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Lid for the housing box for UppSense first tries.
+//
+// Author:              Maximilian Stiefel
+// Last modification:   27.04.3017
+/////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////
+// Vars
+/////////////////////////////////////////////////////////////////////////////////
+allowance = 1; 
+thickness = 5;
+length = 80 +  2*allowance;
+width = 50 + 2*allowance;
+lid_depth = 5;
+my_color = "DarkRed";
+knob_r = 10;
+knob_h = 20;
+
+color(my_color, 0.8) union(){
+	cube([length + thickness, width + thickness, lid_depth]);
+	translate([length/2, width/2, lid_depth-1]) cylinder(r=knob_r,h=knob_h);
+}
