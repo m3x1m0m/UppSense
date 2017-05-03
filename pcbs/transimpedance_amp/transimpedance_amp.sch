@@ -36,8 +36,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Transimpedance Amplifier"
-Date "2017-04-24"
-Rev "v0.1"
+Date "2017-05-03"
+Rev "1"
 Comp "Uppsala University"
 Comment1 ""
 Comment2 ""
