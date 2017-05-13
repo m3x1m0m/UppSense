@@ -90,11 +90,11 @@ difference(){
 /////////////////////////////////////////////////////////////////////////////////
 // Lid
 *color(my_color, 0.8)
-translate([thickness/2, thickness/2, height + 40]) 
+translate([thickness/2, thickness/2, height + 30]) 
 import("lid.stl");
 
 // Adapter
-*color(my_color, 0.8)
-translate([0,thickness + (width - 1.2*glass_width)/2,(height + thickness)/2]) 
+color(my_color, 0.8)
+translate([-30,thickness + (width - 1.2*glass_width)/2,(height + thickness)/2]) 
 rotate([0, 0, 270])
 import("adapter.stl");
