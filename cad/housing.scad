@@ -23,8 +23,8 @@ bolt_spacing = 5;
 
 my_color = "DarkRed";
 
-allowance_glass = 0.5;
-allowance_adapter = 0.5;
+allowance_glass = 0.2;
+allowance_adapter = 0.2;
 glass_width = 26 + allowance_glass;
 glass_height = 2 + allowance_glass;
 glass_length = 76 + allowance_glass;
@@ -45,9 +45,22 @@ difference(){
 	
 	// Creating a depening for the lid
 	color(my_color, 0.9)
-	translate([thickness/2, thickness/2, height+1])
-		cube([length + thickness, width + thickness, lid_depth+1]);	
-	
+	translate([thickness, thickness, height+1])
+	hull()
+	{
+		cylinder(r=thickness/2, h=lid_depth+1);
+		translate([0, width, 0])
+		cylinder(r=thickness/2, h=lid_depth+1);
+		translate([length, 0, 0])
+		cylinder(r=thickness/2, h=lid_depth+1);
+		translate([length, width, 0])
+		cylinder(r=thickness/2, h=lid_depth+1);
+
+	}
+	// If it shall not be round
+	//cube([length + thickness, width + thickness, lid_depth+1]);	
+		
+
 	// Cylindric holes for the PCBs
 	color(my_color, 1.0) translate([0, 0, thickness/2]){
 		translate([thickness + bolt_spacing, thickness + bolt_spacing, 0])
@@ -90,11 +103,11 @@ difference(){
 /////////////////////////////////////////////////////////////////////////////////
 // Lid
 *color(my_color, 0.8)
-translate([thickness/2, thickness/2, height + 30]) 
+translate([thickness/2, thickness/2, height]) 
 import("lid.stl");
 
 // Adapter
-color(my_color, 0.8)
+*color(my_color, 0.8)
 translate([-30,thickness + (width - 1.2*glass_width)/2,(height + thickness)/2]) 
 rotate([0, 0, 270])
 import("adapter.stl");
