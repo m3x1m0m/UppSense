@@ -2,7 +2,7 @@
 // Housing box for UppSense first tries.
 //
 // Author:              Maximilian Stiefel
-// Last modification:   26.04.2017
+// Last modification:   23.05.2017
 /////////////////////////////////////////////////////////////////////////////////
 
 use <open_box.scad>
@@ -10,7 +10,7 @@ use <open_box.scad>
 /////////////////////////////////////////////////////////////////////////////////
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
-allowance_pcb = 1;
+allowance_pcb = 0.2;
 width = 50 + 2*allowance_pcb; 
 length = 80 + 2*allowance_pcb;
 height = 45;
@@ -23,12 +23,11 @@ bolt_spacing = 5;
 
 my_color = "DarkRed";
 
-allowance_glass = 0.2;
+allowance_glass = 0.1;
 allowance_adapter = 0.2;
 glass_width = 26 + allowance_glass;
 glass_height = 2 + allowance_glass;
 glass_length = 76 + allowance_glass;
-
 slot = 3;
 adapter_length = 2 + 5 + 4 + slot; // 2*allowance_pcb + thickness + distance(glass_slide, wall_inside) + slot;
 
@@ -89,7 +88,7 @@ difference(){
 		// Slots for glass slide
 		// Slot in the back
 		//translate([length + thickness/2, thickness + (width - glass_width)/2, (height + thickness)/2 - glass_height])
-		translate([length + thickness/2, -(glass_width-1.2*glass_width)/2 + thickness + (width - 1.2*glass_width + allowance_adapter)/2, (3*glass_height + allowance_adapter - glass_height)/2 +(height + thickness)/2])
+		translate([length + slot, -(glass_width-1.2*glass_width)/2 + thickness + (width - 1.2*glass_width + allowance_adapter)/2, (3*glass_height + allowance_adapter - glass_height)/2 +(height + thickness)/2])
 		cube([thickness, glass_width, glass_height]);
 		// Slot in the front
 		translate([thickness + 1, thickness + (width - 1.2*glass_width + allowance_adapter)/2, (height + thickness)/2])

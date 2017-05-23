@@ -2,19 +2,23 @@
 // Housing box for UppSense first tries.
 //
 // Author:              Maximilian Stiefel
-// Last modification:   28.04.2017
+// Last modification:   23.05.2017
 /////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
-allowance_glass = 0.2;
+allowance_glass = 0.1;
+allowance_pcb = 0.2;
+thickness = 5;
+length = 80 + 2*allowance_pcb;
+
 my_color = "DarkRed";
 glass_width = 26 + allowance_glass;
 glass_height = 2 + allowance_glass;
 glass_length = 76 + allowance_glass;
-slot = 3;				// Depness of the glass slot
-adapter_length = 2 + 5 + 4 + slot; 	// 2*allowance_pcb + thickness + distance(glass_slide, wall_inside) + slot
+slot = 3;				// Deepness of the glass slot
+adapter_length = thickness + length + slot - glass_length;
 
 /////////////////////////////////////////////////////////////////////////////////
 // Action
