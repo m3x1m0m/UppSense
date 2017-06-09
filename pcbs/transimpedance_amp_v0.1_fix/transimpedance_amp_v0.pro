@@ -1,4 +1,4 @@
-update=mån 24 apr 2017 09:35:37
+update=tor  8 jun 2017 14:39:05
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -58,4 +56,5 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-LibName30=schematicSymb/ad8616
+[general]
+version=1
