@@ -53,9 +53,9 @@ union()
 	// Cube for the base holder
 	cube([holder_width, holder_depth, holder_height], center = false);
 	// Pillars
-	translate([holder_width - 1, 0, 0])
+	translate([holder_width, 0, 0])
 	cube([pillar_width, pillar_depth, pillar_height]);
-	translate([-pillar_width + 1, 0, 0])
+	translate([-pillar_width , 0, 0])
 	cube([pillar_width, pillar_depth, pillar_height]);
 }
 
