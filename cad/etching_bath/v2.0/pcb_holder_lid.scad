@@ -9,8 +9,9 @@
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
 // Allowance
-allowance1 = 0.5;
-allowance2 = 1;
+allowance05 = 0.5;
+allowance1 = 1;
+allowance2 = 2;
 
 // Dimensions cuvette
 glass_thickness = 6;
@@ -19,13 +20,13 @@ cuvette_depth = 50 + 2*glass_thickness + allowance2;
 
 // Dimensions lid
 lid_thickness = 3;
-lid_width = 180 + 2*glass_thickness + 2*lid_thickness;
-lid_depth = 50 + 2*glass_thickness + 2*lid_thickness;
+lid_width = 180 + 2*glass_thickness + 2*lid_thickness + allowance2;
+lid_depth = 50 + 2*glass_thickness + 2*lid_thickness + allowance2;
 lid_height = 20;
 
 // Dimensions holder heater
-heater_diameter = 30; 
-heater_offset = 40;
+heater_diameter = 25 + allowance1; 
+heater_offset = 50;
 heater_pos = -lid_width/2 + heater_diameter/2 + 2*lid_thickness + 3;
 
 // Dimensions slot for the PCB holder arms
@@ -51,12 +52,22 @@ difference()
 		cube([lid_width, lid_depth, lid_height], center = true);
 		translate([heater_pos, 0, lid_height - 1])
 		cylinder(h = heater_offset + 1, r = heater_diameter/2 + lid_thickness);
+		translate([-lid_width/2 + 5, -lid_depth/2 + 2, lid_height/2])
+		rotate([90, 0, 0])
+		linear_extrude(height = 6, center = true, convexity = 10, twist = 0)
+		union()
+		{
+		translate([0, 3, 0])
+		text("Etching Machine of the Embedded Systems Group", size = 5, valign = "center");
+		translate([0, -3, 0])
+		text("Designed by Maximilian Stiefel 2017", size = 5, valign = "center");
+		}
 	}
 	union()
 	{
 		// Depening to put it over the cuvette
-		translate([0, 0, (3/8)*lid_height - 1])
-		cube([cuvette_width, cuvette_depth, (3/4)*lid_height], center = true);
+		translate([0, 0, lid_height/2 - lid_thickness])
+		cube([cuvette_width, cuvette_depth, lid_height], center = true);
 		// Hole for heater
 		translate([heater_pos, 0, -1])
 		cylinder(h = heater_offset + lid_height + 2, r = heater_diameter/2);
@@ -65,9 +76,9 @@ difference()
 		cube([slot_width, slot_depth, slot_height], center = false);
 		
 		// Service holes
-		translate([-lid_width/2 + lid_thickness + 5, -lid_depth/2 + lid_thickness + 1, (1/2)*lid_height])
+		translate([-lid_width/2 + lid_thickness + 5, -lid_depth/2 + lid_thickness + 3, (1/2)*lid_height])
 		cube([service_hole_width, service_hole_depth, service_hole_height]);
-		translate([lid_width/2 - lid_thickness - service_hole_width -5, -lid_depth/2 + lid_thickness + 1, (1/2)*lid_height])
+		translate([lid_width/2 - lid_thickness - service_hole_width -5, -lid_depth/2 + lid_thickness + 3, (1/2)*lid_height])
 		cube([service_hole_width, service_hole_depth, service_hole_height]);
 
 	}
