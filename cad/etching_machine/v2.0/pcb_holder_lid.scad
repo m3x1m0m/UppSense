@@ -1,9 +1,12 @@
 /////////////////////////////////////////////////////////////////////////////////
-// Adapter for drilling machine in the embedded lab.
+// Lid for cuvette with pcb holder.
 //
 // Author:              Maximilian Stiefel
-// Last modification:   10.06.2017
+// Last modification:   12.06.2017
 /////////////////////////////////////////////////////////////////////////////////
+
+include <roundy.scad>
+use <roundy.scad>
 
 /////////////////////////////////////////////////////////////////////////////////
 // Vars
@@ -19,7 +22,7 @@ cuvette_width = 180 + 2*glass_thickness + allowance2;
 cuvette_depth = 50 + 2*glass_thickness + allowance2;
 
 // Dimensions lid
-lid_thickness = 3;
+lid_thickness = 4;
 lid_width = 180 + 2*glass_thickness + 2*lid_thickness + allowance2;
 lid_depth = 50 + 2*glass_thickness + 2*lid_thickness + allowance2;
 lid_height = 20;
@@ -40,16 +43,21 @@ service_hole_width = 10;
 service_hole_depth = 10;
 service_hole_height = lid_height;
 
+// My color for everything
+myColor = "FireBrick";
+
 /////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
+color(myColor)
 difference()
 {
 	union()
 	{
 		// Basic lid
 		translate([0, 0, lid_height/2])
-		cube([lid_width, lid_depth, lid_height], center = true);
+		roundy(lid_width, lid_depth, lid_height, true);
+		//cube([lid_width, lid_depth, lid_height], center = true);
 		translate([heater_pos, 0, lid_height - 1])
 		cylinder(h = heater_offset + 1, r = heater_diameter/2 + lid_thickness);
 		translate([-lid_width/2 + 5, -lid_depth/2 + 2, lid_height/2])
@@ -57,10 +65,10 @@ difference()
 		linear_extrude(height = 6, center = true, convexity = 10, twist = 0)
 		union()
 		{
-		translate([0, 3, 0])
-		text("Etching Machine of the Embedded Systems Group", size = 5, valign = "center");
-		translate([0, -3, 0])
-		text("Designed by Maximilian Stiefel 2017", size = 5, valign = "center");
+		translate([0, 4, 0])
+		text("Embedded Etcher", size = 6, valign = "center");
+		translate([0, -4, 0])
+		text("Revision 1.0", size = 6, valign = "center");
 		}
 	}
 	union()
