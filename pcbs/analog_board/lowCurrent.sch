@@ -1,0 +1,238 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:ad8616
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L GND #PWR?
+U 1 1 5940C813
+P 4300 5125
+F 0 "#PWR?" H 4300 4875 50  0001 C CNN
+F 1 "GND" H 4300 4975 50  0000 C CNN
+F 2 "" H 4300 5125 50  0000 C CNN
+F 3 "" H 4300 5125 50  0000 C CNN
+	1    4300 5125
+	1    0    0    -1  
+$EndComp
+$Comp
+L AD8616 U?
+U 1 1 5940C81A
+P 4300 4175
+F 0 "U?" H 3679 3879 50  0000 L CNN
+F 1 "AD8616" H 4600 3875 50  0000 L CNN
+F 2 "SMD_Packages:SOIC-8-N" H 4103 4225 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/1841629.pdf" H 4003 4325 50  0001 C CNN
+F 4 "AD8616ARZ" H 4300 4175 60  0001 C CNN "Farnell"
+	1    4300 4175
+	1    0    0    -1  
+$EndComp
+$Comp
+L D_Photo D?
+U 1 1 5940C87D
+P 5150 4750
+F 0 "D?" H 5170 4820 50  0000 L CNN
+F 1 "BPW34" H 5110 4640 50  0000 C CNN
+F 2 "Photodiodes:BPW34FA" H 5100 4750 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2046123.pdf" H 5100 4750 50  0001 C CNN
+F 4 "1045425" H 5150 4750 60  0001 C CNN "Farnell"
+	1    5150 4750
+	0    -1   1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5940C884
+P 5150 5125
+F 0 "#PWR?" H 5150 4875 50  0001 C CNN
+F 1 "GND" H 5150 4975 50  0000 C CNN
+F 2 "" H 5150 5125 50  0000 C CNN
+F 3 "" H 5150 5125 50  0000 C CNN
+	1    5150 5125
+	-1   0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 5940C8EC
+P 4300 3625
+F 0 "#PWR?" H 4300 3475 50  0001 C CNN
+F 1 "+5V" H 4300 3765 50  0000 C CNN
+F 2 "" H 4300 3625 50  0000 C CNN
+F 3 "" H 4300 3625 50  0000 C CNN
+	1    4300 3625
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3500 4275
+NoConn ~ 3500 4075
+NoConn ~ 3500 3875
+$Comp
+L R R?
+U 1 1 5940CEAF
+P 5375 3875
+F 0 "R?" V 5455 3875 50  0000 C CNN
+F 1 "R" V 5375 3875 50  0000 C CNN
+F 2 "" V 5305 3875 50  0000 C CNN
+F 3 "" H 5375 3875 50  0000 C CNN
+	1    5375 3875
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5940D158
+P 6575 3875
+F 0 "R?" V 6655 3875 50  0000 C CNN
+F 1 "R" V 6575 3875 50  0000 C CNN
+F 2 "" V 6505 3875 50  0000 C CNN
+F 3 "" H 6575 3875 50  0000 C CNN
+	1    6575 3875
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5940F526
+P 6050 2400
+F 0 "#PWR?" H 6050 2150 50  0001 C CNN
+F 1 "GND" H 6050 2250 50  0000 C CNN
+F 2 "" H 6050 2400 50  0000 C CNN
+F 3 "" H 6050 2400 50  0000 C CNN
+	1    6050 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X03 P?
+U 1 1 5940F5BC
+P 5950 3100
+F 0 "P?" H 5950 3300 50  0000 C CNN
+F 1 "CONN_01X03" V 6050 3100 50  0000 C CNN
+F 2 "" H 5950 3100 50  0000 C CNN
+F 3 "" H 5950 3100 50  0000 C CNN
+	1    5950 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_01X03 P?
+U 1 1 5940F760
+P 5950 2800
+F 0 "P?" H 5950 3000 50  0000 C CNN
+F 1 "CONN_01X03" V 6050 2800 50  0000 C CNN
+F 2 "" H 5950 2800 50  0000 C CNN
+F 3 "" H 5950 2800 50  0000 C CNN
+	1    5950 2800
+	0    -1   1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5940F9FA
+P 5950 3550
+F 0 "R?" V 6030 3550 50  0000 C CNN
+F 1 "R" V 5950 3550 50  0000 C CNN
+F 2 "" V 5880 3550 50  0000 C CNN
+F 3 "" H 5950 3550 50  0000 C CNN
+	1    5950 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940FA2A
+P 5750 3550
+F 0 "R?" V 5830 3550 50  0000 C CNN
+F 1 "R" V 5750 3550 50  0000 C CNN
+F 2 "" V 5680 3550 50  0000 C CNN
+F 3 "" H 5750 3550 50  0000 C CNN
+	1    5750 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940FA82
+P 6150 3550
+F 0 "R?" V 6230 3550 50  0000 C CNN
+F 1 "R" V 6150 3550 50  0000 C CNN
+F 2 "" V 6080 3550 50  0000 C CNN
+F 3 "" H 6150 3550 50  0000 C CNN
+	1    6150 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 4725 4300 5125
+Wire Wire Line
+	5050 4275 6725 4275
+Wire Wire Line
+	5150 4275 5150 4550
+Wire Wire Line
+	5150 4850 5150 5125
+Wire Wire Line
+	5050 3875 5225 3875
+Wire Wire Line
+	5525 3875 6425 3875
+Wire Wire Line
+	6725 4275 6725 3875
+Connection ~ 5150 4275
+Wire Wire Line
+	6050 2400 6050 2600
+Wire Wire Line
+	5850 2500 6050 2500
+Wire Wire Line
+	5850 2500 5850 2600
+Connection ~ 6050 2500
+Wire Wire Line
+	5950 2600 5950 2500
+Connection ~ 5950 2500
+Wire Wire Line
+	5750 3700 5750 3875
+Connection ~ 5750 3875
+Wire Wire Line
+	5950 3700 5950 3875
+Connection ~ 5950 3875
+Wire Wire Line
+	6150 3700 6150 3875
+Connection ~ 6150 3875
+Wire Wire Line
+	5750 3400 5750 3300
+Wire Wire Line
+	5750 3300 5850 3300
+Wire Wire Line
+	5950 3400 5950 3300
+Wire Wire Line
+	6050 3300 6150 3300
+Wire Wire Line
+	6150 3300 6150 3400
+$EndSCHEMATC

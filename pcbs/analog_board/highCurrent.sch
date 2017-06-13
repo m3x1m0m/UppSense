@@ -1,0 +1,679 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:ad8616
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 3
+Title "High Current Part of Analog Board"
+Date "2017-06-13"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L GND #PWR?
+U 1 1 5940A4E3
+P 4900 5175
+AR Path="/5940AD26/5940A4E3" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A4E3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4900 4925 50  0001 C CNN
+F 1 "GND" H 4900 5025 50  0000 C CNN
+F 2 "" H 4900 5175 50  0000 C CNN
+F 3 "" H 4900 5175 50  0000 C CNN
+	1    4900 5175
+	1    0    0    -1  
+$EndComp
+$Comp
+L AD8616 U?
+U 1 1 5940A4EA
+P 4900 4225
+AR Path="/5940AD26/5940A4EA" Ref="U?"  Part="1" 
+AR Path="/59409417/5940A4EA" Ref="U?"  Part="1" 
+F 0 "U?" H 4279 3929 50  0000 L CNN
+F 1 "AD8616" H 5200 3925 50  0000 L CNN
+F 2 "SMD_Packages:SOIC-8-N" H 4703 4275 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/1841629.pdf" H 4603 4375 50  0001 C CNN
+F 4 "AD8616ARZ" H 4900 4225 60  0001 C CNN "Farnell"
+	1    4900 4225
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X05 P?
+U 1 1 5940A4F1
+P 8050 2325
+AR Path="/5940AD26/5940A4F1" Ref="P?"  Part="1" 
+AR Path="/59409417/5940A4F1" Ref="P?"  Part="1" 
+F 0 "P?" H 8050 2625 50  0000 C CNN
+F 1 "CONN_01X05" V 8150 2325 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05" H 8050 2325 50  0001 C CNN
+F 3 "" H 8050 2325 50  0000 C CNN
+	1    8050 2325
+	0    -1   1    0   
+$EndComp
+$Comp
+L CONN_01X05 P?
+U 1 1 5940A4F8
+P 8050 2625
+AR Path="/5940AD26/5940A4F8" Ref="P?"  Part="1" 
+AR Path="/59409417/5940A4F8" Ref="P?"  Part="1" 
+F 0 "P?" H 8050 2925 50  0000 C CNN
+F 1 "CONN_01X05" V 8150 2625 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05" H 8050 2625 50  0001 C CNN
+F 3 "" H 8050 2625 50  0000 C CNN
+	1    8050 2625
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A4FF
+P 9300 4225
+AR Path="/5940AD26/5940A4FF" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A4FF" Ref="R?"  Part="1" 
+F 0 "R?" V 9380 4225 50  0000 C CNN
+F 1 "100M" V 9300 4225 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 9230 4225 50  0001 C CNN
+F 3 "" H 9300 4225 50  0000 C CNN
+	1    9300 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5940A506
+P 9000 4225
+AR Path="/5940AD26/5940A506" Ref="C?"  Part="1" 
+AR Path="/59409417/5940A506" Ref="C?"  Part="1" 
+F 0 "C?" H 9025 4325 50  0000 L CNN
+F 1 "1p" H 9025 4125 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 9038 4075 50  0001 C CNN
+F 3 "" H 9000 4225 50  0000 C CNN
+	1    9000 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_01X05 P?
+U 1 1 5940A50D
+P 6500 3175
+AR Path="/5940AD26/5940A50D" Ref="P?"  Part="1" 
+AR Path="/59409417/5940A50D" Ref="P?"  Part="1" 
+F 0 "P?" H 6500 3475 50  0000 C CNN
+F 1 "CONN_01X05" V 6600 3175 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05" H 6500 3175 50  0001 C CNN
+F 3 "" H 6500 3175 50  0000 C CNN
+	1    6500 3175
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A514
+P 8750 4225
+AR Path="/5940AD26/5940A514" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A514" Ref="R?"  Part="1" 
+F 0 "R?" V 8830 4225 50  0000 C CNN
+F 1 "10M" V 8750 4225 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 8680 4225 50  0001 C CNN
+F 3 "" H 8750 4225 50  0000 C CNN
+	1    8750 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5940A51B
+P 8450 4225
+AR Path="/5940AD26/5940A51B" Ref="C?"  Part="1" 
+AR Path="/59409417/5940A51B" Ref="C?"  Part="1" 
+F 0 "C?" H 8475 4325 50  0000 L CNN
+F 1 "10p" H 8475 4125 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 8488 4075 50  0001 C CNN
+F 3 "" H 8450 4225 50  0000 C CNN
+	1    8450 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A522
+P 8200 4225
+AR Path="/5940AD26/5940A522" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A522" Ref="R?"  Part="1" 
+F 0 "R?" V 8280 4225 50  0000 C CNN
+F 1 "1M" V 8200 4225 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 8130 4225 50  0001 C CNN
+F 3 "" H 8200 4225 50  0000 C CNN
+	1    8200 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5940A529
+P 7900 4225
+AR Path="/5940AD26/5940A529" Ref="C?"  Part="1" 
+AR Path="/59409417/5940A529" Ref="C?"  Part="1" 
+F 0 "C?" H 7925 4325 50  0000 L CNN
+F 1 "100p" H 7925 4125 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 7938 4075 50  0001 C CNN
+F 3 "" H 7900 4225 50  0000 C CNN
+	1    7900 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A530
+P 7650 4225
+AR Path="/5940AD26/5940A530" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A530" Ref="R?"  Part="1" 
+F 0 "R?" V 7730 4225 50  0000 C CNN
+F 1 "100k" V 7650 4225 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 7580 4225 50  0001 C CNN
+F 3 "" H 7650 4225 50  0000 C CNN
+	1    7650 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5940A537
+P 7350 4225
+AR Path="/5940AD26/5940A537" Ref="C?"  Part="1" 
+AR Path="/59409417/5940A537" Ref="C?"  Part="1" 
+F 0 "C?" H 7375 4325 50  0000 L CNN
+F 1 "1n" H 7375 4125 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 7388 4075 50  0001 C CNN
+F 3 "" H 7350 4225 50  0000 C CNN
+	1    7350 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A53E
+P 7150 4225
+AR Path="/5940AD26/5940A53E" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A53E" Ref="R?"  Part="1" 
+F 0 "R?" V 7230 4225 50  0000 C CNN
+F 1 "10k" V 7150 4225 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 7080 4225 50  0001 C CNN
+F 3 "" H 7150 4225 50  0000 C CNN
+	1    7150 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5940A545
+P 6850 4225
+AR Path="/5940AD26/5940A545" Ref="C?"  Part="1" 
+AR Path="/59409417/5940A545" Ref="C?"  Part="1" 
+F 0 "C?" H 6875 4325 50  0000 L CNN
+F 1 "10n" H 6875 4125 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 6888 4075 50  0001 C CNN
+F 3 "" H 6850 4225 50  0000 C CNN
+	1    6850 4225
+	-1   0    0    -1  
+$EndComp
+$Comp
+L D_Photo D?
+U 1 1 5940A54D
+P 6025 4800
+AR Path="/5940AD26/5940A54D" Ref="D?"  Part="1" 
+AR Path="/59409417/5940A54D" Ref="D?"  Part="1" 
+F 0 "D?" H 6045 4870 50  0000 L CNN
+F 1 "BPW34" H 5985 4690 50  0000 C CNN
+F 2 "Photodiodes:BPW34FA" H 5975 4800 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2046123.pdf" H 5975 4800 50  0001 C CNN
+F 4 "1045425" H 6025 4800 60  0001 C CNN "Farnell"
+	1    6025 4800
+	0    -1   1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5940A554
+P 6025 5175
+AR Path="/5940AD26/5940A554" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A554" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6025 4925 50  0001 C CNN
+F 1 "GND" H 6025 5025 50  0000 C CNN
+F 2 "" H 6025 5175 50  0000 C CNN
+F 3 "" H 6025 5175 50  0000 C CNN
+	1    6025 5175
+	-1   0    0    -1  
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 5940A55A
+P 6100 3175
+AR Path="/5940AD26/5940A55A" Ref="TP?"  Part="1" 
+AR Path="/59409417/5940A55A" Ref="TP?"  Part="1" 
+F 0 "TP?" H 6100 3475 50  0000 C BNN
+F 1 "TEST" H 6100 3425 50  0000 C CNN
+F 2 "Testpoints:TP_SMD_quadr_3mm" H 6100 3175 50  0001 C CNN
+F 3 "" H 6100 3175 50  0000 C CNN
+	1    6100 3175
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9300 4575 9300 4375
+Wire Wire Line
+	9000 4575 9150 4575
+Wire Wire Line
+	9150 4575 9300 4575
+Wire Wire Line
+	9000 4575 9000 4375
+Wire Wire Line
+	9000 3875 9000 4075
+Wire Wire Line
+	9000 3875 9150 3875
+Wire Wire Line
+	9150 3875 9300 3875
+Wire Wire Line
+	9300 3875 9300 4075
+Wire Wire Line
+	8450 4575 8600 4575
+Wire Wire Line
+	8600 4575 8750 4575
+Wire Wire Line
+	8450 4575 8450 4375
+Wire Wire Line
+	8450 3875 8450 4075
+Wire Wire Line
+	8450 3875 8600 3875
+Wire Wire Line
+	8600 3875 8750 3875
+Wire Wire Line
+	8200 4575 8200 4375
+Wire Wire Line
+	7900 4575 8050 4575
+Wire Wire Line
+	8050 4575 8200 4575
+Wire Wire Line
+	7900 4575 7900 4375
+Wire Wire Line
+	7900 3875 7900 4075
+Wire Wire Line
+	7900 3875 8050 3875
+Wire Wire Line
+	8050 3875 8200 3875
+Wire Wire Line
+	8200 3875 8200 4075
+Wire Wire Line
+	7650 4575 7650 4375
+Wire Wire Line
+	7350 4575 7500 4575
+Wire Wire Line
+	7500 4575 7650 4575
+Wire Wire Line
+	7350 4575 7350 4375
+Wire Wire Line
+	7350 3875 7350 4075
+Wire Wire Line
+	7350 3875 7500 3875
+Wire Wire Line
+	7500 3875 7650 3875
+Wire Wire Line
+	7650 3875 7650 4075
+Wire Wire Line
+	7150 4575 7150 4375
+Wire Wire Line
+	6850 4575 7000 4575
+Wire Wire Line
+	7000 4575 7150 4575
+Wire Wire Line
+	6850 4575 6850 4375
+Wire Wire Line
+	6850 3875 6850 4075
+Wire Wire Line
+	6850 3875 7000 3875
+Wire Wire Line
+	7000 3875 7150 3875
+Wire Wire Line
+	7150 3875 7150 4075
+Wire Wire Line
+	8050 2825 8050 3175
+Wire Wire Line
+	8050 3175 8050 3875
+Connection ~ 8050 3875
+Wire Wire Line
+	8600 3875 8600 3775
+Wire Wire Line
+	8600 3775 8150 3775
+Wire Wire Line
+	8150 3775 8150 3075
+Wire Wire Line
+	8150 3075 8150 2825
+Connection ~ 8600 3875
+Wire Wire Line
+	8250 2825 8250 2975
+Wire Wire Line
+	8250 2975 8250 3675
+Wire Wire Line
+	8250 3675 9150 3675
+Wire Wire Line
+	7950 2825 7950 3275
+Wire Wire Line
+	7950 3275 7950 3775
+Wire Wire Line
+	7850 2825 7850 3375
+Wire Wire Line
+	7850 3375 7850 3675
+Wire Wire Line
+	6300 2975 6300 3075
+Wire Wire Line
+	6300 3075 6300 3175
+Wire Wire Line
+	6300 3175 6300 3275
+Wire Wire Line
+	6300 3275 6300 3375
+Connection ~ 6300 3075
+Connection ~ 6300 3175
+Connection ~ 6300 3275
+Wire Wire Line
+	6300 3175 6100 3175
+Wire Wire Line
+	8750 3875 8750 4075
+Wire Wire Line
+	8750 4575 8750 4375
+Wire Wire Line
+	9150 3675 9150 3875
+Connection ~ 9150 3875
+Wire Wire Line
+	7950 3775 7500 3775
+Connection ~ 7500 3875
+Connection ~ 7000 3875
+Connection ~ 9150 4575
+Connection ~ 8600 4575
+Connection ~ 8050 4575
+Connection ~ 7500 4575
+Connection ~ 7000 4575
+Wire Wire Line
+	9150 5225 9150 4575
+Wire Wire Line
+	8600 5225 8600 4575
+Connection ~ 8600 5225
+Wire Wire Line
+	8050 5225 8050 4575
+Connection ~ 8050 5225
+Wire Wire Line
+	7500 5225 7500 4575
+Connection ~ 7500 5225
+Wire Wire Line
+	7000 4575 7000 5225
+Connection ~ 7000 5225
+$Comp
+L CONN_01X05 P?
+U 1 1 5940A5A1
+P 6800 3175
+AR Path="/5940AD26/5940A5A1" Ref="P?"  Part="1" 
+AR Path="/59409417/5940A5A1" Ref="P?"  Part="1" 
+F 0 "P?" H 6800 3475 50  0000 C CNN
+F 1 "CONN_01X05" V 6900 3175 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05" H 6800 3175 50  0001 C CNN
+F 3 "" H 6800 3175 50  0000 C CNN
+	1    6800 3175
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7850 3675 7000 3675
+Connection ~ 7850 2125
+Connection ~ 7950 2125
+Connection ~ 8050 2125
+Connection ~ 8150 2125
+Wire Wire Line
+	7000 3375 7850 3375
+Connection ~ 7850 3375
+Wire Wire Line
+	7000 3275 7950 3275
+Connection ~ 7950 3275
+Wire Wire Line
+	7000 3175 8050 3175
+Connection ~ 8050 3175
+Wire Wire Line
+	7000 3075 8150 3075
+Connection ~ 8150 3075
+Wire Wire Line
+	7000 2975 8250 2975
+Connection ~ 8250 2975
+Wire Wire Line
+	7000 3675 7000 3875
+Wire Wire Line
+	5800 2125 7850 2125
+Wire Wire Line
+	7850 2125 7950 2125
+Wire Wire Line
+	7950 2125 8050 2125
+Wire Wire Line
+	8050 2125 8150 2125
+Wire Wire Line
+	8150 2125 8250 2125
+Wire Wire Line
+	5800 3925 5650 3925
+Wire Wire Line
+	7500 3775 7500 3875
+$Comp
+L +5V #PWR?
+U 1 1 5940A5BC
+P 4900 3675
+AR Path="/5940AD26/5940A5BC" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A5BC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4900 3525 50  0001 C CNN
+F 1 "+5V" H 4900 3815 50  0000 C CNN
+F 2 "" H 4900 3675 50  0000 C CNN
+F 3 "" H 4900 3675 50  0000 C CNN
+	1    4900 3675
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 4775 4900 5175
+$Comp
+L LED D?
+U 1 1 5940A5C4
+P 3525 3475
+AR Path="/5940AD26/5940A5C4" Ref="D?"  Part="1" 
+AR Path="/59409417/5940A5C4" Ref="D?"  Part="1" 
+F 0 "D?" H 3525 3575 50  0000 C CNN
+F 1 "LED" H 3525 3375 50  0000 C CNN
+F 2 "" H 3525 3475 50  0000 C CNN
+F 3 "" H 3525 3475 50  0000 C CNN
+	1    3525 3475
+	0    -1   -1   0   
+$EndComp
+$Comp
+L POT RV?
+U 1 1 5940A5CC
+P 2500 4875
+AR Path="/5940AD26/5940A5CC" Ref="RV?"  Part="1" 
+AR Path="/59409417/5940A5CC" Ref="RV?"  Part="1" 
+F 0 "RV?" V 2325 4875 50  0000 C CNN
+F 1 "POT" V 2400 4875 50  0000 C CNN
+F 2 "" H 2500 4875 50  0000 C CNN
+F 3 "" H 2500 4875 50  0000 C CNN
+F 4 "TSM4YJ103KR05" V 2500 4875 60  0001 C CNN "Farnell"
+	1    2500 4875
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5940A5D3
+P 3525 4650
+AR Path="/5940AD26/5940A5D3" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A5D3" Ref="R?"  Part="1" 
+F 0 "R?" V 3605 4650 50  0000 C CNN
+F 1 "R" V 3525 4650 50  0000 C CNN
+F 2 "" V 3455 4650 50  0000 C CNN
+F 3 "" H 3525 4650 50  0000 C CNN
+	1    3525 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3525 4125 3525 4350
+Wire Wire Line
+	3525 4350 3525 4500
+Wire Wire Line
+	3525 3625 3525 3725
+$Comp
+L +5V #PWR?
+U 1 1 5940A5DC
+P 3525 3250
+AR Path="/5940AD26/5940A5DC" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A5DC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3525 3100 50  0001 C CNN
+F 1 "+5V" H 3525 3390 50  0000 C CNN
+F 2 "" H 3525 3250 50  0000 C CNN
+F 3 "" H 3525 3250 50  0000 C CNN
+	1    3525 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3525 3250 3525 3325
+$Comp
+L GND #PWR?
+U 1 1 5940A5E4
+P 3525 5200
+AR Path="/5940AD26/5940A5E4" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A5E4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3525 4950 50  0001 C CNN
+F 1 "GND" H 3525 5050 50  0000 C CNN
+F 2 "" H 3525 5200 50  0000 C CNN
+F 3 "" H 3525 5200 50  0000 C CNN
+	1    3525 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3525 4800 3525 5200
+$Comp
+L MMBT3904 Q?
+U 1 1 5940A5EB
+P 3625 3925
+AR Path="/5940AD26/5940A5EB" Ref="Q?"  Part="1" 
+AR Path="/59409417/5940A5EB" Ref="Q?"  Part="1" 
+F 0 "Q?" H 3825 4000 50  0000 L CNN
+F 1 "MMBT3904" H 3825 3925 50  0000 L CNN
+F 2 "SOT-23" H 3825 3850 50  0000 L CIN
+F 3 "" H 3625 3925 50  0000 L CNN
+	1    3625 3925
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6025 4125 6025 4600
+Wire Wire Line
+	6025 4900 6025 5175
+Wire Wire Line
+	3825 3925 4100 3925
+Text GLabel 4100 4325 0    60   Input ~ 0
+Signal
+$Comp
+L R R?
+U 1 1 5940A5FA
+P 2500 4425
+AR Path="/5940AD26/5940A5FA" Ref="R?"  Part="1" 
+AR Path="/59409417/5940A5FA" Ref="R?"  Part="1" 
+F 0 "R?" V 2580 4425 50  0000 C CNN
+F 1 "R" V 2500 4425 50  0000 C CNN
+F 2 "" V 2430 4425 50  0000 C CNN
+F 3 "" H 2500 4425 50  0000 C CNN
+	1    2500 4425
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5940A601
+P 2500 5200
+AR Path="/5940AD26/5940A601" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A601" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2500 4950 50  0001 C CNN
+F 1 "GND" H 2500 5050 50  0000 C CNN
+F 2 "" H 2500 5200 50  0000 C CNN
+F 3 "" H 2500 5200 50  0000 C CNN
+	1    2500 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 4575 2500 4725
+Wire Wire Line
+	2500 5025 2500 5200
+Text GLabel 2650 4875 2    60   Output ~ 0
+Signal
+$Comp
+L +5V #PWR?
+U 1 1 5940A60A
+P 2500 4175
+AR Path="/5940AD26/5940A60A" Ref="#PWR?"  Part="1" 
+AR Path="/59409417/5940A60A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2500 4025 50  0001 C CNN
+F 1 "+5V" H 2500 4315 50  0000 C CNN
+F 2 "" H 2500 4175 50  0000 C CNN
+F 3 "" H 2500 4175 50  0000 C CNN
+	1    2500 4175
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 4175 2500 4275
+Wire Wire Line
+	3650 4125 4100 4125
+Wire Wire Line
+	3525 4350 3650 4350
+Wire Wire Line
+	3650 4350 3650 4125
+Connection ~ 3525 4350
+Wire Wire Line
+	5650 4125 6025 4125
+Wire Wire Line
+	6025 4125 6450 4125
+Wire Wire Line
+	6450 4125 6450 5225
+Connection ~ 6025 4125
+Wire Wire Line
+	6450 5225 7000 5225
+Wire Wire Line
+	7000 5225 7500 5225
+Wire Wire Line
+	7500 5225 8050 5225
+Wire Wire Line
+	8050 5225 8600 5225
+Wire Wire Line
+	8600 5225 9150 5225
+Wire Wire Line
+	5800 3925 5800 2125
+$Comp
+L GND #PWR?
+U 1 1 5940EF10
+P 5650 5175
+F 0 "#PWR?" H 5650 4925 50  0001 C CNN
+F 1 "GND" H 5650 5025 50  0000 C CNN
+F 2 "" H 5650 5175 50  0000 C CNN
+F 3 "" H 5650 5175 50  0000 C CNN
+	1    5650 5175
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4325 5650 5175
+Wire Wire Line
+	5650 5175 5650 5175
+$EndSCHEMATC
