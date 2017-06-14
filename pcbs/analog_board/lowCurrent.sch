@@ -29,14 +29,15 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:ad8616
+LIBS:analog_board-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 3
-Title ""
-Date ""
-Rev ""
+Title "High Current Part of Analog Board"
+Date "2017-06-14"
+Rev "v0.2"
 Comp ""
 Comment1 ""
 Comment2 ""

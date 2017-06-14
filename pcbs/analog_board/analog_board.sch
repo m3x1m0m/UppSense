@@ -29,14 +29,15 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:ad8616
+LIBS:analog_board-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 3
-Title "Transimpedance Amplifier"
-Date "2017-05-03"
-Rev "1"
+Title "SensUs Sensor"
+Date "2017-06-14"
+Rev "v.0.2"
 Comp "Uppsala University"
 Comment1 ""
 Comment2 ""
