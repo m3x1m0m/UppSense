@@ -90,9 +90,6 @@ F 3 "" H 6875 5250 50  0000 C CNN
 	1    6875 5250
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 4425 4400
-NoConn ~ 4425 4200
-NoConn ~ 4425 4000
 $Comp
 L R R12
 U 1 1 5940CEAF
@@ -324,7 +321,7 @@ Wire Wire Line
 	6875 4675 6875 4200
 Connection ~ 6875 4200
 Wire Wire Line
-	6150 3600 6075 3600
+	4100 3600 6150 3600
 Wire Wire Line
 	5975 4000 6725 4000
 $Comp
@@ -352,4 +349,10 @@ BPW34FA_OUT
 Wire Wire Line
 	6075 3150 5725 3150
 Connection ~ 6075 3600
+Wire Wire Line
+	4425 4000 4425 4200
+Wire Wire Line
+	4100 3600 4100 4400
+Wire Wire Line
+	4100 4400 4425 4400
 $EndSCHEMATC

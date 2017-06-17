@@ -301,8 +301,8 @@ U 1 1 5940A5EB
 P 5400 3875
 F 0 "Q1" H 5600 3950 50  0000 L CNN
 F 1 "MMBT3904" H 5600 3875 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 5600 3800 50  0000 L CIN
-F 3 "http://www.nxp.com/packings/SOT23_215.html" H 5400 3875 50  0001 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5600 3800 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/MM/MMBT3904.pdf" H 5400 3875 50  0001 L CNN
 F 4 "1757936RL" H 5400 3875 60  0001 C CNN "Farnell"
 	1    5400 3875
 	-1   0    0    -1  
