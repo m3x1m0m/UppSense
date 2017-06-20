@@ -188,21 +188,11 @@ Wire Wire Line
 Wire Wire Line
 	6875 4975 6875 5250
 Wire Wire Line
-	6450 3600 6675 3600
+	6450 3600 7350 3600
 Wire Wire Line
-	6675 3600 6875 3600
+	6975 2125 6975 2325
 Wire Wire Line
-	6875 3600 7075 3600
-Wire Wire Line
-	7075 3600 7350 3600
-Wire Wire Line
-	6975 2125 6975 2225
-Wire Wire Line
-	6975 2225 6975 2325
-Wire Wire Line
-	6775 2225 6875 2225
-Wire Wire Line
-	6875 2225 6975 2225
+	6775 2225 6975 2225
 Wire Wire Line
 	6775 2225 6775 2325
 Connection ~ 6975 2225
@@ -229,9 +219,7 @@ Wire Wire Line
 Wire Wire Line
 	7075 3025 7075 3125
 Wire Wire Line
-	7650 4200 6875 4200
-Wire Wire Line
-	6875 4200 5975 4200
+	7650 4200 5975 4200
 $Comp
 L GND #PWR021
 U 1 1 59410288
@@ -308,11 +296,7 @@ $EndComp
 Wire Wire Line
 	1675 1725 1675 1775
 Wire Wire Line
-	1675 1775 1950 1775
-Wire Wire Line
-	1950 1775 2200 1775
-Wire Wire Line
-	2200 1775 2450 1775
+	1675 1775 2450 1775
 Connection ~ 1950 1775
 Connection ~ 2200 1775
 $Comp
@@ -329,9 +313,7 @@ $EndComp
 Wire Wire Line
 	1950 2075 1950 2150
 Wire Wire Line
-	1950 2075 2200 2075
-Wire Wire Line
-	2200 2075 2450 2075
+	1950 2075 2450 2075
 Connection ~ 2200 2075
 Text Notes 1650 2450 0    60   ~ 0
 Place decoupling capacitors close to component!
@@ -339,13 +321,9 @@ Wire Wire Line
 	6875 4675 6875 4200
 Connection ~ 6875 4200
 Wire Wire Line
-	4100 3600 6075 3600
+	4100 3600 6150 3600
 Wire Wire Line
-	6075 3600 6150 3600
-Wire Wire Line
-	5975 4000 6075 4000
-Wire Wire Line
-	6075 4000 6725 4000
+	5975 4000 6725 4000
 $Comp
 L C C10
 U 1 1 59421E44
@@ -359,16 +337,12 @@ F 4 "1759179" H 6875 4000 60  0001 C CNN "Farnell"
 	0    1    -1   0   
 $EndComp
 Wire Wire Line
-	6075 3150 6075 3600
-Wire Wire Line
-	6075 3600 6075 4000
+	6075 3150 6075 4000
 Connection ~ 6075 4000
 Wire Wire Line
 	7025 4000 7650 4000
 Wire Wire Line
-	7650 3600 7650 4000
-Wire Wire Line
-	7650 4000 7650 4200
+	7650 3600 7650 4200
 Connection ~ 7650 4000
 Text HLabel 5725 3150 0    60   Output ~ 0
 BPW34FA_OUT

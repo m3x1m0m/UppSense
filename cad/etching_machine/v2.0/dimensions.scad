@@ -19,8 +19,8 @@ holder_depth = 8;
 notch_height = 161;
 // Calculations to construct a triangle which can take a PCB
 biggest_pcb = 2;
-c = biggest_pcb + 1;
-x = c/sqrt(2);
+c = biggest_pcb + allowance05;
+x = c;
 y = sqrt( pow(x,2) - pow(c/2,2) );
 
 // Dimensions cuvette
@@ -53,6 +53,7 @@ service_hole_height = lid_height;
 // Dimensions crossbar
 crossbar_height = 2.5 + allowance05;
 crossbar_width = 8 + allowance05;
+crossbar_depth = slot_width;
 
 // Dimensions lid
 lid_thickness = 4;

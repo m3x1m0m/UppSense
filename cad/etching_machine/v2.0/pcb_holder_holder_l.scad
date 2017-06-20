@@ -40,7 +40,7 @@ difference()
 		cube([bar_width, bar_depth, bar_height]);
 		
 		// Text
-		translate([holder_width/2 + 3, holder_depth, 0.2*holder_height])
+		translate([holder_width/2 + 4, holder_depth, 0.2*holder_height])
 		rotate([90,0,180])
 		linear_extrude(height = 3, center = true, convexity = 10, twist = 0)
 		text("L", size = 10, valign = "center");
