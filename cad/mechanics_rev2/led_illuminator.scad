@@ -15,7 +15,7 @@
 $fa = 0.5; // minimum facet angle is now 0.5
 $fs = 0.5; // minimum facet size is now 0.5 mm
 
-holder_height = 15;
+holder_height = 14;
 holder_diameter = 8.5;
 holder_hole_diameter = 6.5; // LED with 5 mm diameter should fit in
 holder_slot_width = 1;
