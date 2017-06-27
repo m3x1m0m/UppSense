@@ -1,4 +1,7 @@
 (fp_lib_table
   (lib (name mySamtec)(type KiCad)(uri ${KIPRJMOD}/SamtecConn.pretty)(options "")(descr ""))
   (lib (name myUSB)(type KiCad)(uri ${KIPRJMOD}/myUSB.pretty)(options "")(descr ""))
+  (lib (name myTestPoints)(type KiCad)(uri ${KIPRJMOD}/Testpoints.pretty)(options "")(descr ""))
+  (lib (name myPics)(type KiCad)(uri ${KIPRJMOD}/myPics.pretty)(options "")(descr ""))
+  (lib (name myVias)(type KiCad)(uri ${KIPRJMOD}/Vias.pretty)(options "")(descr ""))
 )

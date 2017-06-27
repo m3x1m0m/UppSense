@@ -1,0 +1,21 @@
+Circuit: * Z:\home\maximilian\UppSense\ltspice\uart_led\Draft1.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Jun 27 15:46:36 2017
+Total elapsed time: 0.108 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2532
+traniter = 2528
+tranpoints = 1258
+accept = 1223
+rejected = 35
+matrix size = 3
+fillins = 0
+solver = Normal
+Matrix Compiler1:       5 opcodes  0.1/[0.1]/0.1
+Matrix Compiler2: off  [0.1]/0.1/0.1
+
