@@ -60,7 +60,7 @@ F 4 "2554980" H 1700 2500 60  0001 C CNN "Farnell"
 	1    1700 2500
 	1    0    0    -1  
 $EndComp
-Text GLabel 4800 2250 0    60   UnSpc ~ 0
+Text GLabel 4800 2250 0    60   Input ~ 0
 5V
 Text GLabel 4800 2350 0    60   UnSpc ~ 0
 ADC1
@@ -267,9 +267,9 @@ F 3 "" H 2850 2250 50  0000 C CNN
 	1    2850 2250
 	1    0    0    -1  
 $EndComp
-Text GLabel 4800 2900 0    60   UnSpc ~ 0
+Text GLabel 4800 2900 0    60   Input ~ 0
 5V
-Text GLabel 4850 1550 0    60   UnSpc ~ 0
+Text GLabel 4850 1550 0    60   Input ~ 0
 5V
 $Comp
 L GND #PWR3
@@ -1309,10 +1309,10 @@ F 3 "" H 8350 2450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L TEST 5V1
+L TEST 5V0
 U 1 1 59524FF7
 P 8350 2650
-F 0 "5V1" H 8350 2950 50  0000 C BNN
+F 0 "5V0" H 8350 2950 50  0000 C BNN
 F 1 "TEST" H 8350 2900 50  0000 C CNN
 F 2 "myTestPoints:TP_SMD_quadr_1mm" H 8350 2650 50  0001 C CNN
 F 3 "" H 8350 2650 50  0001 C CNN
