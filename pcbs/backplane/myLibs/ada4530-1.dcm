@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ADA4530-1
+D Ompamp withlow input offset voltage
+K ampliop
+$ENDCMP
+#
+#End Doc Library

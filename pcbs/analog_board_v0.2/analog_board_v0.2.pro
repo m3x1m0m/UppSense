@@ -1,4 +1,4 @@
-update=tor 29 jun 2017 11:35:48
+update=fre 30 jun 2017 16:33:41
 version=1
 last_client=kicad
 [pcbnew]
@@ -70,3 +70,5 @@ LibName28=contrib
 LibName29=valves
 LibName30=schematicSymb/ad8616
 LibName31=schematicSymb/icl7660
+LibName32=schematicSymb/ada4530-1
+LibName33=schematicSymb/ada4522-2

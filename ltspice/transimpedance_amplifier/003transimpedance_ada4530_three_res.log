@@ -1,0 +1,21 @@
+Circuit: * Z:\home\maximilian\UppSense\ltspice\transimpedance_amplifier\003transimpedance_ada4530_three_res.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Fri Jun 30 15:48:33 2017
+Total elapsed time: 0.085 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 1501
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 17
+fillins = 17
+solver = Normal
+Matrix Compiler1:      93 opcodes  0.8/0.4/[0.2]
+Matrix Compiler2: 1.90 KB object code size  0.4/0.4/[0.2]
+
