@@ -1,14 +1,14 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~52~ubuntu17.04.1)
 
   (general
-    (links 179)
+    (links 177)
     (no_connects 0)
     (area 114.400999 66.146999 194.551001 116.297001)
     (thickness 1.6)
     (drawings 29)
     (tracks 460)
     (zones 0)
-    (modules 127)
+    (modules 125)
     (nets 41)
   )
 
@@ -28,7 +28,7 @@
     (34 B.Paste user)
     (35 F.Paste user)
     (36 B.SilkS user hide)
-    (37 F.SilkS user hide)
+    (37 F.SilkS user)
     (38 B.Mask user)
     (39 F.Mask user)
     (40 Dwgs.User user hide)
@@ -44,7 +44,7 @@
   )
 
   (setup
-    (last_trace_width 0.4)
+    (last_trace_width 0.25)
     (user_trace_width 0.2)
     (user_trace_width 0.3)
     (user_trace_width 0.4)
@@ -76,7 +76,7 @@
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 114.476 66.222)
     (grid_origin 114.476 116.222)
-    (visible_elements FFFFFF9F)
+    (visible_elements FFFFFFBF)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions false)
@@ -291,18 +291,6 @@
       (net 1 GND) (zone_connect 2))
   )
 
-  (module myVias:Stitchging-Via-0.4-0.7 (layer F.Cu) (tedit 59527BCE) (tstamp 59555C32)
-    (at 135.05 101.744)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.5-0.7 (at 0 -1.27) (layer F.Fab)
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad "" thru_hole circle (at 0 0) (size 0.7 0.7) (drill 0.4) (layers *.Cu)
-      (net 1 GND) (zone_connect 2))
-  )
-
   (module myVias:Stitchging-Via-0.4-0.7 (layer F.Cu) (tedit 59527BCE) (tstamp 59555C2B)
     (at 122.604 106.824)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
@@ -340,19 +328,7 @@
   )
 
   (module myVias:Stitchging-Via-0.4-0.7 (layer F.Cu) (tedit 59527BCE) (tstamp 59555C1A)
-    (at 134.288 106.062)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.5-0.7 (at 0 -1.27) (layer F.Fab)
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad "" thru_hole circle (at 0 0) (size 0.7 0.7) (drill 0.4) (layers *.Cu)
-      (net 1 GND) (zone_connect 2))
-  )
-
-  (module myVias:Stitchging-Via-0.4-0.7 (layer F.Cu) (tedit 59527BCE) (tstamp 59555C15)
-    (at 134.542 104.538)
+    (at 134.542 105.3)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -2492,10 +2468,10 @@
     (pad "" smd rect (at 2.45 0 90) (size 1.8 1.9) (layers B.Cu B.Paste B.Mask))
   )
 
-  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59526E89) (tstamp 59523061)
+  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 5959191A) (tstamp 59523061)
     (at 125.222 80.72)
     (path /595236ED)
-    (fp_text reference ADC1 (at -0.381 1.778) (layer F.SilkS)
+    (fp_text reference ADC1 (at -2.618 -0.058) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value TEST (at 0 -1.27) (layer F.Fab)
@@ -2505,10 +2481,10 @@
       (net 2 ADC1))
   )
 
-  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59526E91) (tstamp 59523066)
+  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59591920) (tstamp 59523066)
     (at 128.143 80.72)
     (path /595241FF)
-    (fp_text reference ADC2 (at 0.762 1.778) (layer F.SilkS)
+    (fp_text reference ADC2 (at 2.843 -0.058) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value TEST (at 0 -1.27) (layer F.Fab)
@@ -2557,10 +2533,10 @@
       (net 4 DAC1))
   )
 
-  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59526EC0) (tstamp 5952307A)
+  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59591902) (tstamp 5952307A)
     (at 175.895 86.816)
     (path /59524E9A)
-    (fp_text reference SCL1 (at -0.508 1.524) (layer F.SilkS)
+    (fp_text reference SCL1 (at -0.713 1.466) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value TEST (at 0 -1.27) (layer F.Fab)
@@ -2570,10 +2546,10 @@
       (net 9 I2C_SCL))
   )
 
-  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 59526EC5) (tstamp 5952307F)
+  (module myTestPoints:TP_SMD_quadr_1mm (layer F.Cu) (tedit 595918FE) (tstamp 5952307F)
     (at 178.181 86.816)
     (path /59524F3D)
-    (fp_text reference SDA1 (at 0.762 1.524) (layer F.SilkS)
+    (fp_text reference SDA1 (at 1.065 1.466) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value TEST (at 0 -1.27) (layer F.Fab)
@@ -6060,10 +6036,10 @@
   (gr_text RX (at 145.415 77.164) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text 3.3V (at 139.319 77.164) (layer F.SilkS)
+  (gr_text 3.3V (at 140.13 77.106) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text 5V (at 135.001 77.164) (layer F.SilkS)
+  (gr_text 5V (at 135.05 77.106) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_text "Analog PCB\n" (at 201.476 103.222) (layer Dwgs.User)
