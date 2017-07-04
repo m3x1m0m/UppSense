@@ -243,17 +243,6 @@ $EndComp
 Wire Wire Line
 	8900 2750 8900 3325
 $Comp
-L +5V #PWR025
-U 1 1 594122D1
-P 8150 1525
-F 0 "#PWR025" H 8150 1375 50  0001 C CNN
-F 1 "+5V" H 8150 1665 50  0000 C CNN
-F 2 "" H 8150 1525 50  0000 C CNN
-F 3 "" H 8150 1525 50  0000 C CNN
-	1    8150 1525
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C20
 U 1 1 594122D8
 P 7350 1750
@@ -984,4 +973,17 @@ Wire Wire Line
 	1825 1225 1825 1500
 Wire Wire Line
 	1825 1500 2000 1500
+Text Notes 8325 1200 0    60   ~ 0
+Low-pass has a cut-off freq. of approx. 1.6 Hz, ergo DC.
+$Comp
+L +3.3V #PWR?
+U 1 1 595BE0DA
+P 8150 1525
+F 0 "#PWR?" H 8150 1375 50  0001 C CNN
+F 1 "+3.3V" H 8150 1665 50  0000 C CNN
+F 2 "" H 8150 1525 50  0001 C CNN
+F 3 "" H 8150 1525 50  0001 C CNN
+	1    8150 1525
+	-1   0    0    -1  
+$EndComp
 $EndSCHEMATC

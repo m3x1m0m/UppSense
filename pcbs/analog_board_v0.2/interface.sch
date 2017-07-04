@@ -54,7 +54,8 @@ P 6125 3000
 F 0 "J1" H 6125 3200 50  0000 C CNN
 F 1 "CONN_02X03" H 6125 2800 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Angled_2x03_Pitch2.54mm" H 6125 1800 50  0001 C CNN
-F 3 "" H 6125 1800 50  0001 C CNN
+F 3 "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf" H 6125 1800 50  0001 C CNN
+F 4 "TSW-103-08-G-D-RA" H 6125 3000 60  0001 C CNN "Samtec"
 	1    6125 3000
 	1    0    0    -1  
 $EndComp
