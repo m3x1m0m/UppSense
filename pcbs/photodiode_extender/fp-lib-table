@@ -1,0 +1,6 @@
+(fp_lib_table
+  (lib (name GuardConnector)(type KiCad)(uri "$(KIPRJMOD)/GuardConnector.pretty")(options "")(descr ""))
+  (lib (name Photodiodes)(type KiCad)(uri "$(KIPRJMOD)/Photodiodes.pretty")(options "")(descr ""))
+  (lib (name Vias)(type KiCad)(uri "$(KIPRJMOD)/Vias.pretty")(options "")(descr ""))
+  (lib (name WithoutSilkscreen)(type KiCad)(uri "$(KIPRJMOD)/WithoutSilkscreen.pretty")(options "")(descr ""))
+)

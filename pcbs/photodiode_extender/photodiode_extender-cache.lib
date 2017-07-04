@@ -1,0 +1,59 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# CONN_01X01
+#
+DEF CONN_01X01 J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "CONN_01X01" 100 0 50 V V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Pin_Header_Straight_1X*
+ Pin_Header_Angled_1X*
+ Socket_Strip_Straight_1X*
+ Socket_Strip_Angled_1X*
+$ENDFPLIST
+DRAW
+S -50 5 10 -5 0 1 0 N
+S -50 50 50 -50 0 1 0 N
+X P1 1 -200 0 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# D_Photo
+#
+DEF D_Photo D 0 40 N N 1 F N
+F0 "D" 20 70 50 H V L CNN
+F1 "D_Photo" -40 -110 50 H V C CNN
+F2 "" -50 0 50 H I C CNN
+F3 "" -50 0 50 H I C CNN
+$FPLIST
+ *photodiode*
+$ENDFPLIST
+DRAW
+P 2 0 1 8 -100 50 -100 -50 N
+P 2 0 1 0 -80 70 -60 70 N
+P 2 0 1 0 0 0 -100 0 N
+P 3 0 1 0 -20 130 -80 70 -80 90 N
+P 4 0 1 8 0 -50 0 50 -100 0 0 -50 N
+P 5 0 1 0 30 130 -30 70 -30 90 -30 70 -10 70 N
+X K 1 -200 0 100 R 50 50 1 1 P
+X A 2 100 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# GNDA
+#
+DEF GNDA #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "GNDA" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GNDA 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+#End Library

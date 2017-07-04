@@ -1,0 +1,114 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:photodiode_extender-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L D_Photo D1
+U 1 1 595A4990
+P 5775 2950
+F 0 "D1" H 5795 3020 50  0000 L CNN
+F 1 "D_Photo" H 5735 2840 50  0000 C CNN
+F 2 "Photodiodes:BPW34FA_w_Silks" H 5725 2950 50  0001 C CNN
+F 3 "" H 5725 2950 50  0001 C CNN
+	1    5775 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 J3
+U 1 1 595A4B36
+P 6175 3150
+F 0 "J3" H 6175 3250 50  0000 C CNN
+F 1 "CONN_01X01" V 6275 3150 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x01_Pitch2.54mm" H 6175 3150 50  0001 C CNN
+F 3 "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf" H 6175 3150 50  0001 C CNN
+F 4 "TSW-101-08-G-S-RA" H 6175 3150 60  0001 C CNN "Samtec"
+	1    6175 3150
+	0    1    1    0   
+$EndComp
+$Comp
+L GNDA #PWR01
+U 1 1 595A4D22
+P 4300 3100
+F 0 "#PWR01" H 4300 2850 50  0001 C CNN
+F 1 "GNDA" H 4300 2950 50  0000 C CNN
+F 2 "" H 4300 3100 50  0001 C CNN
+F 3 "" H 4300 3100 50  0001 C CNN
+	1    4300 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 2875 4300 3100
+Wire Wire Line
+	5350 2950 5575 2950
+Wire Wire Line
+	5875 2950 6175 2950
+$Comp
+L CONN_01X01 J2
+U 1 1 595A4E1F
+P 5350 3150
+F 0 "J2" H 5350 3250 50  0000 C CNN
+F 1 "CONN_01X01" V 5450 3150 50  0000 C CNN
+F 2 "WithoutSilkscreen:Pin_Header_Angled_1x01_Pitch2.54mm_W_Silkscreen" H 5350 3150 50  0001 C CNN
+F 3 "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf" H 5350 3150 50  0001 C CNN
+F 4 "TSW-101-08-G-S-RA" H 5350 3150 60  0001 C CNN "Samtec"
+	1    5350 3150
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X01 J1
+U 1 1 595A4E84
+P 4750 3150
+F 0 "J1" H 4750 3250 50  0000 C CNN
+F 1 "CONN_01X01" V 4850 3150 50  0000 C CNN
+F 2 "WithoutSilkscreen:Pin_Header_Angled_1x01_Pitch2.54mm_W_Silkscreen" H 4750 3150 50  0001 C CNN
+F 3 "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf" H 4750 3150 50  0001 C CNN
+F 4 "TSW-101-08-G-S-RA" H 4750 3150 60  0001 C CNN "Samtec"
+	1    4750 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4750 2950 4750 2875
+Wire Wire Line
+	4750 2875 4300 2875
+$EndSCHEMATC

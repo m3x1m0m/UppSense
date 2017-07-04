@@ -1,0 +1,10 @@
+(module Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 5959001F)
+  (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad 1 thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+    (zone_connect 2))
+)

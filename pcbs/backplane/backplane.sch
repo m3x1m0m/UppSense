@@ -51,13 +51,13 @@ $EndDescr
 $Comp
 L USB_B P1
 U 1 1 5948EBA5
-P 1700 2500
-F 0 "P1" H 1900 2300 50  0000 C CNN
-F 1 "USB_B" H 1700 2850 50  0000 C CNN
-F 2 "myUSB:ZX62D-B-5P8(30)" V 1650 2400 50  0001 C CNN
-F 3 "http://www.farnell.com/cad/2110767.pdf" V 1650 2400 50  0001 C CNN
-F 4 "2554980" H 1700 2500 60  0001 C CNN "Farnell"
-	1    1700 2500
+P 1150 3500
+F 0 "P1" H 1350 3300 50  0000 C CNN
+F 1 "USB_B" H 1150 3850 50  0000 C CNN
+F 2 "myUSB:ZX62D-B-5P8(30)" V 1100 3400 50  0001 C CNN
+F 3 "http://www.farnell.com/cad/2110767.pdf" V 1100 3400 50  0001 C CNN
+F 4 "2554980" H 1150 3500 60  0001 C CNN "Farnell"
+	1    1150 3500
 	1    0    0    -1  
 $EndComp
 Text GLabel 4800 2250 0    60   UnSpc ~ 0
@@ -78,6 +78,7 @@ F 0 "P3" H 5050 2550 50  0000 C CNN
 F 1 "CONN_02X03" H 5050 2150 50  0001 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x03" H 5050 1150 50  0001 C CNN
 F 3 "" H 5050 1150 50  0000 C CNN
+F 4 "TSW-103-08-G-D-RA" H 5050 2350 60  0001 C CNN "Samtec"
 	1    5050 2350
 	1    0    0    -1  
 $EndComp
@@ -180,6 +181,7 @@ F 0 "P4" H 5050 3200 50  0000 C CNN
 F 1 "CONN_02X03" H 5050 2800 50  0001 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x03" H 5050 1800 50  0001 C CNN
 F 3 "" H 5050 1800 50  0000 C CNN
+F 4 "TSW-103-08-G-D-RA" H 5050 3000 60  0001 C CNN "Samtec"
 	1    5050 3000
 	1    0    0    -1  
 $EndComp
@@ -248,9 +250,9 @@ F 3 "" H 4450 4850 50  0000 C CNN
 	1    4450 4850
 	1    0    0    -1  
 $EndComp
-Text GLabel 2000 2500 2    60   BiDi ~ 0
+Text GLabel 1450 3500 2    60   BiDi ~ 0
 D+
-Text GLabel 2000 2600 2    60   BiDi ~ 0
+Text GLabel 1450 3600 2    60   BiDi ~ 0
 D-
 Text GLabel 5300 4100 0    60   BiDi ~ 0
 D-
@@ -259,12 +261,12 @@ D+
 $Comp
 L +5V #PWR9
 U 1 1 594FDB60
-P 2850 2250
-F 0 "#PWR9" H 2850 2100 50  0001 C CNN
-F 1 "+5V" H 2850 2390 50  0000 C CNN
-F 2 "" H 2850 2250 50  0000 C CNN
-F 3 "" H 2850 2250 50  0000 C CNN
-	1    2850 2250
+P 3150 2650
+F 0 "#PWR9" H 3150 2500 50  0001 C CNN
+F 1 "+5V" H 3150 2790 50  0000 C CNN
+F 2 "" H 3150 2650 50  0000 C CNN
+F 3 "" H 3150 2650 50  0000 C CNN
+	1    3150 2650
 	1    0    0    -1  
 $EndComp
 Text GLabel 4800 2900 0    60   UnSpc ~ 0
@@ -274,12 +276,12 @@ Text GLabel 4850 1550 0    60   UnSpc ~ 0
 $Comp
 L GND #PWR3
 U 1 1 594FE150
-P 1600 3000
-F 0 "#PWR3" H 1600 2750 50  0001 C CNN
-F 1 "GND" H 1600 2850 50  0000 C CNN
-F 2 "" H 1600 3000 50  0000 C CNN
-F 3 "" H 1600 3000 50  0000 C CNN
-	1    1600 3000
+P 1050 4000
+F 0 "#PWR3" H 1050 3750 50  0001 C CNN
+F 1 "GND" H 1050 3850 50  0000 C CNN
+F 2 "" H 1050 4000 50  0000 C CNN
+F 3 "" H 1050 4000 50  0000 C CNN
+	1    1050 4000
 	1    0    0    -1  
 $EndComp
 Text GLabel 4850 1950 0    60   UnSpc ~ 0
@@ -358,13 +360,17 @@ nRST
 Wire Wire Line
 	4300 4450 4450 4450
 Wire Wire Line
-	3850 4200 3850 4500
+	3850 4200 3850 4450
+Wire Wire Line
+	3850 4450 3850 4500
 Wire Wire Line
 	3850 4450 4000 4450
 Connection ~ 3850 4450
 Connection ~ 4450 4450
 Wire Wire Line
-	4450 4300 4450 4500
+	4450 4300 4450 4450
+Wire Wire Line
+	4450 4450 4450 4500
 Wire Wire Line
 	4450 4800 4450 4850
 Wire Wire Line
@@ -372,9 +378,13 @@ Wire Wire Line
 Wire Wire Line
 	9750 2050 9900 2050
 Wire Wire Line
-	9250 2050 9450 2050
+	9250 2050 9350 2050
 Wire Wire Line
-	9250 2850 9450 2850
+	9350 2050 9450 2050
+Wire Wire Line
+	9250 2850 9400 2850
+Wire Wire Line
+	9400 2850 9450 2850
 Wire Wire Line
 	9750 2850 9900 2850
 Wire Wire Line
@@ -438,7 +448,9 @@ F 3 "" H 6850 4050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6850 3950 6850 4050
+	6850 3950 6850 4000
+Wire Wire Line
+	6850 4000 6850 4050
 Wire Wire Line
 	6850 4000 7150 4000
 Wire Wire Line
@@ -447,26 +459,30 @@ Connection ~ 6850 4000
 Wire Wire Line
 	6850 3600 6850 3650
 Wire Wire Line
-	7150 3550 7150 3650
+	7150 3550 7150 3600
+Wire Wire Line
+	7150 3600 7150 3650
 Connection ~ 7150 3600
 Connection ~ 6850 3600
 Text Notes 6500 4400 0    60   ~ 0
 Place decoupling capacitors close to component.
 Wire Wire Line
-	6300 3600 7150 3600
-Text GLabel 5300 3700 0    60   UnSpc ~ 0
+	6300 3600 6850 3600
+Wire Wire Line
+	6850 3600 7150 3600
+Text GLabel 4675 3700 0    60   UnSpc ~ 0
 UART_TX
-Text GLabel 5300 3800 0    60   UnSpc ~ 0
+Text GLabel 4675 3800 0    60   UnSpc ~ 0
 UART_RX
 $Comp
 L GND #PWR17
 U 1 1 5950262A
-P 4550 3650
-F 0 "#PWR17" H 4550 3400 50  0001 C CNN
-F 1 "GND" H 4550 3500 50  0000 C CNN
-F 2 "" H 4550 3650 50  0000 C CNN
-F 3 "" H 4550 3650 50  0000 C CNN
-	1    4550 3650
+P 4025 3650
+F 0 "#PWR17" H 4025 3400 50  0001 C CNN
+F 1 "GND" H 4025 3500 50  0000 C CNN
+F 2 "" H 4025 3650 50  0000 C CNN
+F 3 "" H 4025 3650 50  0000 C CNN
+	1    4025 3650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -496,7 +512,9 @@ F 4 "2496946" H 2750 1400 60  0001 C CNN "Farnell"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2550 1150 3150 1150
+	2550 1150 2750 1150
+Wire Wire Line
+	2750 1150 3150 1150
 Wire Wire Line
 	2750 1550 2750 1650
 Wire Wire Line
@@ -535,7 +553,13 @@ F 3 "" H 700 1150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	700  1150 1750 1150
+	700  1150 900  1150
+Wire Wire Line
+	900  1150 1200 1150
+Wire Wire Line
+	1200 1150 1500 1150
+Wire Wire Line
+	1500 1150 1750 1150
 $Comp
 L +3.3V #PWR11
 U 1 1 59503F4E
@@ -565,10 +589,12 @@ $EndComp
 Wire Wire Line
 	6250 800  6800 800 
 Wire Wire Line
-	6250 1200 6800 1200
+	6250 1200 6500 1200
+Wire Wire Line
+	6500 1200 6800 1200
 Text Notes 7700 3450 0    60   ~ 0
 Auto program circuit, which is needed by the esptool to program via USB.
-Text Notes 4400 3600 2    60   ~ 0
+Text Notes 3150 2100 2    60   ~ 0
 Place decoupling capacitors close to component.
 $Comp
 L +3.3V #PWR20
@@ -609,7 +635,9 @@ $EndComp
 Wire Wire Line
 	1750 6150 1750 6200
 Wire Wire Line
-	2150 5850 2250 5850
+	2150 5850 2200 5850
+Wire Wire Line
+	2200 5850 2250 5850
 Wire Wire Line
 	1450 6450 2200 6450
 Wire Wire Line
@@ -659,7 +687,9 @@ $EndComp
 Wire Wire Line
 	1750 7350 1750 7400
 Wire Wire Line
-	2150 7050 2250 7050
+	2150 7050 2200 7050
+Wire Wire Line
+	2200 7050 2250 7050
 Wire Wire Line
 	1450 7650 2200 7650
 Wire Wire Line
@@ -704,26 +734,14 @@ Wire Wire Line
 $Comp
 L CONN_01X03 P8
 U 1 1 595100DC
-P 9250 5750
-F 0 "P8" H 9250 5950 50  0000 C CNN
-F 1 "CONN_01X03" V 9350 5750 50  0000 C CNN
-F 2 "mySamtec:Samtec-PHT-1-3-01-L-S" H 9250 5750 50  0001 C CNN
-F 3 "http://suddendocs.samtec.com/catalog_english/pht.pdf" H 9250 5750 50  0001 C CNN
-	1    9250 5750
+P 2350 3525
+F 0 "P8" H 2350 3725 50  0000 C CNN
+F 1 "CONN_01X03" V 2450 3525 50  0000 C CNN
+F 2 "mySamtec:Samtec-PHT-1-3-01-L-S" H 2350 3525 50  0001 C CNN
+F 3 "http://suddendocs.samtec.com/catalog_english/pht.pdf" H 2350 3525 50  0001 C CNN
+	1    2350 3525
 	0    1    1    0   
 $EndComp
-$Comp
-L +5V #PWR27
-U 1 1 59510293
-P 9350 5550
-F 0 "#PWR27" H 9350 5400 50  0001 C CNN
-F 1 "+5V" H 9350 5690 50  0000 C CNN
-F 2 "" H 9350 5550 50  0000 C CNN
-F 3 "" H 9350 5550 50  0000 C CNN
-	1    9350 5550
-	1    0    0    -1  
-$EndComp
-NoConn ~ 9150 5550
 Text GLabel 1900 6700 2    60   Input ~ 0
 LED_5V
 $Comp
@@ -746,8 +764,6 @@ Text GLabel 1850 5500 2    60   Input ~ 0
 LED_5V
 Wire Wire Line
 	1850 5500 1750 5500
-Text GLabel 9250 5550 1    60   Output ~ 0
-LED_5V
 Text GLabel 8350 1050 0    60   UnSpc ~ 0
 ADC1
 Text GLabel 8350 1250 0    60   UnSpc ~ 0
@@ -798,7 +814,9 @@ $EndComp
 Wire Wire Line
 	4200 6150 4200 6200
 Wire Wire Line
-	4600 5850 4700 5850
+	4600 5850 4650 5850
+Wire Wire Line
+	4650 5850 4700 5850
 Wire Wire Line
 	3900 6450 4650 6450
 Wire Wire Line
@@ -846,7 +864,9 @@ $EndComp
 Wire Wire Line
 	4200 7350 4200 7400
 Wire Wire Line
-	4600 7050 4700 7050
+	4600 7050 4650 7050
+Wire Wire Line
+	4650 7050 4700 7050
 Wire Wire Line
 	3900 7650 4650 7650
 Wire Wire Line
@@ -941,9 +961,13 @@ F 3 "" H 3050 3900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3050 3900 5300 3900
+	3050 3900 3350 3900
 Wire Wire Line
-	900  1550 900  1650
+	3350 3900 5300 3900
+Wire Wire Line
+	900  1550 900  1600
+Wire Wire Line
+	900  1600 900  1650
 $Comp
 L GND #PWR2
 U 1 1 5951BEF5
@@ -1043,7 +1067,9 @@ F 4 "2496946" H 1200 1400 60  0001 C CNN "Farnell"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	900  1600 1500 1600
+	900  1600 1200 1600
+Wire Wire Line
+	1200 1600 1500 1600
 Connection ~ 900  1600
 Connection ~ 1200 1600
 Wire Wire Line
@@ -1053,9 +1079,9 @@ Wire Wire Line
 	1500 1250 1500 1150
 Connection ~ 1500 1150
 Wire Wire Line
-	5300 3600 4550 3600
+	5300 3600 4025 3600
 Wire Wire Line
-	4550 3600 4550 3650
+	4025 3600 4025 3650
 $Comp
 L LED D5
 U 1 1 59521852
@@ -1141,7 +1167,9 @@ Wire Wire Line
 Text GLabel 7300 5600 0    60   Input ~ 0
 LED_5V
 Wire Wire Line
-	7300 5600 7400 5600
+	7300 5600 7350 5600
+Wire Wire Line
+	7350 5600 7400 5600
 $Comp
 L CONN_01X03 P7
 U 1 1 5952271F
@@ -1172,7 +1200,9 @@ $EndComp
 Text GLabel 7300 5950 0    60   Input ~ 0
 LED_3.3V
 Wire Wire Line
-	7300 5950 7400 5950
+	7300 5950 7350 5950
+Wire Wire Line
+	7350 5950 7400 5950
 Text Notes 4900 4900 0    60   ~ 0
 ATTENTION: RX_CH340G has to be connected to TX_ESP8266. The same goes for\nTX_CH340G and RX_EXP8266. \n
 Wire Wire Line
@@ -1223,10 +1253,8 @@ Wire Wire Line
 	6500 1150 6500 1200
 Connection ~ 6500 1200
 Wire Wire Line
-	1600 2900 1600 3000
-Wire Wire Line
-	2000 2300 2350 2300
-NoConn ~ 1700 2900
+	1050 3900 1050 4000
+NoConn ~ 1150 3900
 NoConn ~ 6700 2500
 NoConn ~ 6200 2900
 NoConn ~ 6700 3000
@@ -1344,33 +1372,33 @@ $EndComp
 $Comp
 L Q_PMOS_GSD Q3
 U 1 1 5952D128
-P 2550 2400
-F 0 "Q3" H 2750 2450 50  0000 L CNN
-F 1 "Si2323" H 2750 2350 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 2750 2500 50  0001 C CNN
-F 3 "http://www.farnell.com/datasheets/2049166.pdf" H 2550 2400 50  0001 C CNN
-F 4 "1470106" H 2550 2400 60  0001 C CNN "Farnell"
-	1    2550 2400
+P 2850 2800
+F 0 "Q3" H 3050 2850 50  0000 L CNN
+F 1 "Si2323" H 3050 2750 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 3050 2900 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2049166.pdf" H 2850 2800 50  0001 C CNN
+F 4 "1470106" H 2850 2800 60  0001 C CNN "Farnell"
+	1    2850 2800
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	2750 2300 2850 2300
+	3050 2700 3150 2700
 Wire Wire Line
-	2850 2300 2850 2250
+	3150 2700 3150 2650
 $Comp
 L GND #PWR7
 U 1 1 5952D660
-P 2550 2650
-F 0 "#PWR7" H 2550 2400 50  0001 C CNN
-F 1 "GND" H 2550 2500 50  0000 C CNN
-F 2 "" H 2550 2650 50  0000 C CNN
-F 3 "" H 2550 2650 50  0000 C CNN
-	1    2550 2650
+P 2850 3050
+F 0 "#PWR7" H 2850 2800 50  0001 C CNN
+F 1 "GND" H 2850 2900 50  0000 C CNN
+F 2 "" H 2850 3050 50  0000 C CNN
+F 3 "" H 2850 3050 50  0000 C CNN
+	1    2850 3050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2550 2600 2550 2650
-Text Notes 4150 2500 2    60   ~ 0
+	2850 3000 2850 3050
+Text Notes 4450 2900 2    60   ~ 0
 Reverse polarization protection.
 Wire Wire Line
 	5000 5850 5050 5850
@@ -1401,4 +1429,90 @@ F 3 "" H 8350 2050 50  0001 C CNN
 	1    8350 2050
 	0    1    1    0   
 $EndComp
+$Comp
+L R R?
+U 1 1 595B8D25
+P 4975 3700
+F 0 "R?" V 4925 3875 50  0000 C CNN
+F 1 "470R" V 4975 3700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 4905 3700 50  0001 C CNN
+F 3 "" H 4975 3700 50  0001 C CNN
+F 4 "2447662" V 4975 3700 60  0001 C CNN "Farnell"
+	1    4975 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 595B8F23
+P 4975 3800
+F 0 "R?" V 5025 3975 50  0000 C CNN
+F 1 "470R" V 4975 3800 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 4905 3800 50  0001 C CNN
+F 3 "" H 4975 3800 50  0001 C CNN
+F 4 "2447662" V 4975 3800 60  0001 C CNN "Farnell"
+	1    4975 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5125 3700 5300 3700
+Wire Wire Line
+	4825 3700 4675 3700
+Wire Wire Line
+	4675 3800 4825 3800
+Wire Wire Line
+	5125 3800 5300 3800
+$Comp
+L CONN_01X04 J?
+U 1 1 595BBF5F
+P 1025 2575
+F 0 "J?" H 1025 2825 50  0000 C CNN
+F 1 "CONN_01X04" V 1125 2575 50  0000 C CNN
+F 2 "ConnectorsChina:LED_CONN_1.25_PITCH" H 1025 2575 50  0001 C CNN
+F 3 "" H 1025 2575 50  0001 C CNN
+	1    1025 2575
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 595BCFB1
+P 1875 2575
+F 0 "#PWR?" H 1875 2325 50  0001 C CNN
+F 1 "GND" H 1875 2425 50  0000 C CNN
+F 2 "" H 1875 2575 50  0000 C CNN
+F 3 "" H 1875 2575 50  0000 C CNN
+	1    1875 2575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1225 2425 1875 2425
+Wire Wire Line
+	1875 2425 1875 2525
+Wire Wire Line
+	1875 2525 1875 2575
+Wire Wire Line
+	1225 2525 1875 2525
+Connection ~ 1875 2525
+Wire Wire Line
+	2350 2700 2350 3325
+Text GLabel 2250 3325 1    60   Input ~ 0
+5V_BATT
+Text GLabel 2450 3325 1    60   Input ~ 0
+5V_USB
+Wire Wire Line
+	2650 2700 2350 2700
+Text GLabel 1350 2725 2    60   Input ~ 0
+5V_BATT
+Wire Wire Line
+	1225 2725 1275 2725
+Wire Wire Line
+	1275 2725 1350 2725
+Wire Wire Line
+	1225 2625 1275 2625
+Wire Wire Line
+	1275 2625 1275 2725
+Connection ~ 1275 2725
+Text GLabel 1450 3300 2    60   Input ~ 0
+5V_USB
+Text Notes 2825 3875 2    60   ~ 0
+Choosable power source.
 $EndSCHEMATC
