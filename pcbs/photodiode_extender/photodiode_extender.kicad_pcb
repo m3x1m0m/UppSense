@@ -1,14 +1,14 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~52~ubuntu17.04.1)
 
   (general
-    (links 42)
+    (links 45)
     (no_connects 0)
     (area 107.150001 71.8 173.214288 123.175)
     (thickness 1.6)
     (drawings 16)
     (tracks 2)
     (zones 0)
-    (modules 44)
+    (modules 47)
     (nets 4)
   )
 
@@ -33,7 +33,7 @@
     (46 B.CrtYd user)
     (47 F.CrtYd user)
     (48 B.Fab user)
-    (49 F.Fab user)
+    (49 F.Fab user hide)
   )
 
   (setup
@@ -63,9 +63,9 @@
     (pad_drill 1)
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 0 0)
-    (visible_elements FFFFFF7F)
+    (visible_elements FFFFFF1F)
     (pcbplotparams
-      (layerselection 0x00030_80000001)
+      (layerselection 0x010f0_80000001)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -86,9 +86,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory output/gerber/))
   )
 
   (net 0 "")
@@ -106,6 +106,90 @@
     (add_net GNDA)
     (add_net "Net-(D1-Pad1)")
     (add_net "Net-(D1-Pad2)")
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595CF43F)
+    (at 126 99)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595CF43B)
+    (at 125 99)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595CF437)
+    (at 124 99)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB920)
+    (at 127 96)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB91B)
+    (at 127 97)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB916)
+    (at 127 98)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
+  )
+
+  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB742)
+    (at 127 99)
+    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
+      (net 3 GNDA) (zone_connect 2))
   )
 
   (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB97F)
@@ -336,42 +420,6 @@
       (net 3 GNDA) (zone_connect 2))
   )
 
-  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB920)
-    (at 127 96)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
-      (net 3 GNDA) (zone_connect 2))
-  )
-
-  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB91B)
-    (at 127 97)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
-      (net 3 GNDA) (zone_connect 2))
-  )
-
-  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB916)
-    (at 127 98)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
-      (net 3 GNDA) (zone_connect 2))
-  )
-
   (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB90F)
     (at 123 86)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
@@ -541,7 +589,7 @@
   )
 
   (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB8BF)
-    (at 124 99)
+    (at 124 95)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -553,7 +601,7 @@
   )
 
   (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB8BA)
-    (at 125 99)
+    (at 125 95)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -565,7 +613,7 @@
   )
 
   (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB75A)
-    (at 126 99)
+    (at 126 95)
     (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -629,18 +677,6 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 90))
     )
-  )
-
-  (module Vias:Stitchging-Via-0.2-0.4 (layer F.Cu) (tedit 595A3C58) (tstamp 595FB742)
-    (at 127 99)
-    (fp_text reference REF** (at 0 1.27) (layer F.SilkS) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (fp_text value Stitching-Via-0.2-0.4 (at 0 -1.27) (layer F.Fab) hide
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (pad ~ thru_hole circle (at 0 0) (size 0.4 0.4) (drill 0.2) (layers *.Cu)
-      (net 3 GNDA) (zone_connect 2))
   )
 
   (module Photodiodes:BPW34FA_w_Silks (layer F.Cu) (tedit 595CD1AC) (tstamp 595B59D8)

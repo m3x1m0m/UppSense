@@ -1,0 +1,20 @@
+Article, Farnell Ordercode, Quantity
+Opamp,AD8616ARZ , 5
+Jumper,2396303, 15
+R 10k, 9237755, 100
+R 100k, 2447551, 100
+R 1M, 1576507, 10
+R 10M, 9238115, 100
+R 100M, 9236511, 10
+C 10n, 1414662 , 100
+C 1n, 2496935, 100
+C 100p, 2332782, 10
+C 10p, 1759191, 100
+C 1p, 1759179, 50
+M3 screw 8 mm, 2494521, 50
+M3 spacing bolts female-male 8 mm, 1466795, 8
+M3 spacing bolts female-female 30 mm, 1466803, 8
+Washer M3, 1377496, 1
+Raw PCB single-sided euro, 1267751, 2
+Raw PCB double-sided euro, 149058, 2
+MOSFET, 1831089, 10

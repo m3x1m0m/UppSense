@@ -3,7 +3,7 @@
   (general
     (links 42)
     (no_connects 0)
-    (area 119.924999 79.924999 135.075001 100.075001)
+    (area 107.150001 71.8 173.214288 123.175)
     (thickness 1.6)
     (drawings 16)
     (tracks 2)
@@ -65,7 +65,7 @@
     (aux_axis_origin 0 0)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x00030_80000001)
+      (layerselection 0x010f0_80000001)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -86,9 +86,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory output/gerber/))
   )
 
   (net 0 "")
@@ -841,7 +841,7 @@
     (fill yes (arc_segments 16) (thermal_gap 0.2) (thermal_bridge_width 0.5))
     (polygon
       (pts
-        (xy 121 81) (xy 129 81) (xy 129 83.5) (xy 128 83.5) (xy 128 86.5)
+        (xy 121 80) (xy 129 80) (xy 129 83.5) (xy 128 83.5) (xy 128 86.5)
         (xy 129 86.5) (xy 129 90.5) (xy 128 90.5) (xy 128 94.5) (xy 129 94.5)
         (xy 129 100) (xy 121 100)
       )
@@ -862,7 +862,8 @@
         (xy 124.294978 86.05315) (xy 124.751667 86.242784) (xy 125.246163 86.243215) (xy 125.703183 86.054379) (xy 126.05315 85.705022)
         (xy 126.242784 85.248333) (xy 126.243215 84.753837) (xy 126.054379 84.296817) (xy 125.705022 83.94685) (xy 125.248333 83.757216)
         (xy 124.753837 83.756785) (xy 124.296817 83.945621) (xy 123.94685 84.294978) (xy 123.757216 84.751667) (xy 123.756785 85.246163)
-        (xy 121.1 85.246163) (xy 121.1 81.182606) (xy 121.133088 81.133086) (xy 121.182605 81.1) (xy 128.9 81.1)
+        (xy 121.1 85.246163) (xy 121.1 81.182606) (xy 121.133088 81.133086) (xy 121.76023 80.714042) (xy 122.554763 80.556)
+        (xy 128.9 80.556)
       )
     )
   )

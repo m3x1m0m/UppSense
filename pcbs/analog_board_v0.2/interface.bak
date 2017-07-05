@@ -79,6 +79,7 @@ F 0 "J2" H 6125 4300 50  0000 C CNN
 F 1 "CONN_02X07" V 6125 3900 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Angled_2x07_Pitch2.54mm" H 6125 2700 50  0001 C CNN
 F 3 "" H 6125 2700 50  0001 C CNN
+F 4 "TSW-107-08-G-D-RA" H 6125 3900 60  0001 C CNN "Samtec"
 	1    6125 3900
 	1    0    0    -1  
 $EndComp

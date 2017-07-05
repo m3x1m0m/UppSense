@@ -1,0 +1,43 @@
+Title,Backplane UppSense 2017
+Revision,v0.1
+Date,2017-07-05
+Generated,ons  5 jul 2017 17:42:44
+Company,UppSense Heart Failure Diagnostics
+Comment 1,
+Comment 2,
+Comment 3,
+Comment 4,
+Total Parts,58
+Total Unique Parts,22
+
+
+
+Ref,Qty,Value,Footprint,Farnell,Samtec,
+ADC1 ADC1 ADC1 ADC1 ADC2 ADC2 ADC3 ADC4 ADC33 ADC50 ,10,TEST,myTestPoints:TP_SMD_quadr_1mm, , 
+C1 C10 C11 ,3,10u,Resistors_SMD:R_0805,1833812, 
+C2 C4 C8 ,3,1u,Resistors_SMD:R_0805,2496946, 
+C3 C5 C9 C12 C13 ,5,100n,Resistors_SMD:R_0805,499687, 
+C6 C7 ,2,22p,Resistors_SMD:R_0805,1759489, 
+D1 D2 D3 D4 D5 D6 ,6,LED,LEDs:LED_0805,1581242, 
+GND1 ,1,TEST,myTestPoints:TP_SMD_quadr_3mm, , 
+J1 ,1,CONN_01X04,ConnectorsChina:LED_CONN_1.25_PITCH, , 
+J2 ,1,CONN_01X01,mySamtec:Samtec-PHT-1-1-01-L-S, , 
+P1 ,1,USB_B,myUSB:ZX62D-B-5P8(30),2554980, 
+P2 P7 P8 ,3,CONN_01X03,mySamtec:Samtec-PHT-1-3-01-L-S, , 
+P3 P4 ,2,CONN_02X03,Pin_Headers:Pin_Header_Straight_2x03, ,BCS-103-F-D-TE
+P5 P6 ,2,CONN_02X07,Pin_Headers:Pin_Header_Straight_2x07, ,BCS-107-F-D-TE
+Q1 Q2 ,2,MMBT3904,SOT-23,2535650, 
+Q3 ,1,Si2323,TO_SOT_Packages_SMD:SOT-23,1470106, 
+R1 R2 R3 R4 R7 R8 ,6,1k,Resistors_SMD:R_0805,9237496, 
+R5 R6 ,2,10k,Resistors_SMD:R_0805,9237755, 
+R9 R10 ,2,470R,Resistors_SMD:R_0805,2447662, 
+U1 U3 ,2,LM358,SMD_Packages:SOIC-8-N,1564331, 
+U2 ,1,TC1262-33VDB,SOT-223,1296594, 
+U4 ,1,CH340G,SMD_Packages:SO-16-N, , 
+Y1 ,1,Crystal,Crystals:Crystal_SMD_HC49-SD,9713344, 
+
+
+
+
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
+Generated ons  5 jul 2017 17:42:44
