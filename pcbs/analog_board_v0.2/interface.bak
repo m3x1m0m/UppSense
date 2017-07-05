@@ -39,9 +39,9 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 4
 Title "Interface to Backplane"
-Date "2017-06-30"
-Rev ""
-Comp "UppSense"
+Date "2017-07-05"
+Rev "v0.2"
+Comp "UppSense Heart Failure Diagnostics"
 Comment1 ""
 Comment2 ""
 Comment3 ""
