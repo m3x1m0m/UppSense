@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ADA4530-1
+D Ompamp withlow input offset voltage
+K ampliop
+F http://www.analog.com/media/en/technical-documentation/data-sheets/ADA4530-1.pdf
+$ENDCMP
+#
+#End Doc Library

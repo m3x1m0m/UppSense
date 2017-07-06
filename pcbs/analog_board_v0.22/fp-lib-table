@@ -1,0 +1,12 @@
+(fp_lib_table
+  (lib (name Potentiometer)(type KiCad)(uri "$(KIPRJMOD)/Potentiometer.pretty")(options "")(descr ""))
+  (lib (name "China Connectors")(type KiCad)(uri "$(KIPRJMOD)/ConnectorsChina.pretty")(options "")(descr ""))
+  (lib (name Tespoints)(type KiCad)(uri "$(KIPRJMOD)/Testpoints.pretty")(options "")(descr ""))
+  (lib (name "Embedded Caps")(type KiCad)(uri "$(KIPRJMOD)/EmbeddedCaps.pretty")(options "")(descr ""))
+  (lib (name "Samtec Connectors")(type KiCad)(uri "$(KIPRJMOD)/SamtecConn.pretty")(options "")(descr ""))
+  (lib (name Photodiodes)(type KiCad)(uri "$(KIPRJMOD)/Photodiodes.pretty")(options "")(descr ""))
+  (lib (name MyPotis)(type KiCad)(uri "$(KIPRJMOD)/MyPotis.pretty")(options "")(descr ""))
+  (lib (name Vias)(type KiCad)(uri "$(KIPRJMOD)/Vias.pretty")(options "")(descr ""))
+  (lib (name "Guard Connector")(type KiCad)(uri "$(KIPRJMOD)/GuardConnector.pretty")(options "")(descr ""))
+  (lib (name WithoutSilkscreen)(type KiCad)(uri "$(KIPRJMOD)/WithoutSilkscreen.pretty")(options "")(descr ""))
+)
