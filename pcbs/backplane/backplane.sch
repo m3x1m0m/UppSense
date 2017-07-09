@@ -84,17 +84,6 @@ F 4 "BCS-103-F-D-TE" H 5050 2350 60  0001 C CNN "Samtec"
 $EndComp
 Text GLabel 5300 2450 2    60   UnSpc ~ 0
 ADC4
-$Comp
-L CH340G U4
-U 1 1 594FA4BA
-P 5800 3950
-F 0 "U4" H 5800 3450 60  0000 C CNN
-F 1 "CH340G" H 5800 4450 60  0000 C CNN
-F 2 "SMD_Packages:SO-16-N" H 6000 3300 60  0001 C CNN
-F 3 "http://cdn2.boxtec.ch/pub/diverse/ch340g-datasheet.pdf" H 6000 3300 60  0001 C CNN
-	1    5800 3950
-	1    0    0    -1  
-$EndComp
 Text GLabel 6200 1500 0    60   UnSpc ~ 0
 3.3V
 Text GLabel 6200 1600 0    60   UnSpc ~ 0
@@ -404,8 +393,6 @@ F 3 "" H 5400 1550 50  0000 C CNN
 	1    5400 1550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4850 1550 5400 1550
 $Comp
 L C C9
 U 1 1 59500FC6
@@ -1624,4 +1611,29 @@ F 4 "2535650" H 10100 2850 60  0001 C CNN "Farnell"
 	1    10100 2850
 	1    0    0    1   
 $EndComp
+$Comp
+L CH340G U4
+U 1 1 59610F9F
+P 5800 3950
+F 0 "U4" H 5800 3450 60  0000 C CNN
+F 1 "CH340G" H 5800 4450 60  0000 C CNN
+F 2 "SMD_Packages:SO-16-N" H 6000 3300 60  0001 C CNN
+F 3 "http://cdn2.boxtec.ch/pub/diverse/ch340g-datasheet.pdf" H 6000 3300 60  0001 C CNN
+	1    5800 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG035
+U 1 1 59611BD7
+P 5100 1550
+F 0 "#FLG035" H 5100 1645 50  0001 C CNN
+F 1 "PWR_FLAG" H 5100 1730 50  0000 C CNN
+F 2 "" H 5100 1550 50  0000 C CNN
+F 3 "" H 5100 1550 50  0000 C CNN
+	1    5100 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 1550 5400 1550
+Connection ~ 5100 1550
 $EndSCHEMATC

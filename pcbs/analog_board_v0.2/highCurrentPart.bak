@@ -987,5 +987,5 @@ F 4 "1864589" H 4125 4425 60  0001 C CNN "Farnell"
 	-1   0    0    -1  
 $EndComp
 Text Notes 5550 3700 0    60   ~ 0
-Investigate if AD8616 here can be replaced by the LM358 (most likely yes).
+Investigate if AD8616 here can be replaced by the LM358 (most likely yes, footprints match). 
 $EndSCHEMATC

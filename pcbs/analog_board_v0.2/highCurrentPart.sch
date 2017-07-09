@@ -412,7 +412,7 @@ Wire Wire Line
 Wire Wire Line
 	7900 4450 9000 4450
 Text Notes 6425 5175 0    60   ~ 0
-Constant current source with 100R sensing resistor. Monitoring diode included\nwith 1uA being translated into 1V.\n
+Constant current source with 100R sensing resistor. Monitoring diode included\nwith 1mA being translated into 1V.\n
 Text Notes 8650 3800 0    60   ~ 0
 Constant current with ca. 4.55 mA.
 Text HLabel 9000 1875 1    60   Output ~ 0
