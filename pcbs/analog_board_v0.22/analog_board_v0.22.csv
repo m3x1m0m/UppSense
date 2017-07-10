@@ -1,23 +1,22 @@
-Title,SensUs Sensor Board,,,,
-Revision,v.0.2,,,,
-Date,2017-07-05,,,,
-Generated,tor  6 jul 2017 18:15:22,,,,
-Company,UppSense Heart Failure Diagnostics,,,,
-Comment 1,,,,,
-Comment 2,,,,,
-Comment 3,,,,,
-Comment 4,,,,,
-Total Parts,71,,,,
-Total Unique Parts,34,,,,
-,,,,,
-,,,,,
-,,,,,
-Ref,Qty,Value,Footprint,Farnell,Samtec
+Title,SensUs Sensor Board
+Revision,v.0.2
+Date,2017-07-05
+Generated,mån 10 jul 2017 09:42:13
+Company,UppSense Heart Failure Diagnostics
+Comment 1,
+Comment 2,
+Comment 3,
+Comment 4,
+Total Parts,71
+Total Unique Parts,33
+
+
+
+Ref,Qty,Value,Footprint,Farnell,Samtec,
 C1 C4 C14 C15 C20 ,5,1u,Resistors_SMD:R_0805,2496946, 
-C2 C5 C8 C11 C12 C13 C21 C23 ,8,100n,Resistors_SMD:R_0805,499687, 
+C2 C5 C8 C11 C12 C13 C16 C21 C23 ,9,100n,Resistors_SMD:R_0805,499687, 
 C3 C6 C9 C10 C22 ,5,10n,Resistors_SMD:R_0805,1414662, 
 C7 ,1,26f,Embedded Caps:EMBEDDED_CAP_1mm, , 
-C16 ,1,100n,Resistors_SMD:R_0805,2502703, 
 C17 C18 ,2,10u,Resistors_SMD:R_0805,1833812, 
 C19 ,1,1u,Resistors_SMD:R_0805,1845751, 
 D1 ,1,BPW34,Photodiodes:BPW34FA_w_Silks,1045425, 
@@ -47,9 +46,9 @@ U1 ,1,LTC6268IS8#PBF,WithoutSilkscreen:SOIC-8-N-W-Silks,2464182,
 U2 ,1,ADA4522-2ARZ,SMD_Packages:SOIC-8-N,2505560, 
 U3 ,1,ICL7660S,SMD_Packages:SOIC-8-N,1561969, 
 U4 ,1,AD8616,SMD_Packages:SOIC-8-N,1581952, 
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git),,,,,
-Generated tor  6 jul 2017 18:15:22,,,,,
+
+
+
+
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
+Generated mån 10 jul 2017 09:42:13
