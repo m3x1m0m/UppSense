@@ -54,7 +54,11 @@ myColor2 = "Maroon";
 drill_dia_m3 = 2.5;
 
 // Lids dimensions
-lids_depth = housing_thickness/4; 
+lids_depth = housing_thickness/4;
+ 
 lid_l_r_height = housing_inside_height/2;
 lid_l_r_width = (3/4)*housing_inside_depth;
 lid_l_r_overlap = (3/2)*housing_thickness; 
+
+lid_f_b_width = housing_inside_width + (1.0)*housing_thickness;
+lid_f_b_height = housing_inside_height + (1.0)*housing_thickness;
