@@ -51,37 +51,37 @@ difference()
                 // Top and bottom
                 cube([lid_t_b_width, lid_t_b_height, housing_inside_height + 3*housing_thickness], center = true);
 
-                // Cut deepenings for lids
+               	// Cut deepenings for lids
                 // Left and right
                 for(x = [-1, 1])
                 translate([x*housing_outside_width/2 - x*lids_depth/2 + x*0.1, 0, 0])
                 rotate([0, 90, 0])
-                roundy(lid_l_r_height + lid_l_r_overlap, lid_l_r_width + lid_l_r_overlap, lids_depth + 0.2, center = true);
+                roundy(lid_l_r_x, lid_l_r_y, lids_depth + 0.2, center = true);
                 // Front and back
                 for(y = [-1, 1])
                 translate([0, y*housing_outside_depth/2 - y*lids_depth/2 + y*0.1, 0])
                 rotate([90, 0, 0])
-                cube([lid_f_b_width + lid_f_b_overlap, lid_f_b_height + lid_f_b_overlap, lids_depth + 0.2], center = true);
+                cube([lid_f_b_x, lid_f_b_y, lids_depth + 0.2], center = true);
                 // Top and bottom
                 for(z = [-1, 1])
                 translate([0, 0, z*housing_outside_height/2 - z*lids_depth/2 + z*0.1])
-                roundy(lid_t_b_width + lid_t_b_overlap, lid_t_b_height + lid_t_b_overlap, lids_depth + 0.2);
+                roundy(lid_t_b_x, lid_t_b_y, lids_depth + 0.2);
 
                 // Screw holes
                 // Left and right
                 for(x = [-1, 1])
                 translate([x*housing_outside_width/2 - x*drill_depth_m3, 0, 0])
                 rotate([90, 0, 90])
-                screw_holes(lid_l_r_holes_x, lid_l_r_holes_y, drill_dia_m3, 2*lids_depth);
+                screw_holes(lid_l_r_holes_x, lid_l_r_holes_y, drill_thread_dia_m3, 2*lids_depth);
                 // Front and back
                 for(y = [-1, 1])
                 translate([0, y*housing_outside_depth/2 - y*drill_depth_m3, 0])
                 rotate([90, 0, 0])
-                screw_holes(lid_f_b_holes_x, lid_f_b_holes_y, drill_dia_m3, 2*lids_depth);
+                screw_holes(lid_f_b_holes_x, lid_f_b_holes_y, drill_thread_dia_m3, 2*lids_depth);
                 // Top and bottom
                 for(z = [-1, 1])
                 translate([0, 0, z*housing_outside_height/2 - z*drill_depth_m3])
-                screw_holes(lid_t_b_holes_x, lid_t_b_holes_y, drill_dia_m3, 2*lids_depth);
+                screw_holes(lid_t_b_holes_x, lid_t_b_holes_y, drill_thread_dia_m3, 2*lids_depth);
 
 		// O-rings	
 		// Left and right
