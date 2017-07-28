@@ -842,7 +842,7 @@ P 4850 5850
 F 0 "R3" V 4930 5850 50  0000 C CNN
 F 1 "1k" V 4850 5850 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805" V 4780 5850 50  0001 C CNN
-F 3 "" H 4850 5850 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/1671537.pdf" H 4850 5850 50  0001 C CNN
 F 4 "9237496" V 4850 5850 60  0001 C CNN "Farnell"
 	1    4850 5850
 	0    1    1    0   
