@@ -33,15 +33,22 @@ use <lid_t_b.scad>
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
 // 0 = put lids, 1 = remove lids
-close = 1;
+close = 0;
+// Set minimum angle of a fragment
+$fa = 0.5;
+// Set minimum size of a fragment
+$fs = 0.5;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
-
+difference()
+{
+union()
+{
 color(myColor1)
 {
-// Lid left
+// Lid right
 translate([housing_outside_width/2 + close*20, 0, 0])
 lid_l_r();
 
@@ -53,12 +60,12 @@ lid_l_r();
 // Lid front
 translate([0, -housing_outside_depth/2 - close*20, 0])
 rotate([90, 0, 0])
-lid_f_b(1);
+lid_f_b(1,0);
 
 // Lid back
 translate([0, +housing_outside_depth/2 + close*20, 0])
 rotate([-90, 180, 0])
-lid_f_b(0);
+lid_f_b(0,1);
 
 // Lid top 
 translate([0, 0, housing_outside_height/2 + close*20])
@@ -72,4 +79,7 @@ lid_t_b();
 
 color(myColor1, 0.8)
 box();
-
+}
+translate([-200, 0, 0])
+cube([400,400,400], center=true);
+}

@@ -26,7 +26,7 @@ include <screw_sinkings.scad>
 use <screw_sinkings.scad>
 
 
-module lid_f_b(logo)
+module lid_f_b(logo, mounting)
 {
 /////////////////////////////////////////////////////////////////////////
 // Vars
@@ -56,7 +56,7 @@ difference()
 		cube([lid_f_b_width - allowance05, lid_f_b_height - allowance05, housing_thickness - lids_depth], center = true);
 		// Mounting cylinders
 		translate([0, 0, (housing_thickness - lids_depth/2 + motherboard_mounting_h/2 - 0.01)])
-		screw_holes(motherboard_mounting_x, motherboard_mounting_y, motherboard_mounting_d, motherboard_mounting_h);
+		screw_holes(motherboard_mounting_x, motherboard_mounting_y, motherboard_mounting_d, mounting*motherboard_mounting_h);
 	}
 
 	union()
@@ -68,7 +68,7 @@ difference()
 		screw_sinkings(lid_f_b_holes_x, lid_f_b_holes_y, drill_sinking_dia1_m3, drill_sinking_dia2_m3, drill_sinking_height_m3);
 		// Cut out drill holes in mounting cylinders
 		translate([0, 0, (housing_thickness - lids_depth/2 + motherboard_mounting_h/2 - 0.01)])
-                screw_holes(motherboard_mounting_x, motherboard_mounting_y, drill_thread_dia_m3, motherboard_mounting_h + 1); 
+                screw_holes(motherboard_mounting_x, motherboard_mounting_y, drill_thread_dia_m3, mounting*(motherboard_mounting_h + 1) ); 
 	}
 }
 }

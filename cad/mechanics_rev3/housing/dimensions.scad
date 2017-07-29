@@ -33,7 +33,7 @@ extra_space_magnet = 10;
 // Dimensions housing inside (cubic)
 housing_inside_width = motherboard_width + allowance15;
 housing_inside_depth = pluginboard_height + extra_space_magnet + allowance5;
-housing_inside_height = motherboard_height + battery_holder_height + allowance5;
+housing_inside_height = motherboard_height + battery_holder_height + allowance10;
 
 echo(housing_inside_width=housing_inside_width);
 echo(housing_inside_depth=housing_inside_depth);
@@ -96,7 +96,7 @@ lid_t_b_holes_x = lid_t_b_width + (5/10)*lid_t_b_overlap;
 lid_t_b_holes_y = lid_t_b_height + (5/10)*lid_t_b_overlap;
 
 motherboard_mounting_x = motherboard_width - 5;
-motherboard_mounting_y = motherboard_height -5;
+motherboard_mounting_y = motherboard_height - 5;
 motherboard_mounting_d = 6;
 motherboard_mounting_h = 6;
 
