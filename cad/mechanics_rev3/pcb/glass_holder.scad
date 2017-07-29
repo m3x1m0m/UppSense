@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-// Illuminator for LED to keep the UV light away from the photodiode. 
+// Glass slide holder to be mounted on the PCB. 
 //
 // Author:              Maximilian Stiefel
 // Last modification:   29.06.2017
@@ -20,21 +20,24 @@ use <dimensions.scad>
 /////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
-module illuminator()
+module glass_holder()
 {
-	translate([glass_slide_width/2 - led_pos_x, 0, led_illuminator_height/2 + 0.01])
+	translate([0, 0, holder_height/2 + leg_height -0.01])
 	difference()
 	{
-		cylinder(r = led_illuminator_dia/2 + led_illuminator_thickness, led_illuminator_height, center = true);	
+		// Main body
+		cube([holder_width, holder_depth, holder_height], center = true);
 		union()
 		{
-			// Cut out inner cylinder
-			cylinder(r = led_illuminator_dia/2, led_illuminator_height + 0.01, center = true);	
-			// Cut out slot
-			rotate([0, 0, led_illuminator_angle + 180])
-			translate([led_illuminator_dia/2, 0, -led_illuminator_height/2 - 0.01])
-			cube([led_illuminator_dia/2, led_illuminator_slot, led_illuminator_height], center = true);
+			// Cut glass slide out and make an entrance
+			translate([-2.5, 0, 2])
+			cube([glass_slide_width + allowance05 + 5, glass_slide_depth + allowance05, holder_height], center = true);
+			// Cut out a cylinder for the LED
+			translate([glass_slide_width/2 - led_pos_x, 0, 0])
+			cylinder(r = led_illuminator_dia/2, h = 20, center = true);
+			// Cut out a "window" where the receiver photodiode is sitting
+			translate([glass_slide_width/2 - led_pos_x, glass_slide_depth/2, 2])
+			cube([window_size, 10, 10], center = true);	
 		}
 	}
 }
-

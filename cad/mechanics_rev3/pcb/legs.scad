@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-// Illuminator for LED to keep the UV light away from the photodiode. 
+// Legs for the glass slide holder. 
 //
 // Author:              Maximilian Stiefel
 // Last modification:   29.06.2017
@@ -20,21 +20,33 @@ use <dimensions.scad>
 /////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
-module illuminator()
+module legs()
 {
-	translate([glass_slide_width/2 - led_pos_x, 0, led_illuminator_height/2 + 0.01])
 	difference()
 	{
-		cylinder(r = led_illuminator_dia/2 + led_illuminator_thickness, led_illuminator_height, center = true);	
-		union()
-		{
-			// Cut out inner cylinder
-			cylinder(r = led_illuminator_dia/2, led_illuminator_height + 0.01, center = true);	
-			// Cut out slot
-			rotate([0, 0, led_illuminator_angle + 180])
-			translate([led_illuminator_dia/2, 0, -led_illuminator_height/2 - 0.01])
-			cube([led_illuminator_dia/2, led_illuminator_slot, led_illuminator_height], center = true);
-		}
+	union()
+	{
+		// Legs at the left
+		for(y = [0, 1])
+		translate([glass_slide_width/2 - leg_pos_x, -y*leg_distance,0])
+		cylinder(r = leg_outer_dia/2, h = leg_height);
+		// Legs at the right
+		for(y = [0, 1])
+		translate([-glass_slide_width/2 + leg_pos_x, y*leg_distance, 0])
+		cylinder(r = leg_outer_dia/2, h = leg_height);
+	}
+	union()
+	{
+		// Legs at the left
+		for(y = [0, 1])
+		translate([glass_slide_width/2 - leg_pos_x, -y*leg_distance, -0.01])
+		cylinder(r = leg_inner_dia/2, h = leg_drill_depth);
+		// Legs at the right
+		for(y = [0, 1])
+		translate([-glass_slide_width/2 + leg_pos_x, y*leg_distance, -0.01])
+		cylinder(r = leg_inner_dia/2, h = leg_drill_depth);
+
+	}
 	}
 }
 
