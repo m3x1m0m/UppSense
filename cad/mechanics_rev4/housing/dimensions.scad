@@ -86,14 +86,14 @@ drill_sinking_height_m3 = 2;
 
 echo(drill_depth_m3=drill_depth_m3);
 
-lid_l_r_holes_x = lid_l_r_width + (5/10)*lid_l_r_overlap;
-lid_l_r_holes_y = lid_l_r_height + (5/10)*lid_l_r_overlap;
+lid_l_r_holes_x = lid_l_r_width + (6/10)*lid_l_r_overlap;
+lid_l_r_holes_y = lid_l_r_height + (6/10)*lid_l_r_overlap;
 
-lid_f_b_holes_x = lid_f_b_width + (5/10)*lid_f_b_overlap;
-lid_f_b_holes_y = lid_f_b_height + (5/10)*lid_f_b_overlap;
+lid_f_b_holes_x = lid_f_b_width + (6/10)*lid_f_b_overlap;
+lid_f_b_holes_y = lid_f_b_height + (6/10)*lid_f_b_overlap;
 
-lid_t_b_holes_x = lid_t_b_width + (5/10)*lid_t_b_overlap;
-lid_t_b_holes_y = lid_t_b_height + (5/10)*lid_t_b_overlap;
+lid_t_b_holes_x = lid_t_b_width + (6/10)*lid_t_b_overlap;
+lid_t_b_holes_y = lid_t_b_height + (6/10)*lid_t_b_overlap;
 
 motherboard_mounting_x = motherboard_width - 2*5;
 motherboard_mounting_y = motherboard_height - 2*5;
