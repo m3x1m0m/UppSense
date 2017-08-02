@@ -50,7 +50,7 @@ color(myColor1)
 {
 // Lid right
 translate([housing_outside_width/2 + close*20, 0, 0])
-!rotate([0, 90, 0])
+rotate([0, 90, 0])
 lid_l_r();
 
 // Lid left

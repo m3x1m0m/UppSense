@@ -1,11 +1,11 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~52~ubuntu17.04.1)
+(kicad_pcb (version 4) (host pcbnew 4.0.7-e0-6372~58~ubuntu17.04.1)
 
   (general
     (links 287)
     (no_connects 0)
     (area 62.150001 46.15 215.357144 157.700001)
     (thickness 1.6)
-    (drawings 54)
+    (drawings 55)
     (tracks 368)
     (zones 0)
     (modules 224)
@@ -4552,6 +4552,9 @@
     )
   )
 
+  (gr_text Photodiode (at 118.4 125.5) (layer Dwgs.User)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (dimension 50 (width 0.3) (layer Dwgs.User)
     (gr_text "50,000 mm" (at 68.65 110 270) (layer Dwgs.User)
       (effects (font (size 1.5 1.5) (thickness 0.3)))

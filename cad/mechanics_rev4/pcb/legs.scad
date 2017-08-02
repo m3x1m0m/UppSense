@@ -26,27 +26,18 @@ module legs()
 	{
 	union()
 	{
-		// Legs at the left
-		for(y = [0, 1])
-		translate([glass_slide_width/2 - leg_pos_x, -y*leg_distance,0])
-		cylinder(r = leg_outer_dia/2, h = leg_height);
-		// Legs at the right
-		for(y = [0, 1])
-		translate([-glass_slide_width/2 + leg_pos_x, y*leg_distance, 0])
-		cylinder(r = leg_outer_dia/2, h = leg_height);
+		// Leg
+		translate([0, - leg_depth/2 + leg_diff1/2, leg_height/2])
+		cube([leg_width, leg_depth, leg_height], center = true);
 	}
 	union()
 	{
-		// Legs at the left
+		// Drill holes
 		for(y = [0, 1])
-		translate([glass_slide_width/2 - leg_pos_x, -y*leg_distance, -0.01])
+		translate([0, -y*leg_distance, -0.01])
 		cylinder(r = leg_inner_dia/2, h = leg_drill_depth);
-		// Legs at the right
-		for(y = [0, 1])
-		translate([-glass_slide_width/2 + leg_pos_x, y*leg_distance, -0.01])
-		cylinder(r = leg_inner_dia/2, h = leg_drill_depth);
-
+		
 	}
-	}
+}
 }
 
