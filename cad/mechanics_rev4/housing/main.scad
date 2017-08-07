@@ -49,17 +49,17 @@ union()
 color(myColor1)
 {
 // Lid right
-translate([housing_outside_width/2 + close*20, 0, 0])
-rotate([0, 90, 0])
+*translate([housing_outside_width/2 + close*20, 0, 0])
+rotate([0, 0, 0])
 lid_l_r();
 
 // Lid left
-translate([-housing_outside_width/2 - close*20, 0, 0])
+*translate([-housing_outside_width/2 - close*20, 0, 0])
 rotate([0, 180, 0])
 lid_l_r();
 
 // Lid front
-translate([0, -housing_outside_depth/2 - close*20, 0])
+*translate([0, -housing_outside_depth/2 - close*20, 0])
 rotate([90, 0, 0])
 lid_f_b(1,0);
 
