@@ -60,19 +60,19 @@ difference()
 		translate([0, 0, -lids_depth/2 + drill_sinking_height_m3/2 + 0.5])
 		screw_sinkings(lid_f_b_holes_x, lid_f_b_holes_y, drill_sinking_dia1_m3, drill_sinking_dia2_m3, drill_sinking_height_m3);
 		// Cut out drill holes in mounting cylinders
-		translate([0, -electronics_offset, (housing_thickness - lids_depth/2 + motherboard_mounting_h/2 - 0.01)])
+		translate([0, -electronics_offset, housing_thickness + motherboard_mounting_h - motherboard_mounting_drill_depth/2 - lids_depth/2 + 0.01])
                 screw_holes(motherboard_mounting_x, motherboard_mounting_y, drill_thread_dia_m3, mounting*(motherboard_mounting_drill_depth) ); 
 		// Logo 
 		// Can be turned off by setting logo to 0
-		translate([-30, 20, -lids_depth/2 - 0.01 + 3])
+		translate([-30, 20, -lids_depth/2 - 0.01 + 2])
 		rotate([180, 0, 0])
-		linear_extrude(height = logo*3)
+		linear_extrude(height = logo*2)
 		scale(1.5)
 		import("logo_taylored.dxf");
 		// Text
-		translate([-40, 35, -lids_depth/2 - 0.01 + 3])
+		translate([-40, 35, -lids_depth/2 - 0.01 + 2])
 		rotate([180, 0, 0])
-		linear_extrude(height = logo*3)
+		linear_extrude(height = logo*2)
 		text("UppSense", size = 12, font = "Liberation Sans:style=Bold");
 	}
 }

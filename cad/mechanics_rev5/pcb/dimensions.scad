@@ -25,12 +25,12 @@ holder_bottom_side_thickness = 2;
 // LED illuminator dimensions
 led_illuminator_thickness = 2; 
 led_illuminator_dia = 12.5 - led_illuminator_thickness;
-led_illuminator_height = 15;
+led_illuminator_height = 12;
 led_illuminator_leg1_pos_y = -6.25;
 led_illuminator_leg2_pos_y = 4;
 led_illuminator_leg2_pos_x = -4.75;
 led_illuminator_leg_dia = 2.2 - allowance05; 
-led_illuminator_leg_height = 4;
+led_illuminator_leg_height = 2;
 led_pos_x = 18;
 led_pos_y = 13;
 led_illuminator_slot = 4;
@@ -44,8 +44,8 @@ drill_sinking_dia2_m3 = 3;
 drill_sinking_height_m3 = 2;
 
 // Leg dimensions
-leg_width = 4;
-leg_depth = 11;
+leg_width = 7;
+leg_depth = 13;
 leg_height = led_illuminator_height;
 leg_inner_dia = 2.5;
 leg_pos_y = 13;

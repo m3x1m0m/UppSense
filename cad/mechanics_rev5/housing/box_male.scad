@@ -26,18 +26,18 @@ use <screw_holes.scad>
 /////////////////////////////////////////////////////////////////////////////////
 
 // Set minimum angle of a fragment
-$fa = 0.5;
+//$fa = 0.5;
 // Set minimum size of a fragment
-$fs = 0.5;
+//$fs = 0.5;
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
-color(myColor1)
+module box_male(myColor1)
 {
-	translate([0, 0, housing_outside_height/2])
-	rotate([180, 0, 0])
+	//translate([0, 0, housing_outside_height/2])
+	//rotate([180, 0, 0])
 	union()
 	{
 		rotate([180, 0, 0])

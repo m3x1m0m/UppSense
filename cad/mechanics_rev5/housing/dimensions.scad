@@ -55,7 +55,7 @@ myColor1 = "DodgerBlue";
 myColor2 = "Maroon";
 
 // Lids dimensions
-lids_depth = housing_thickness/3;
+lids_depth = housing_thickness/4;
 
 echo(lids_depth=lids_depth);
  
@@ -79,9 +79,9 @@ lid_t_b_y = lid_t_b_height + lid_t_b_overlap;
 
 // Screw holes
 drill_dia_m3 = 3.2;
-drill_thread_dia_m3 = 2.5;
-drill_depth_m3 = 7;
-drill_sinking_dia1_m3 = 5.5;
+drill_thread_dia_m3 = 4; // Diameter is adopted to metal thread which will be glued inside the hole 
+drill_depth_m3 = 5.5;
+drill_sinking_dia1_m3 = 5.5 + allowance05;
 drill_sinking_dia2_m3 = 3;
 drill_sinking_height_m3 = 2; 
 
@@ -100,7 +100,7 @@ motherboard_mounting_x = motherboard_width - 2*5;
 motherboard_mounting_y = motherboard_height - 2*5;
 motherboard_mounting_d = 6;
 motherboard_mounting_h = 6;
-motherboard_mounting_drill_depth = 14;
+motherboard_mounting_drill_depth = 5.5;
 
 electronics_offset = 8;
 

@@ -26,17 +26,17 @@ use <screw_holes.scad>
 /////////////////////////////////////////////////////////////////////////////////
 
 // Set minimum angle of a fragment
-$fa = 0.5;
+//$fa = 0.5;
 // Set minimum size of a fragment
-$fs = 0.5;
+//$fs = 0.5;
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Action
 /////////////////////////////////////////////////////////////////////////////////
-color(myColor1)
+module box_female()
 {
-translate([0, 0, housing_outside_height/2])
+//translate([0, 0, housing_outside_height/2])
 //rotate([180, 0, 0])
 {
 difference()
@@ -50,8 +50,8 @@ difference()
 	cube([housing_outside_width + 1, housing_outside_depth + 1, housing_outside_height/2 + 0.01], center = true);
 	
 	// Draw cylinders for mortise joint
-	translate([0, 0, -(mortise_joint_height + allowance2)/2])
-	screw_holes(housing_inside_width + housing_thickness/2, housing_inside_depth + housing_thickness/2, mortise_joint_dia + allowance1, mortise_joint_height + allowance2);
+	translate([0, 0, -(mortise_joint_height + allowance5)/2])
+	screw_holes(housing_inside_width + housing_thickness/2, housing_inside_depth + housing_thickness/2, mortise_joint_dia + allowance1, mortise_joint_height + allowance5);
 	}
 }
 }

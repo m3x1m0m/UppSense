@@ -38,12 +38,12 @@ color(myColor1)
 {
 	// Glass holder
 	translate([0, 0, holder_height/2 + leg_height -0.01])
-	!translate([0, 0, holder_height/2])	
+	translate([0, 0, holder_height/2])	
 	glass_holder();
 	
 	// Legs
 	translate([glass_slide_width/2 - leg_pos_x, 0, 0])
-	legs();
+	!legs();
 	
 	translate([-glass_slide_width/2 + leg_pos_x, 0, 0])
 	rotate([0, 0, 180])
