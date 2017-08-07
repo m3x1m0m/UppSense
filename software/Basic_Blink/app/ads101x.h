@@ -34,7 +34,7 @@ struct ads_sample_t {
 	enum eGainAmplifier gain;
 };
 
-class cADS101x: cADC<ads_sample_t, ads_voltage_t> {
+class cADS101x: public cADC<ads_sample_t, ads_voltage_t> {
 public:
 
 	cADS101x(uint8_t i_address = 0x48);

@@ -11,16 +11,19 @@
 #include "double_buffer.h"
 
 namespace rijnfel {
-
+//timebase, in miliseconds.
+//Example, period = 10 (ms) timebase = 250(ms)
+//Callback will be called after 250/10 = 25 samples
 template<typename BufferType>
 class cSensorSettings {
 public:
 	cSensorSettings(void (*i_callback)(cDoubleBuffer<BufferType> & buffer),
-			uint32_t i_periodTimer, uint32_t i_period) :
-			m_callback(i_callback), m_periodTimer(i_periodTimer), m_period(
-					i_period) {
-		m_buffer(1000 / m_period);
+			uint32_t i_timeBase, uint32_t i_period) :
+			m_callback(i_callback), m_periodTimer(0), m_period(i_period), m_buffer(
+					0) {
+		m_buffer.Resize((int) (i_timeBase / m_period));
 	}
+
 	bool ShouldSample(uint32_t i_updatePeriod) {
 		m_periodTimer += i_updatePeriod;
 		if (m_periodTimer >= m_period) {
@@ -29,6 +32,7 @@ public:
 		}
 		return false;
 	}
+
 	cDoubleBuffer<BufferType> m_buffer;
 	void (*m_callback)(cDoubleBuffer<BufferType> & buffer);
 private:

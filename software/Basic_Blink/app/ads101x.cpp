@@ -8,6 +8,8 @@
 #include "ads101x.h"
 #include <SmingCore/Wire.h>
 
+#include <SmingCore/SmingCore.h>
+
 namespace rijnfel {
 
 namespace ads {

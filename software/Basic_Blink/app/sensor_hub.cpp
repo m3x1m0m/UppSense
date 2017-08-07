@@ -27,6 +27,13 @@ void cSensorHub::Update() {
 	}
 }
 
+void cSensorHub::SetAdc(ads::cADS101x* i_adc) {
+	if (m_adc != NULL) {
+		delete m_adc;
+	}
+	m_adc = i_adc;
+}
+
 void cSensorHub::SetAdcSettings(
 		cSensorSettings<ads::ads_sample_t> * i_adcSettings) {
 	m_adcSettings = i_adcSettings;
@@ -45,3 +52,4 @@ cSensorHub::~cSensorHub() {
 }
 
 } /* namespace rijnfel */
+
