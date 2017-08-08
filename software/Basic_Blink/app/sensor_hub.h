@@ -17,6 +17,7 @@ class cSensorHub {
 public:
 	//in milliseconds
 	cSensorHub(uint32_t i_updatePeriod);
+	void SetAdc(ads::cADS101x * i_adc);
 	void SetAdcSettings(cSensorSettings<ads::ads_sample_t> * i_adcSettings);
 	void SetTempSettings(cSensorSettings<uint32_t> * i_tempSettings);
 	void Update();

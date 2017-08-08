@@ -9,6 +9,7 @@
 #define APP_DOUBLE_BUFFER_H_
 
 #include <stdint.h>
+#include <SmingCore/SmingCore.h>
 
 namespace rijnfel {
 
@@ -25,7 +26,11 @@ public:
 	}
 
 	void Resize(int i_newSize) {
-
+		m_size = i_newSize;
+		delete m_buf[0];
+		delete m_buf[1];
+		m_buf[0] = new BufferType[m_size];
+		m_buf[1] = new BufferType[m_size];
 	}
 
 	bool AddValue(BufferType i_val) {
@@ -39,14 +44,22 @@ public:
 		return false;
 	}
 
+	BufferType * GetReadyBuffer() {
+		return m_buf[(m_bufferIndex == 0) ? 1 : 0];
+	}
+
 	BufferType * GetBuffer(int i_index) {
 		return m_buf[i_index];
 	}
 
+	int GetSize() {
+		return m_size;
+	}
+
 	virtual ~cDoubleBuffer() {
-		delete m_buf[0];
-		delete m_buf[1];
-		delete m_buf;
+		delete[] m_buf[0];
+		delete[] m_buf[1];
+		delete[] m_buf;
 	}
 private:
 	int m_size;
