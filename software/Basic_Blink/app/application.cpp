@@ -6,8 +6,13 @@
 #include "sensor_settings.h"
 #include "double_buffer.h"
 #include "web_interface.h"
-
+#include <stdint.h>
 #define LED_PIN 2 // GPIO2
+
+static const int HUB_PERIOD = 5;
+static const int ADC_TIMEBASE = 250;
+static const int ADC_PERIOD = 5;
+static const uint8_t ADC_ADDRESS = 0x48;
 
 using namespace rijnfel;
 
@@ -16,22 +21,23 @@ void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
 void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway);
 
 Timer procTimer;
-ads::cADS101x adc;
+ads::cADS101x adc(0, ADC_ADDRESS);
 uint8_t channel = 0;
 
-cSensorHub hub(5);
+cSensorHub hub(HUB_PERIOD);
 int test = 0;
 void updateSensorHub() {
 	hub.Update();
 }
 
 void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
-	cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
-	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 	channel++;
 	if (channel > 3) {
 		channel = 0;
+		cWebInterface::GetInstance()->PrintValues();
 	}
+	cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
+	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 }
 
 void init() {
@@ -49,16 +55,17 @@ void init() {
 	hub.SetAdc(&adc);
 
 	cSensorSettings<ads::ads_sample_t> * adcSettings;
-	adcSettings = new cSensorSettings<ads::ads_sample_t>(&adcCallback, 250, 5);
+	adcSettings = new cSensorSettings<ads::ads_sample_t>(&adcCallback,
+			ADC_TIMEBASE, ADC_PERIOD);
 	hub.SetAdcSettings(adcSettings);
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
-/*	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
-	WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
+	/*	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
+	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
-	procTimer.initializeMs(100, updateSensorHub).start();
+	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],

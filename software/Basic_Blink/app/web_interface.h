@@ -35,6 +35,7 @@ public:
 	void UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 			cDoubleBuffer<ads::ads_sample_t> & adcBuffer);
 	void UpdateTemp(cDoubleBuffer<uint32_t> & adcBuffer);
+	void PrintValues();
 	virtual ~cWebInterface();
 public:
 	void OnIndex(HttpRequest &request, HttpResponse &response);

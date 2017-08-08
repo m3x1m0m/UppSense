@@ -98,10 +98,11 @@ void cWebInterface::UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 		averageSample.rawSample = static_cast<int16_t>(average);
 		int pos = averageSample.mux - ads::eInputMux::AIN_0;
 		m_adc_value[pos] = adc.ConvertSample(averageSample);
-		Serial.printf("Current mux: %d pos: %d \n\r", averageSample.mux, pos);
-		Serial.printf("%d %d %d %d\n\r", m_adc_value[0], m_adc_value[1],
-				m_adc_value[2], m_adc_value[3]);
 	}
+}
+void cWebInterface::PrintValues() {
+	Serial.printf("%d %d %d %d\n\r", m_adc_value[0], m_adc_value[1],
+			m_adc_value[2], m_adc_value[3]);
 }
 
 void cWebInterface::UpdateTemp(cDoubleBuffer<uint32_t>& adcBuffer) {
@@ -112,3 +113,4 @@ cWebInterface::~cWebInterface() {
 }
 
 } /* namespace rijnfel */
+
