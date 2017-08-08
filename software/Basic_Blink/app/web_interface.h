@@ -35,13 +35,14 @@ public:
 	void UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 			cDoubleBuffer<ads::ads_sample_t> & adcBuffer);
 	void UpdateTemp(cDoubleBuffer<uint32_t> & adcBuffer);
+	void PrintValues();
 	virtual ~cWebInterface();
 public:
 	void OnIndex(HttpRequest &request, HttpResponse &response);
 	void OnRefresh(HttpRequest &request, HttpResponse &response);
 private:
 	bool m_serverStarted;
-	int16_t m_adc_value[4];
+	int32_t m_adc_value[4];
 	HttpServer server;
 
 };
