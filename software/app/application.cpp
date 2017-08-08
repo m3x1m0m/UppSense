@@ -2,6 +2,7 @@
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
 #include "ads101x.h"
+#include "dac101c085.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
@@ -13,6 +14,7 @@ static const int HUB_PERIOD = 5;
 static const int ADC_TIMEBASE = 250;
 static const int ADC_PERIOD = 5;
 static const uint8_t ADC_ADDRESS = 0x48;
+static const uint8_t DAC_ADDRESS = 0x0C;
 
 using namespace rijnfel;
 
@@ -22,6 +24,7 @@ void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway);
 
 Timer procTimer;
 ads::cADS101x adc(0, ADC_ADDRESS);
+dac::cDAC101C085 mydac(1, DAC_ADDRESS);
 uint8_t channel = 0;
 
 cSensorHub hub(HUB_PERIOD);
@@ -66,6 +69,13 @@ void init() {
 	cWebInterface::GetInstance()->Start();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	mydac.checkDev();
+	Serial.print("Write DAC reg: ");
+	Serial.print(mydac.changeSettings(dac::eOpMode::NORMAL, 1023));
+	Serial.println("");
+	Serial.print("Read out DAC regs: ");
+	Serial.print(mydac.ReadSettings());
+	Serial.println("");
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
