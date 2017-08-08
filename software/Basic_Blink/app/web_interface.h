@@ -42,7 +42,7 @@ public:
 	void OnRefresh(HttpRequest &request, HttpResponse &response);
 private:
 	bool m_serverStarted;
-	int16_t m_adc_value[4];
+	int32_t m_adc_value[4];
 	HttpServer server;
 
 };
