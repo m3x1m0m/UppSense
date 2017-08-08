@@ -114,28 +114,28 @@ ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 	ads_voltage_t returnType = (sample.rawSample >> 4) * 1000; //Multiply for extra precision
 	switch (sample.gain) {
 	case eGainAmplifier::FSR_0_256:
-		//one lsb is  0.256 mv = 256 uv
-		returnType *= 256;
+		//one lsb is  0.125 mv = 125 uv
+		returnType *= 125;
 		break;
 	case eGainAmplifier::FSR_0_512:
-		//one lsb is  0.512 mv = 512 uv
-		returnType *= 512;
+		//one lsb is  0.25 mv = 250 uv
+		returnType *= 250;
 		break;
 	case eGainAmplifier::FSR_1_024:
-		//one lsb is  1.024 mv = 1024 uv
-		returnType *= 1024;
+		//one lsb is  0.5 mv = 500 uv
+		returnType *= 500;
 		break;
 	case eGainAmplifier::FSR_2_048:
-		//one lsb is  2.048 mv = 2048 uv
-		returnType *= 2048;
+		//one lsb is  1 mv = 1000 uv
+		returnType *= 1000;
 		break;
 	case eGainAmplifier::FSR_4_096:
-		//one lsb is  4.096 mv = 4096 uv
-		returnType *= 4096;
+		//one lsb is  2 mv = 2000 uv
+		returnType *= 2000;
 		break;
 	case eGainAmplifier::FSR_6_144:
-		//one lsb is  6.144 mv = 6144 uv
-		returnType *= 6144;
+		//one lsb is  3 mv = 3000 uv
+		returnType *= 3000;
 		break;
 	}
 	return returnType;
