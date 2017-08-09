@@ -29,7 +29,7 @@ enum eSampleSpeed {
 };
 
 struct ads_sample_t {
-	int16_t rawSample;
+	uint16_t rawSample;
 	enum eInputMux mux;
 	enum eGainAmplifier gain;
 };
@@ -55,6 +55,7 @@ public:
 	}
 private:
 	uint16_t CreateSettings(uint8_t i_startSample);
+	uint16_t ReadRegister(uint8_t i_register);
 	void WriteSettings(uint16_t i_settings);
 	void SetDefaults(void);
 	void OneShot(void);

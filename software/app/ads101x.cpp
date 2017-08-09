@@ -47,22 +47,18 @@ cADS101x::cADS101x(uint8_t i_readyPin, uint8_t i_address) :
 
 void cADS101x::SetOneShot(bool i_oneShot) {
 	m_oneShot = i_oneShot;
-	WriteSettings(CreateSettings(0));
 }
 
 void cADS101x::SetGain(enum eGainAmplifier i_gain) {
 	m_gain = i_gain;
-	WriteSettings(CreateSettings(0));
 }
 
 void cADS101x::SetMux(enum eInputMux i_mux) {
 	m_mux = i_mux;
-	WriteSettings(CreateSettings(0));
 }
 
 void cADS101x::SetSampleSpeed(enum eSampleSpeed i_sampleSpeed) {
 	m_sampleSpeed = i_sampleSpeed;
-	WriteSettings(CreateSettings(0));
 }
 
 void cADS101x::WaitSample(void) {
@@ -84,34 +80,32 @@ uint16_t cADS101x::CreateSettings(uint8_t start) {
 
 void cADS101x::WriteSettings(uint16_t i_settings) {
 	Wire.beginTransmission(m_address);
-	Wire.write(REGISTER_CONFIG);
+	Wire.write((uint8_t) REGISTER_CONFIG);
 	Wire.write((uint8_t) (i_settings >> 8));
 	Wire.write((uint8_t) (i_settings & 0xFF));
-	Wire.endTransmission();
+	int8_t ret = Wire.endTransmission();
+	if (ret) {
+		Serial.printf("Err writing settings ret: %d\n\r", ret);
+	}
+}
 
+uint16_t cADS101x::ReadRegister(uint8_t i_register) {
+	Wire.beginTransmission(m_address);
+	Wire.write(i_register);
+	Wire.endTransmission();
+	Wire.requestFrom(m_address, static_cast<uint8_t>(2));
+	return ((Wire.read() << 8) | (Wire.read()));
 }
 
 void cADS101x::OneShot(void) {
-	if (m_oneShot) {
-		uint16_t settings = CreateSettings(1);
-		WriteSettings(settings);
-	}
+	//if (m_oneShot) {
+	uint16_t settings = CreateSettings(1);
+	WriteSettings(settings);
+	//}
 }
 
 uint16_t cADS101x::GetSettings(void) {
-	uint16_t settings;
-	Wire.beginTransmission(m_address);
-	Wire.write(REGISTER_CONFIG);
-	Wire.endTransmission();
-	Wire.beginTransmission(m_address);
-	Wire.requestFrom((int) m_address, 2);	//16 bits
-	settings = Wire.read() << 8;
-	settings |= Wire.read();
-	int result = Wire.endTransmission();
-	if (result != 0) {
-		Serial.printf("Error sample i2c: %d \n\r", result);
-	}
-	return settings;
+	return ReadRegister(REGISTER_CONFIG);;
 }
 ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 	//Raw sample is in (parts of) millivolts, go to micro to remove fractions
@@ -142,23 +136,13 @@ ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 		returnType *= 3000;
 		break;
 	}
-	return returnType/1000;
+	return returnType / 1000;
 }
 
 ads_sample_t cADS101x::RawSample(void) {
 	OneShot();
 	ads_sample_t sample;
-	Wire.beginTransmission(m_address);
-	Wire.write(REGISTER_CONVERSION);
-	Wire.endTransmission();
-	Wire.beginTransmission(m_address);
-	Wire.requestFrom((int) m_address, 2);	//16 bits
-	sample.rawSample = Wire.read() << 8;
-	sample.rawSample |= Wire.read();
-	int result = Wire.endTransmission();
-	if (result != 0) {
-		Serial.printf("Error sample i2c: %d \n\r", result);
-	}
+	sample.rawSample = ReadRegister(REGISTER_CONVERSION);
 	sample.gain = m_gain;
 	sample.mux = m_mux;
 	m_latestSample = sample;
