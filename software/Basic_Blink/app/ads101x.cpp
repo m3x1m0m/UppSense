@@ -107,11 +107,15 @@ uint16_t cADS101x::GetSettings(void) {
 	Wire.requestFrom((int) m_address, 2);	//16 bits
 	settings = Wire.read() << 8;
 	settings |= Wire.read();
+	int result = Wire.endTransmission();
+	if (result != 0) {
+		Serial.printf("Error sample i2c: %d \n\r", result);
+	}
 	return settings;
 }
 ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 	//Raw sample is in (parts of) millivolts, go to micro to remove fractions
-	ads_voltage_t returnType = (sample.rawSample >> 4) * 1000; //Multiply for extra precision
+	ads_voltage_t returnType = (sample.rawSample >> 4); //Multiply for extra precision
 	switch (sample.gain) {
 	case eGainAmplifier::FSR_0_256:
 		//one lsb is  0.125 mv = 125 uv
@@ -138,7 +142,7 @@ ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 		returnType *= 3000;
 		break;
 	}
-	return returnType;
+	return returnType/1000;
 }
 
 ads_sample_t cADS101x::RawSample(void) {
@@ -151,6 +155,10 @@ ads_sample_t cADS101x::RawSample(void) {
 	Wire.requestFrom((int) m_address, 2);	//16 bits
 	sample.rawSample = Wire.read() << 8;
 	sample.rawSample |= Wire.read();
+	int result = Wire.endTransmission();
+	if (result != 0) {
+		Serial.printf("Error sample i2c: %d \n\r", result);
+	}
 	sample.gain = m_gain;
 	sample.mux = m_mux;
 	m_latestSample = sample;

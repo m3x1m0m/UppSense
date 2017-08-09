@@ -90,7 +90,6 @@ void cWebInterface::UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 		for (int i = 0; i < size; i++) {
 			average += buf[i].rawSample;
 		}
-
 		if (size != 0) {
 			average /= size;
 		}
