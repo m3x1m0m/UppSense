@@ -7,7 +7,7 @@ $( document ).ready(function() {
 			document.getElementById('adc_2').textContent = data.adc_2;
 			document.getElementById('adc_3').textContent = data.adc_3;
 			
-			setTimeout(worker, 5000);
+			setTimeout(worker, 1000);
 		});
 	})();
 });

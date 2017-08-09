@@ -4,7 +4,7 @@
 // Author:      Maximilian Stiefel
 // Date:        08.08.2017
 //
-// Description:
+// Description: Small simple driver for the TI DAC101C085.
 //
 //----------------------------------------------------------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ cDAC101C085::~cDAC101C085()
 {}
 
 //-------------------------------------checkDev-------------------------------------------------------------------------------
-void cDAC101C085::checkDev()
+void cDAC101C085::CheckDev()
 {
 	// Vars
 	byte error = 0;
@@ -43,7 +43,7 @@ void cDAC101C085::checkDev()
 }
 
 //-------------------------------------changeSettings-------------------------------------------------------------------------
-uint8_t cDAC101C085::changeSettings(enum eOpMode mode, uint16_t val)
+uint8_t cDAC101C085::ChangeSettings(enum eOpMode mode, uint16_t val)
 {
 	// Vars
 	uint16_t settings = 0;
@@ -54,16 +54,16 @@ uint8_t cDAC101C085::changeSettings(enum eOpMode mode, uint16_t val)
 	switch(mode)
 	{
 		case NORMAL:
-		       		settings += 0b00 << PD_BITS_POS;	
+		       		settings += (0b00 << PD_BITS_POS);	
 				break;
 		case PULL_DOWN_2K5:
-				settings += 0b01 << PD_BITS_POS;	
+				settings += (0b01 << PD_BITS_POS);	
 				break;
 		case PULL_DOWN_100K:
-				settings += 0b10 << PD_BITS_POS;	
+				settings += (0b10 << PD_BITS_POS);	
 				break;
 		case HIGH_IMPEDANCE:
-				settings += 0b11 << PD_BITS_POS;	
+				settings += (0b11 << PD_BITS_POS);	
 				break;
 
 	}
@@ -80,7 +80,7 @@ uint8_t cDAC101C085::WriteSettings(uint16_t settings)
 	Wire.write( (uint8_t) (settings >> 8) ); // Most significant byte
 	Wire.write( (uint8_t) (settings & 0xFF) ); // Least significant byte
 	error = Wire.endTransmission();
-	Serial.print(settings);
+	Serial.println(settings);
 	return I2CError(error); // Pass to error parser	
 }
 
