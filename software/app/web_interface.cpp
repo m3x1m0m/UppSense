@@ -85,14 +85,17 @@ void cWebInterface::UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 		averageSample.gain = buf->gain;
 		averageSample.mux = buf->mux;
 		int64_t average = 0;
-
+		//Serial.printf("Channel: %d\n\r", buf->mux - ads::eInputMux::AIN_0);
 		int size = adcBuffer.GetSize();
 		for (int i = 0; i < size; i++) {
 			average += buf[i].rawSample;
+			//Serial.printf("%d ", buf[i].rawSample);
 		}
+		//Serial.printf("\n\r before: %d", average);
 		if (size != 0) {
 			average /= size;
 		}
+		//Serial.printf("after: %d [%d]\n\r", average, size);
 
 		averageSample.rawSample = static_cast<int16_t>(average);
 		int pos = averageSample.mux - ads::eInputMux::AIN_0;
@@ -100,8 +103,8 @@ void cWebInterface::UpdateAdc(cADC<ads::ads_sample_t, int32_t> & adc,
 	}
 }
 void cWebInterface::PrintValues() {
-	Serial.printf("%d %d %d %d\n\r", m_adc_value[0], m_adc_value[1],
-			m_adc_value[2], m_adc_value[3]);
+	Serial.printf("c[0]: %d c[1]: %d c[2]: %d c[3]: %d\n\r", m_adc_value[0],
+			m_adc_value[1], m_adc_value[2], m_adc_value[3]);
 }
 
 void cWebInterface::UpdateTemp(cDoubleBuffer<uint32_t>& adcBuffer) {
