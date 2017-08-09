@@ -13,7 +13,7 @@
 static const int HUB_PERIOD = 5;
 static const int ADC_TIMEBASE = 250;
 static const int ADC_PERIOD = 5;
-//static const uint8_t ADC_ADDRESS = 0x48;
+static const uint8_t ADC_ADDRESS = 0x48;
 
 using namespace rijnfel;
 
@@ -39,6 +39,17 @@ void SettingsTest() {
 	Serial.printf("Settings: %d\n\r", adc.GetSettings());
 }
 
+void AdcTest() {
+	channel++;
+	if (channel > 3) {
+		channel = 0;
+	}
+	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
+	ads::ads_sample_t sample = adc.RawSample();
+	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample,
+			adc.ConvertSample(sample), sample.mux);
+}
+
 void updateSensorHub() {
 	hub.Update();
 }
@@ -48,6 +59,7 @@ void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
 	if (channel > 3) {
 		channel = 0;
 		cWebInterface::GetInstance()->PrintValues();
+		Serial.printf("Settings: %d\n\r", adc.GetSettings());
 	}
 	cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
@@ -68,6 +80,7 @@ void init() {
 	adc.SetMux(ads::eInputMux::AIN_0);
 	adc.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
 	adc.SetGain(ads::eGainAmplifier::FSR_4_096);
+	adc.SetOneShot(false);
 	hub.SetAdc(&adc);
 
 	cSensorSettings<ads::ads_sample_t> * adcSettings;
@@ -81,7 +94,8 @@ void init() {
 	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
-	//procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	//procTimer.initializeMs(1000, AdcTest).start();
 	//procTimer.initializeMs(5000, SettingsTest).start();
 	mylight.SetCurrent(5000);
 	mylight.RectangleUpdate();	
