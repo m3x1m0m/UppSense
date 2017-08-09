@@ -19,7 +19,7 @@ namespace light {
 
 //-------------------------------------Constructor----------------------------------------------------------------------------
 cExcitationLight::cExcitationLight():
-		m_rectangleStatus(0), m_DAC_Rect_High(0)
+		m_rectangleStatus(0), m_DACRectHigh(0)
 {
 	m_DAC = new dac::cDAC101C085(1, DAC1_ADDRESS);
 }
@@ -31,11 +31,13 @@ cExcitationLight::~cExcitationLight()
 }
 
 //-------------------------------------setCurrent-----------------------------------------------------------------------------
-uint8_t cExcitationLight::setCurrent(uint16_t microamp)
+uint8_t cExcitationLight::SetCurrent(uint16_t microamp)
 {	
+	uint16_t new_DACRectHigh = 0 
 	if(microamp < CURR_MAX_UAMP)
 	{
-		m_DAC_Rect_High = R_SENSE * microamp; 
+		new_DACRectHigh = microamp/R_SENSE_DIV_FACT;
+	       	Serial.println(m_DACRectHigh);	
 		return 1;
 	}
 	else
@@ -43,10 +45,10 @@ uint8_t cExcitationLight::setCurrent(uint16_t microamp)
 }
 
 //-------------------------------------rectangleUpdate------------------------------------------------------------------------
-uint8_t cExcitationLight::rectangleUpdate()
+uint8_t cExcitationLight::RectangleUpdate()
 {
 	m_rectangleStatus ? m_DAC->ChangeSettings(dac::eOpMode::NORMAL, 0) : m_DAC->ChangeSettings(dac::eOpMode::NORMAL, m_DAC_Rect_High);
-	rectangle_Status ^= 0xFF;
+	m_rectangleStatus ^= 0xFF;
 }
 
 

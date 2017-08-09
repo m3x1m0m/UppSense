@@ -15,7 +15,7 @@
 static const uint8_t ADC_ADDRESS = 0x48;
 static const uint8_t DAC1_ADDRESS = 0xC;
 
-#define R_SENSE (uint8_t) 100 // 100 Ohm sensing resistor
+#define R_SENSE_DIV_FACT 100 // 100 Ohm sensing resistor
 #define CURR_MAX_UAMP 10000 // 10 mA max. 
 
 #endif /* APP_HARDWARE_H_ */

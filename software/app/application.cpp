@@ -2,7 +2,7 @@
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
 #include "ads101x.h"
-#include "dac101c085.h"
+#include "excitation_light.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
@@ -13,9 +13,7 @@
 static const int HUB_PERIOD = 5;
 static const int ADC_TIMEBASE = 250;
 static const int ADC_PERIOD = 5;
-static const uint8_t ADC_ADDRESS = 0x48;
-static const uint8_t DAC_ADDRESS = 0xC;
-
+//static const uint8_t ADC_ADDRESS = 0x48;
 
 using namespace rijnfel;
 
@@ -24,9 +22,10 @@ void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
 void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway);
 
 Timer procTimer;
+Timer rectangleTimer;
 ads::cADS101x adc(0, ADC_ADDRESS);
 uint8_t channel = 0;
-dac::cDAC101C085 mydac(1, DAC_ADDRESS);
+light::cExcitationLight mylight;
 
 cSensorHub hub(HUB_PERIOD);
 
@@ -84,11 +83,8 @@ void init() {
 
 	//procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 	//procTimer.initializeMs(5000, SettingsTest).start();
-	//mydac.CheckDev();
-	//Serial.println(mydac.ReadSettings());
-	Serial.println(mydac.ChangeSettings(dac::eOpMode::NORMAL, 1023));
-	Serial.println(mydac.ReadSettings());
-
+	mylight.SetCurrent(5000);
+	mylight.RectangleUpdate();	
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],

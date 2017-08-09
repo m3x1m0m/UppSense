@@ -30,12 +30,12 @@ class cExcitationLight
 public:
 	cExcitationLight(); // Constructor
 	~cExcitationLight(); // Destructor
-	uint8_t setCurrent(uint16_t microamp);
-	uint8_t rectangleUpdate();
+	uint8_t SetCurrent(uint16_t microamp);
+	uint8_t RectangleUpdate();
 private:
 	dac::cDAC101C085 *m_DAC;
 	uint8_t m_rectangleStatus;
-	uint16_t m_DAC_Rect_High;
+	uint16_t m_DACRectHigh;
 };
 
 }
