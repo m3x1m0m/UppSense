@@ -69,14 +69,14 @@ void cWebInterface::OnRefresh(HttpRequest &request, HttpResponse &response) {
 	JsonObjectStream* stream = new JsonObjectStream();
 	JsonObject& json = stream->getRoot();
 
-	json["adc_0"] = m_adc_value[0];
-	json["adc_1"] = m_adc_value[1];
+	json["adc_1"] = m_adc_value[0];
+	json["adc_2"] = m_adc_value[1];
 #ifdef REV_1
-	json["adc_2"] = m_adc_value[3];
-	json["adc_3"] = m_adc_value[2];
-#else
-	json["adc_2"] = m_adc_value[2];
 	json["adc_3"] = m_adc_value[3];
+	json["adc_4"] = m_adc_value[2];
+#else
+	json["adc_3"] = m_adc_value[2];
+	json["adc_4"] = m_adc_value[3];
 #endif
 
 	response.sendJsonObject(stream);
