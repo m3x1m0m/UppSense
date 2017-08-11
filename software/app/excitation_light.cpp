@@ -33,7 +33,7 @@ cExcitationLight::~cExcitationLight()
 //-------------------------------------setCurrent-----------------------------------------------------------------------------
 uint8_t cExcitationLight::SetCurrent(uint16_t microamp)
 {	
-	uint16_t new_DACRectHigh = 0 
+	uint16_t new_DACRectHigh = 0; 
 	if(microamp < CURR_MAX_UAMP)
 	{
 		new_DACRectHigh = microamp/R_SENSE_DIV_FACT;
@@ -47,7 +47,7 @@ uint8_t cExcitationLight::SetCurrent(uint16_t microamp)
 //-------------------------------------rectangleUpdate------------------------------------------------------------------------
 uint8_t cExcitationLight::RectangleUpdate()
 {
-	m_rectangleStatus ? m_DAC->ChangeSettings(dac::eOpMode::NORMAL, 0) : m_DAC->ChangeSettings(dac::eOpMode::NORMAL, m_DAC_Rect_High);
+	m_rectangleStatus ? m_DAC->ChangeSettings(dac::eOpMode::NORMAL, 0) : m_DAC->ChangeSettings(dac::eOpMode::NORMAL, m_DACRectHigh);
 	m_rectangleStatus ^= 0xFF;
 }
 

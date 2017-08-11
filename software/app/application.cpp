@@ -2,6 +2,7 @@
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
 #include "ads101x.h"
+#include "hardware.h"
 #include "excitation_light.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
@@ -13,7 +14,7 @@
 static const int HUB_PERIOD = 5;
 static const int ADC_TIMEBASE = 250;
 static const int ADC_PERIOD = 5;
-static const uint8_t ADC_ADDRESS = 0x48;
+//static const uint8_t ADC_ADDRESS = 0x48;
 
 using namespace rijnfel;
 
@@ -94,9 +95,9 @@ void init() {
 	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
-	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	//procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 	//procTimer.initializeMs(1000, AdcTest).start();
-	//procTimer.initializeMs(5000, SettingsTest).start();
+	procTimer.initializeMs(5000, SettingsTest).start();
 	mylight.SetCurrent(5000);
 	mylight.RectangleUpdate();	
 }
