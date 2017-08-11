@@ -2,19 +2,13 @@
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
 #include "ads101x.h"
-#include "hardware.h"
+#include <hardware.h>
 #include "excitation_light.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
 #include "web_interface.h"
 #include <stdint.h>
-#define LED_PIN 2 // GPIO2
-
-static const int HUB_PERIOD = 5;
-static const int ADC_TIMEBASE = 250;
-static const int ADC_PERIOD = 5;
-//static const uint8_t ADC_ADDRESS = 0x48;
 
 using namespace rijnfel;
 
