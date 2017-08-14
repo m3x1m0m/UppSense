@@ -13,9 +13,9 @@
 
 //-------------------------------------Libraries------------------------------------------------------------------------------
 #include <stdint.h>
+#include "defines.h"
 
 //-------------------------------------Defines--------------------------------------------------------------------------------
-#define DEBUG_LEVEL 1 // 1 a lot debugging output, else rare debugging output
 #define PD_BITS_POS 13 // Position of power down bits
 #define D_BITS_POS 2 // Position of data bits
 

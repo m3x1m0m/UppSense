@@ -12,10 +12,12 @@
 #define APP_HARDWARE_H_
 
 //-------------------------------------I2C ADRESSES---------------------------------------------------------------------------
-static const uint8_t ADC_ADDRESS = 0x48;
-static const uint8_t DAC1_ADDRESS = 0xC;
+static const uint8_t ADC_ADDRESS = 0x49;
+static const uint8_t DAC1_ADDRESS = 0xE;
 
-#define R_SENSE_DIV_FACT 100 // 100 Ohm sensing resistor
-#define CURR_MAX_UAMP 10000 // 10 mA max. 
+static const uint16_t R_SENSE = 100; // 100 Ohm sensing resistor
+static const uint16_t CURR_MAX_UAMP = 10000; // 10 mA max. 
+static const uint16_t VREF_DAC = 3300; // in mV
+static const uint16_t RESOLUTION_DAC = 1024;
 
 #endif /* APP_HARDWARE_H_ */

@@ -32,6 +32,7 @@ public:
 	~cExcitationLight(); // Destructor
 	uint8_t SetCurrent(uint16_t microamp);
 	uint8_t RectangleUpdate();
+	uint8_t DeactivateLED();
 private:
 	dac::cDAC101C085 *m_DAC;
 	uint8_t m_rectangleStatus;

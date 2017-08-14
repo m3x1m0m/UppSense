@@ -2,7 +2,7 @@
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
 #include "ads101x.h"
-#include "hardware.h"
+#include "defines.h"
 #include "excitation_light.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
@@ -38,6 +38,11 @@ void SettingsTest() {
 	}
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 	Serial.printf("Settings: %d\n\r", adc.GetSettings());
+}
+
+void GenerateRectangle()
+{
+	mylight.RectangleUpdate();	
 }
 
 void AdcTest() {
@@ -78,6 +83,7 @@ void init() {
 
 	//WDT.enable(false);
 	pinMode(LED_PIN, OUTPUT);
+	digitalWrite(LED_PIN, 1);
 	adc.SetMux(ads::eInputMux::AIN_0);
 	adc.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
 	adc.SetGain(ads::eGainAmplifier::FSR_4_096);
@@ -95,11 +101,13 @@ void init() {
 	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
-	//procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 	//procTimer.initializeMs(1000, AdcTest).start();
-	procTimer.initializeMs(5000, SettingsTest).start();
-	mylight.SetCurrent(5000);
-	mylight.RectangleUpdate();	
+	//procTimer.initializeMs(5000, SettingsTest).start();
+	mylight.SetCurrent(1000);
+	//mylight.DeactivateLED();
+	//procTimer.initializeUs(2500, GenerateRectangle).start();
+
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
