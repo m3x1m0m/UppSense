@@ -89,11 +89,11 @@ void init() {
 	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
-	//procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 	//procTimer.initializeMs(1000, AdcTest).start();
-	procTimer.initializeMs(5000, SettingsTest).start();
-	mylight.SetCurrent(5000);
-	mylight.RectangleUpdate();	
+	//procTimer.initializeMs(5000, SettingsTest).start();
+	//mylight.SetCurrent(5000);
+	//mylight.RectangleUpdate();	
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],

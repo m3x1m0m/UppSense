@@ -40,6 +40,8 @@ public:
 public:
 	void OnIndex(HttpRequest &request, HttpResponse &response);
 	void OnRefresh(HttpRequest &request, HttpResponse &response);
+	void OnConfiguration_json(HttpRequest &request, HttpResponse &response);	
+	void OnConfiguration(HttpRequest &request, HttpResponse &response);
 private:
 	bool m_serverStarted;
 	int32_t m_adc_value[4];

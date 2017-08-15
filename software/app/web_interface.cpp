@@ -23,6 +23,14 @@ static void onRefresh(HttpRequest &request, HttpResponse &response) {
 	cWebInterface::GetInstance()->OnRefresh(request, response);
 }
 
+static void onConfiguration(HttpRequest &request, HttpResponse &response) {
+	cWebInterface::GetInstance()->OnConfiguration(request, response);
+}
+
+static void onConfiguration_json(HttpRequest &request, HttpResponse &response) {
+	cWebInterface::GetInstance()->OnConfiguration_json(request, response);
+}
+
 cWebInterface::cWebInterface() :
 		m_serverStarted(false) {
 	for (int i = 0; i < 4; i++) {
@@ -50,6 +58,8 @@ void cWebInterface::Start() {
 		return;
 	server.addPath("/", onIndex);
 	server.addPath("/state", onRefresh);
+	server.addPath("/config", onConfiguration);
+	server.addPath("/config.json", onConfiguration_json);
 	server.setDefaultHandler(onFile);
 	server.listen(80);
 }
@@ -118,6 +128,74 @@ void cWebInterface::UpdateTemp(cDoubleBuffer<uint32_t>& adcBuffer) {
 cWebInterface::~cWebInterface() {
 	// TODO Auto-generated destructor stub
 }
+
+void cWebInterface::OnConfiguration(HttpRequest &request, HttpResponse &response)
+{
+
+	if (request.method == HTTP_POST)
+	{
+		debugf("Update config");
+		// Update config
+		if (request.getBody() == NULL)
+		{
+			debugf("NULL bodyBuf");
+			return;
+		}
+		else
+		{
+			StaticJsonBuffer<200> jsonBuffer;
+			JsonObject& root = jsonBuffer.parseObject(request.getBody());
+			//root.prettyPrintTo(Serial); //Uncomment it for debuging
+
+			/* if (root["StaSSID"].success()) // Settings
+			{
+				uint8_t PrevStaEnable = ActiveConfig.StaEnable;
+
+				ActiveConfig.StaSSID = String((const char *)root["StaSSID"]);
+				ActiveConfig.StaPassword = String((const char *)root["StaPassword"]);
+				ActiveConfig.StaEnable = root["StaEnable"];
+
+				if (PrevStaEnable && ActiveConfig.StaEnable)
+				{
+					WifiStation.enable(true);
+					WifiAccessPoint.enable(false);
+					WifiStation.config(ActiveConfig.StaSSID, ActiveConfig.StaPassword);
+				}
+				else if (ActiveConfig.StaEnable)
+				{
+					WifiStation.enable(true, true);
+					WifiAccessPoint.enable(false, true);
+					WifiStation.config(ActiveConfig.StaSSID, ActiveConfig.StaPassword);
+				}
+				else
+				{
+					WifiStation.enable(false, true);
+					WifiAccessPoint.enable(true, true);
+					WifiAccessPoint.config("TyTherm", "ENTERYOURPASSWD", AUTH_WPA2_PSK);
+				}
+			}*/
+		}
+		//saveConfig(ActiveConfig);
+	}
+	else
+	{
+		response.setCache(86400, true); // It's important to use cache for better performance.
+		response.sendFile("config.html");
+	}
+}
+
+void cWebInterface::OnConfiguration_json(HttpRequest &request, HttpResponse &response)
+{
+	JsonObjectStream* stream = new JsonObjectStream();
+	JsonObject& json = stream->getRoot();
+
+	json["StaSSID"] = 22;
+	json["StaPassword"] = 23;
+	json["StaEnable"] = 24;
+
+	response.sendDataStream(stream, MIME_JSON);
+}
+
 
 } /* namespace rijnfel */
 
