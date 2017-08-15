@@ -37,5 +37,6 @@ out/
 
 # Individual Setting
 Makefile-user.mk
+documentation/
 
 # End of https://www.gitignore.io/api/c++

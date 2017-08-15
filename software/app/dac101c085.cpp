@@ -27,7 +27,7 @@ cDAC101C085::~cDAC101C085()
 {}
 
 //-------------------------------------checkDev-------------------------------------------------------------------------------
-void cDAC101C085::CheckDev()
+uint8_t cDAC101C085::CheckDev()
 {
 	// Vars
 	byte error = 0;
@@ -39,7 +39,7 @@ void cDAC101C085::CheckDev()
 	#endif
 	Wire.beginTransmission(m_address);
 	error = Wire.endTransmission();
-	I2CError(error); // Pass to error parser
+	return I2CError(error); // Pass to error parser
 }
 
 //-------------------------------------changeSettings-------------------------------------------------------------------------

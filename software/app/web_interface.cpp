@@ -138,6 +138,7 @@ void cWebInterface::OnConfiguration(HttpRequest &request, HttpResponse &response
 		// Update config
 		if (request.getBody() == NULL)
 		{
+			Serial.println(request.getPostParameter("StaSSID"));
 			debugf("NULL bodyBuf");
 			return;
 		}
