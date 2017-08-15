@@ -60,18 +60,35 @@ void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 }
 
+void ready()
+{
+		debugf("READY!");
+
+		// If AP is enabled:
+		debugf("AP. ip: %s mac: %s", WifiAccessPoint.getIP().toString().c_str(), WifiAccessPoint.getMAC().c_str());
+}
+
 void init() {
 	spiffs_mount();
 	Serial.begin(460800);
 	system_update_cpu_freq(SYS_CPU_160MHZ);
 	wifi_set_sleep_type(NONE_SLEEP_T);
+
+	System.onReady(ready);
+
+	WifiAccessPoint.enable(true);	
+	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
+	WifiAccessPoint.config("UppSense Photometer", "Sexy", AUTH_WPA2_PSK, false, 3, 200);
+
 	//scl, sda
 	Wire.pins(4, 5);
 	Wire.begin();
 	//SET higher CPU freq & disable wifi sleep
 
 	//WDT.enable(false);
+	// Turn off LED for measurements
 	pinMode(LED_PIN, OUTPUT);
+	digitalWrite(LED_PIN, 1);
 	adc.SetMux(ads::eInputMux::AIN_0);
 	adc.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
 	adc.SetGain(ads::eGainAmplifier::FSR_4_096);
@@ -85,8 +102,6 @@ void init() {
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
-	/*	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
-	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->Start();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();

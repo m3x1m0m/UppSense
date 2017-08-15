@@ -19,7 +19,7 @@ namespace dac {
 
 //-------------------------------------Constructor----------------------------------------------------------------------------
 cDAC101C085::cDAC101C085(uint8_t i_number, uint8_t i_address):
-	m_number(i_number), m_address(i_address)
+	m_dac_number(i_number), m_address(i_address)
 {}
 
 //-------------------------------------Destructor-----------------------------------------------------------------------------
