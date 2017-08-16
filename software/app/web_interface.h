@@ -103,6 +103,7 @@ public:
 	 * @param i_response
 	 */
 	void OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response);
+	void OnFile(HttpRequest& i_request, HttpResponse& i_response);
 	void OnConfiguration_json(HttpRequest &request, HttpResponse &response);
 	void OnConfiguration(HttpRequest &request, HttpResponse &response);
 protected:

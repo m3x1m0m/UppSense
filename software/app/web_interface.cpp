@@ -8,7 +8,8 @@
 #include "web_interface.h"
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/Network/WebConstants.h>
-
+#include <SmingCore/FileSystem.h>
+#include <third-party/http-parser/http_parser.h>
 namespace rijnfel {
 
 cWebInterface *cWebInterface::s_instance = 0;
@@ -35,7 +36,7 @@ cWebInterface::cWebInterface() :
 		m_adc_value_average[i] = 0;
 	}
 	// Integer requires 8 digits, and one for the comma
-	m_jsonBuffer = new char[RAW_SAMPLES * 8 + RAW_SAMPLES * 2];
+	m_jsonBuffer = new char[1];
 	if (m_jsonBuffer == NULL) {
 		Serial.print("Not enough ram");
 	}
@@ -56,10 +57,15 @@ void onFile(HttpRequest & i_request, HttpResponse & i_response) {
 	}
 }
 
+static void onChannel(HttpRequest & i_request, HttpResponse & i_response) {
+	cWebInterface::GetInstance()->OnFile(i_request, i_response);
+}
+
 void cWebInterface::StartServer() {
 	if (m_serverStarted)
 		return;
 	m_server.addPath("/", onIndex);
+	m_server.addPath("/channel", onChannel);
 	m_server.addPath("/state", onRefresh);
 	m_server.addPath("/config", onConfiguration);
 	m_server.addPath("/config.json", onConfiguration_json);
@@ -91,16 +97,7 @@ void cWebInterface::OnRefresh(HttpRequest & i_request, HttpResponse & i_response
 	json["adc_3"] = m_adc_value_average[2];
 	json["adc_4"] = m_adc_value_average[3];
 #endif
-
-	char * writePos = m_jsonBuffer;
-	for (int sample = 0; sample < m_adc_values_raw_cnt[RAW_CHANNEL]; sample++) {
-		const int pos = sprintf(writePos, "%d,", m_adc_values_raw[RAW_CHANNEL][sample]);
-		writePos = &m_jsonBuffer[pos];
-	}/*
-	 json["raw_adc"] = m_jsonBuffer; //ss.str();
-	 */
 	i_response.sendJsonObject(stream);
-	m_adc_values_raw_cnt[RAW_CHANNEL] = 0;
 }
 
 void cWebInterface::OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response) {
@@ -142,6 +139,24 @@ cWebInterface::~cWebInterface() {
 	// TODO Auto-generated destructor stub
 }
 
+void cWebInterface::OnFile(HttpRequest& i_request, HttpResponse& i_response) {
+	const String name = "Channel1";
+	file_t file = fileOpen(name, eFO_CreateIfNotExist | eFO_ReadWrite);
+
+	int size = m_adc_values_raw_cnt[RAW_CHANNEL];
+	Serial.printf("Size: %d\n\r",size);
+	char buf[12];
+	for (int i = 0; i < 4; i++) {
+		int len = sprintf(buf, "%d,", m_adc_values_raw[RAW_CHANNEL][i]);
+		fileWrite(file, buf, len);
+		fileFlush(file);
+	}
+	m_adc_values_raw_cnt[RAW_CHANNEL] = 0;
+	fileClose(file);
+	i_response.setCache(86400, true); // It's important to use cache for better performance.
+	i_response.sendFile(name);
+}
+
 void cWebInterface::ResetRawValues() {
 	for (int channel = 0; channel < 4; channel++) {
 		for (int sample = 0; sample < 1000; sample++) {
@@ -152,7 +167,7 @@ void cWebInterface::ResetRawValues() {
 
 void cWebInterface::OnConfiguration(HttpRequest &request, HttpResponse &response) {
 
-	if (strcmp(request.getRequestMethod().c_str(), RequestMethod::POST) == 0) {
+	if (request.method == http_method::HTTP_POST) {
 		//debugf("Update config");
 		// Update config
 		if (request.getBody() == NULL) {
@@ -207,7 +222,7 @@ void cWebInterface::OnConfiguration_json(HttpRequest &request, HttpResponse &res
 	json["StaPassword"] = 23;
 	json["StaEnable"] = 24;
 
-	response.sendDataStream(stream, ContentType::JSON);
+	response.sendJsonObject(stream);
 }
 
 } /* namespace rijnfel */

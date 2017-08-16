@@ -12,8 +12,7 @@
 
 using namespace rijnfel;
 
-void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
-		uint8_t reason);
+void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason);
 void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway);
 
 Timer procTimer;
@@ -41,11 +40,11 @@ void AdcTest() {
 	}
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 	ads::ads_sample_t sample = adc.RawSample();
-	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample,
-			adc.ConvertSample(sample), sample.mux);
+	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample, adc.ConvertSample(sample), sample.mux);
 }
 
 void updateSensorHub() {
+	WDT.alive();
 	hub.Update();
 }
 
@@ -53,19 +52,18 @@ void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
 	channel++;
 	if (channel > 3) {
 		channel = 0;
-		cWebInterface::GetInstance()->PrintValues();
-		Serial.printf("Settings: %d\n\r", adc.GetSettings());
+		//cWebInterface::GetInstance()->PrintValues();
 	}
 	cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 }
 
-void ready()
-{
-		debugf("READY!");
+void ready() {
+	WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);
+	//debugf("READY!");
 
-		// If AP is enabled:
-		debugf("AP. ip: %s mac: %s", WifiAccessPoint.getIP().toString().c_str(), WifiAccessPoint.getMAC().c_str());
+	// If AP is enabled:
+	//debugf("AP. ip: %s mac: %s", WifiAccessPoint.getIP().toString().c_str(), WifiAccessPoint.getMAC().c_str());
 }
 
 void init() {
@@ -76,16 +74,13 @@ void init() {
 
 	System.onReady(ready);
 
-	WifiAccessPoint.enable(true);	
-	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
-	WifiAccessPoint.config("UppSense Photometer", "Sexy", AUTH_WPA2_PSK, false, 3, 200);
+	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));
+	WifiAccessPoint.enable(true);
 
-	//scl, sda
 	Wire.pins(4, 5);
 	Wire.begin();
 	//SET higher CPU freq & disable wifi sleep
 
-	//WDT.enable(false);
 	// Turn off LED for measurements
 	pinMode(LED_PIN, OUTPUT);
 	digitalWrite(LED_PIN, 1);
@@ -96,14 +91,11 @@ void init() {
 	hub.SetAdc(&adc);
 
 	cSensorSettings<ads::ads_sample_t> * adcSettings;
-	adcSettings = new cSensorSettings<ads::ads_sample_t>(&adcCallback,
-			ADC_TIMEBASE, ADC_PERIOD);
+	adcSettings = new cSensorSettings<ads::ads_sample_t>(&adcCallback, ADC_TIMEBASE, ADC_PERIOD);
 	hub.SetAdcSettings(adcSettings);
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
-	/*	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
-	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
 	cWebInterface::GetInstance()->StartServer();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
@@ -113,8 +105,7 @@ void init() {
 	//mylight.RectangleUpdate();	
 }
 
-void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6],
-		uint8_t reason) {
+void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason) {
 	if (!WifiAccessPoint.isEnabled()) {
 		WifiStation.disconnect();
 		WifiAccessPoint.enable(true);
