@@ -102,7 +102,9 @@ void init() {
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
-	cWebInterface::GetInstance()->Start();
+	/*	WifiAccessPoint.setIP(IPAddress(10, 0, 0, 1));		//TODO
+	 WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);*/
+	cWebInterface::GetInstance()->StartServer();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 	//procTimer.initializeMs(1000, AdcTest).start();
