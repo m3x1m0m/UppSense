@@ -7,7 +7,10 @@ $( document ).ready(function() {
 			document.getElementById('adc_3').textContent = data.adc_3;
 			document.getElementById('adc_4').textContent = data.adc_4;
 			
-			setTimeout(worker, 1000);
+			//var text = document.getElementById('raw_adc');
+			//text.value += data.raw_adc; 
+			
+			setTimeout(worker, 500);
 		});
 	})();
 });

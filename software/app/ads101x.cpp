@@ -74,27 +74,34 @@ bool cADS101x::IsReady(void) {
 }
 
 uint16_t cADS101x::CreateSettings(uint8_t start) {
-	return OS_BIT(start) | MUX_BIT(m_mux) | PGA_BIT(m_gain)
-			| MODE_BIT(m_oneShot) | DR_BIT(m_sampleSpeed);
+	return OS_BIT(start) | MUX_BIT(m_mux) | PGA_BIT(m_gain) | MODE_BIT(m_oneShot) | DR_BIT(m_sampleSpeed);
 }
 
 void cADS101x::WriteSettings(uint16_t i_settings) {
+#ifdef DUMMY_ADC
+	return;
+#else
 	Wire.beginTransmission(m_address);
 	Wire.write((uint8_t) REGISTER_CONFIG);
 	Wire.write((uint8_t) (i_settings >> 8));
 	Wire.write((uint8_t) (i_settings & 0xFF));
 	int8_t ret = Wire.endTransmission();
 	if (ret) {
-		Serial.printf("Err writing settings ret: %d\n\r", ret);
+		//Serial.printf("Err writing settings ret: %d\n\r", ret);
 	}
+#endif
 }
 
 uint16_t cADS101x::ReadRegister(uint8_t i_register) {
+#ifdef DUMMY_ADC
+	return 1;
+#else
 	Wire.beginTransmission(m_address);
 	Wire.write(i_register);
 	Wire.endTransmission();
 	Wire.requestFrom(m_address, static_cast<uint8_t>(2));
 	return ((Wire.read() << 8) | (Wire.read()));
+#endif
 }
 
 void cADS101x::OneShot(void) {
@@ -105,7 +112,11 @@ void cADS101x::OneShot(void) {
 }
 
 uint16_t cADS101x::GetSettings(void) {
-	return ReadRegister(REGISTER_CONFIG);;
+#ifdef DUMMY_ADC
+	return CreateSettings(0);
+#else
+	return ReadRegister(REGISTER_CONFIG);
+#endif
 }
 ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 	//Raw sample is in (parts of) millivolts, go to micro to remove fractions
@@ -140,12 +151,20 @@ ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 }
 
 ads_sample_t cADS101x::RawSample(void) {
+#ifdef DUMMY_ADC
+	ads_sample_t sample;
+	sample.gain = m_gain;
+	sample.mux = m_mux;
+	sample.rawSample = m_counter++;
+	return sample;
+#else
 	OneShot();
 	ads_sample_t sample;
 	sample.rawSample = ReadRegister(REGISTER_CONVERSION);
 	sample.gain = m_gain;
 	sample.mux = m_mux;
 	m_latestSample = sample;
+#endif
 	return sample;
 }
 
@@ -154,6 +173,9 @@ void cADS101x::SetDefaults(void) {
 	m_gain = eGainAmplifier::FSR_2_048;
 	m_sampleSpeed = eSampleSpeed::SPS_1600;
 	m_oneShot = true;
+#ifdef DUMMY_ADC
+	m_counter = 0;
+#endif
 }
 
 }

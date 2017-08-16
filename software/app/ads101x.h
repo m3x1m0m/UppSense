@@ -9,6 +9,7 @@
 #define APP_ADS101X_H_
 
 #include <stdint.h>
+#include "hardware.h"
 #include "adc.h"
 
 namespace rijnfel {
@@ -65,6 +66,10 @@ private:
 	enum eInputMux m_mux;
 	enum eGainAmplifier m_gain;
 	enum eSampleSpeed m_sampleSpeed;
+private:
+#ifdef DUMMY_ADC
+	uint16_t m_counter;
+#endif
 };
 }
 }
