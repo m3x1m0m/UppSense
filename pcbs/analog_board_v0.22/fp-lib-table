@@ -9,5 +9,4 @@
   (lib (name Vias)(type KiCad)(uri "$(KIPRJMOD)/Vias.pretty")(options "")(descr ""))
   (lib (name "Guard Connector")(type KiCad)(uri "$(KIPRJMOD)/GuardConnector.pretty")(options "")(descr ""))
   (lib (name WithoutSilkscreen)(type KiCad)(uri "$(KIPRJMOD)/WithoutSilkscreen.pretty")(options "")(descr ""))
-  (lib (name Logo)(type KiCad)(uri "$(KIPRJMOD)/Logo.pretty")(options "")(descr ""))
 )

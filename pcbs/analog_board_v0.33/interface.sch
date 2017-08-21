@@ -33,7 +33,7 @@ LIBS:icl7660
 LIBS:ada4530-1
 LIBS:ada4522-2
 LIBS:ltc6268
-LIBS:analog_board_v0.22-cache
+LIBS:analog_board_v0.33-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -49,10 +49,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CONN_02X03 J1
+L CONN_02X03 J4
 U 1 1 5954E6D0
 P 6125 3000
-F 0 "J1" H 6125 3200 50  0000 C CNN
+F 0 "J4" H 6125 3200 50  0000 C CNN
 F 1 "CONN_02X03" H 6125 2800 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Angled_2x03_Pitch2.54mm" H 6125 1800 50  0001 C CNN
 F 3 "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf" H 6125 1800 50  0001 C CNN
@@ -73,10 +73,10 @@ ADC4
 Text HLabel 5875 2900 0    60   Output ~ 0
 GND
 $Comp
-L CONN_02X07 J2
+L CONN_02X07 J5
 U 1 1 5954E8F2
 P 6125 3900
-F 0 "J2" H 6125 4300 50  0000 C CNN
+F 0 "J5" H 6125 4300 50  0000 C CNN
 F 1 "CONN_02X07" V 6125 3900 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Angled_2x07_Pitch2.54mm" H 6125 2700 50  0001 C CNN
 F 3 "" H 6125 2700 50  0001 C CNN
@@ -99,13 +99,9 @@ DAC2
 NoConn ~ 5875 3700
 NoConn ~ 5875 3800
 NoConn ~ 6375 3700
-Text HLabel 6375 3800 2    60   BiDi ~ 0
-GPIO4
-Text HLabel 6375 3900 2    60   BiDi ~ 0
-GPIO3
-Text HLabel 6375 4000 2    60   BiDi ~ 0
-GPIO2
-Text HLabel 6375 4100 2    60   BiDi ~ 0
-GPIO1
 NoConn ~ 6375 4200
+NoConn ~ 6375 3800
+NoConn ~ 6375 3900
+NoConn ~ 6375 4000
+NoConn ~ 6375 4100
 $EndSCHEMATC
