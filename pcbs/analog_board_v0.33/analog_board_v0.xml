@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/maximilian/UppSense/pcbs/analog_board_v0.33/analog_board_v0.33.sch</source>
+    <date>mån 21 aug 2017 17:07:08</date>
+    <tool>Eeschema 4.0.7-e1-6374~58~ubuntu17.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>SensUs Sensor Board</title>
+        <company>UppSense Heart Failure Diagnostics</company>
+        <rev>v.0.3</rev>
+        <date>2017-08-20</date>
+        <source>analog_board_v0.33.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/sensitiveReadout/" tstamps="/5940AE3E/">
+      <title_block>
+        <title>Sensitive Measurement Part of Analog Board</title>
+        <company>UppSense Heart Failure Diagnostics</company>
+        <rev>v0.3</rev>
+        <date>2017-08-20</date>
+        <source>sensitiveReadout.sch</source>
+        <comment number="1" value="This is another alternative implementation for the analog board version v0.2. "/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/interface/" tstamps="/5954D902/">
+      <title_block>
+        <title>Interface to Backplane</title>
+        <company>UppSense Heart Failure Diagnostics</company>
+        <rev>v0.2</rev>
+        <date>2017-07-05</date>
+        <source>interface.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/highCurrentPart/" tstamps="/59409417/">
+      <title_block>
+        <title>High Current Part of Analog Board</title>
+        <company>UppSense Heart Failure Diagnostics</company>
+        <rev>v0.3</rev>
+        <date>2017-08-20</date>
+        <source>highCurrentPart.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="I2C1">
+      <value>TEST</value>
+      <footprint>Tespoints:TP_SMD_quadr_1mm</footprint>
+      <libsource lib="device" part="TEST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59577F16</tstamp>
+    </comp>
+    <comp ref="I2C2">
+      <value>TEST</value>
+      <footprint>Tespoints:TP_SMD_quadr_1mm</footprint>
+      <libsource lib="device" part="TEST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59578158</tstamp>
+    </comp>
+    <comp ref="TP1">
+      <value>DAC2</value>
+      <footprint>Tespoints:TP_SMD_quadr_1mm</footprint>
+      <libsource lib="device" part="TEST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5957A021</tstamp>
+    </comp>
+    <comp ref="TP2">
+      <value>DAC1</value>
+      <footprint>Tespoints:TP_SMD_quadr_1mm</footprint>
+      <libsource lib="device" part="TEST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>599B1306</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>BPW34</value>
+      <footprint>Photodiodes:BPW34FA_w_Silks</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2046123.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1045425</field>
+      </fields>
+      <libsource lib="device" part="D_Photo"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5940C87D</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>1u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2496946</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5941B3D6</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>100M</value>
+      <footprint>WithoutSilkscreen:R_0805_W_Silks</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2167052.pdf</datasheet>
+      <fields>
+        <field name="Farnell">9236511</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5957D2D0</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>26f</value>
+      <footprint>Embedded Caps:EMBEDDED_CAP_1mm</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5957D3AB</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>10n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1414662</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5941B3E6</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5941B3DE</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>ADA4522-2ARZ</value>
+      <footprint>SMD_Packages:SOIC-8-N</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2171839.pdf</datasheet>
+      <fields>
+        <field name="Farnell">2505560</field>
+      </fields>
+      <libsource lib="ada4522-2" part="ADA4522-2"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958032B</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">9237496</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>59580DE0</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>33k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2078965</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958158C</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">9237496</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>59582471</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>1u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2496946</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595860B5</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>10n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1414662</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595860C8</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595860CF</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958B68A</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>2.4k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2502703</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958B7E0</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958E511</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>2.4k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2502703</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5958E518</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>CONN_01X01</value>
+      <footprint>Guard Connector:GuardConnector</footprint>
+      <libsource lib="conn" part="CONN_01X01"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595A39BE</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>1u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2496946</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595E790D</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>10n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1414662</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595E791A</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595E7921</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>100k</value>
+      <footprint>WithoutSilkscreen:R_0805_W_Silks</footprint>
+      <fields>
+        <field name="Farnell">2447551</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595EB276</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1k</value>
+      <footprint>WithoutSilkscreen:R_0805_W_Silks</footprint>
+      <fields>
+        <field name="Farnell">9237496</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595EB575</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">9237755</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>59997564</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5999D34E</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>5999D355</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>LTC6268IS8#PBF</value>
+      <footprint>WithoutSilkscreen:SOIC-8-N-W-Silks</footprint>
+      <datasheet>http://www.farnell.com/datasheets/1865072.pdf</datasheet>
+      <fields>
+        <field name="Farnell">2464182</field>
+      </fields>
+      <libsource lib="ltc6268" part="LTC6268"/>
+      <sheetpath names="/sensitiveReadout/" tstamps="/5940AE3E/"/>
+      <tstamp>595E1925</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>CONN_02X03</value>
+      <footprint>Pin_Headers:Pin_Header_Angled_2x03_Pitch2.54mm</footprint>
+      <datasheet>http://suddendocs.samtec.com/catalog_english/tsw_th.pdf</datasheet>
+      <fields>
+        <field name="Samtec">TSW-103-08-G-D-RA</field>
+      </fields>
+      <libsource lib="conn" part="CONN_02X03"/>
+      <sheetpath names="/interface/" tstamps="/5954D902/"/>
+      <tstamp>5954E6D0</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>CONN_02X07</value>
+      <footprint>Pin_Headers:Pin_Header_Angled_2x07_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Samtec">TSW-107-08-G-D-RA</field>
+      </fields>
+      <libsource lib="conn" part="CONN_02X07"/>
+      <sheetpath names="/interface/" tstamps="/5954D902/"/>
+      <tstamp>5954E8F2</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1576507</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5940A522</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>BPW34</value>
+      <footprint>Photodiodes:BPW34FA</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2046123.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1045425</field>
+      </fields>
+      <libsource lib="device" part="D_Photo"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5940A54D</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>LED</value>
+      <footprint>LEDs:LED_D5.0mm</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5940A5C4</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>100R</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1632456</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5940A5D3</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>MMBT3904</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23</footprint>
+      <datasheet>https://www.fairchildsemi.com/datasheets/MM/MMBT3904.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1757935</field>
+      </fields>
+      <libsource lib="transistors" part="MMBT3904"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5940A5EB</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>1u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">2496946</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>594122D8</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>594122E0</tstamp>
+    </comp>
+    <comp ref="C15">
+      <value>10n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1414662</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>594122E8</tstamp>
+    </comp>
+    <comp ref="C16">
+      <value>100n</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">499687</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5956BF7A</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>LM358</value>
+      <footprint>SMD_Packages:SOIC-8-N</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2000357.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1564331</field>
+      </fields>
+      <libsource lib="linear" part="LM358"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5992FDFB</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">9237755</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>599338A5</tstamp>
+    </comp>
+    <comp ref="C17">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59935E81</tstamp>
+    </comp>
+    <comp ref="C18">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59935E9B</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>ICL7660S</value>
+      <footprint>SMD_Packages:SOIC-8-N</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2059962.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1561969</field>
+      </fields>
+      <libsource lib="icl7660" part="ICL7660S"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59935ED1</tstamp>
+    </comp>
+    <comp ref="C19">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5993721F</tstamp>
+    </comp>
+    <comp ref="C20">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59937E8F</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>ICL7660S</value>
+      <footprint>SMD_Packages:SOIC-8-N</footprint>
+      <datasheet>http://www.farnell.com/datasheets/2059962.pdf</datasheet>
+      <fields>
+        <field name="Farnell">1561969</field>
+      </fields>
+      <libsource lib="icl7660" part="ICL7660S"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59937EB1</tstamp>
+    </comp>
+    <comp ref="C22">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59937EDA</tstamp>
+    </comp>
+    <comp ref="C21">
+      <value>10u</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <fields>
+        <field name="Farnell">1833812</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>59938428</tstamp>
+    </comp>
+    <comp ref="J7">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5993B030</tstamp>
+    </comp>
+    <comp ref="J9">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5993B101</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5993FBA5</tstamp>
+    </comp>
+    <comp ref="J8">
+      <value>CONN_01X02</value>
+      <footprint>Samtec Connectors:Samtec-PHT-1-2-01-L-S</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/highCurrentPart/" tstamps="/59409417/"/>
+      <tstamp>5993FBAB</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="ada4522-2" part="ADA4522-2">
+      <description>Ompamp withlow input offset voltage</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ADA4522-2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="~" type="input"/>
+        <pin num="3" name="~" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="~" type="input"/>
+        <pin num="6" name="~" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X01">
+      <description>Connector, single row, 01x01, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X*</fp>
+        <fp>Pin_Header_Angled_1X*</fp>
+        <fp>Socket_Strip_Straight_1X*</fp>
+        <fp>Socket_Strip_Angled_1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X02">
+      <description>Connector, single row, 01x02, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X*</fp>
+        <fp>Pin_Header_Angled_1X*</fp>
+        <fp>Socket_Strip_Straight_1X*</fp>
+        <fp>Socket_Strip_Angled_1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_02X03">
+      <description>Connector, double row, 02x03, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_2X*</fp>
+        <fp>Pin_Header_Angled_2X*</fp>
+        <fp>Socket_Strip_Straight_2X*</fp>
+        <fp>Socket_Strip_Angled_2X*</fp>
+        <fp>IDC_Header_Straight_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_02X03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_02X07">
+      <description>Connector, double row, 02x07, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_2X*</fp>
+        <fp>Pin_Header_Angled_2X*</fp>
+        <fp>Socket_Strip_Straight_2X*</fp>
+        <fp>Socket_Strip_Angled_2X*</fp>
+        <fp>IDC_Header_Straight_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_02X07</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+        <pin num="8" name="P8" type="passive"/>
+        <pin num="9" name="P9" type="passive"/>
+        <pin num="10" name="P10" type="passive"/>
+        <pin num="11" name="P11" type="passive"/>
+        <pin num="12" name="P12" type="passive"/>
+        <pin num="13" name="P13" type="passive"/>
+        <pin num="14" name="P14" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Photo">
+      <description>Photodiode</description>
+      <footprints>
+        <fp>*photodiode*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Photo</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="icl7660" part="ICL7660S">
+      <footprints>
+        <fp>DIP8*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ICL7660S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="BOOST" type="input"/>
+        <pin num="2" name="CAP+" type="output"/>
+        <pin num="3" name="GND" type="input"/>
+        <pin num="4" name="CAP-" type="output"/>
+        <pin num="5" name="Vout" type="power_out"/>
+        <pin num="6" name="LV" type="input"/>
+        <pin num="7" name="OSC" type="input"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <description>LED generic</description>
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="linear" part="LM358">
+      <aliases>
+        <alias>LMC6062</alias>
+        <alias>LMC6082</alias>
+        <alias>LM358N</alias>
+        <alias>TL072</alias>
+        <alias>TL082</alias>
+        <alias>NE5532</alias>
+        <alias>4558</alias>
+        <alias>LMV358</alias>
+        <alias>TS912</alias>
+        <alias>TLC272</alias>
+        <alias>MCP602</alias>
+      </aliases>
+      <description>Dual Op amp (low power)</description>
+      <docs>ns/lm158.pdf</docs>
+      <footprints>
+        <fp>SOIC*Pitch1.27mm*</fp>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>TSSOP*Pitch0.65mm*</fp>
+        <fp>TO-99*</fp>
+        <fp>DSBGA*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM358</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="ltc6268" part="LTC6268">
+      <description>Ompamp withlow input offset voltage</description>
+      <docs>http://www.analog.com/media/en/technical-documentation/data-sheets/ADA4530-1.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LTC6268</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="NotConnected"/>
+        <pin num="2" name="~" type="output"/>
+        <pin num="3" name="~" type="input"/>
+        <pin num="4" name="~" type="NotConnected"/>
+        <pin num="5" name="V-" type="power_in"/>
+        <pin num="6" name="~" type="output"/>
+        <pin num="7" name="V+" type="power_in"/>
+        <pin num="8" name="SHDN" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="transistors" part="MMBT3904">
+      <description>40V Vce, 0.2A Ic, NPN, Small Signal Transistor, SOT-23</description>
+      <docs>http://www.nxp.com/documents/data_sheet/MMBT3904.pdf</docs>
+      <footprints>
+        <fp>SOT-23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">MMBT3904</field>
+        <field name="Footprint">TO_SOT_Packages_SMD:SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="input"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="TEST">
+      <description>Testpoint, connection for test equipment</description>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TEST</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>/usr/share/kicad/library/conn.lib</uri>
+    </library>
+    <library logical="icl7660">
+      <uri>/home/maximilian/UppSense/pcbs/analog_board_v0.33/schematicSymb/icl7660.lib</uri>
+    </library>
+    <library logical="ltc6268">
+      <uri>/home/maximilian/UppSense/pcbs/analog_board_v0.2/schematicSymb/ltc6268.lib</uri>
+    </library>
+    <library logical="ada4522-2">
+      <uri>/home/maximilian/UppSense/pcbs/analog_board_v0.33/schematicSymb/ada4522-2.lib</uri>
+    </library>
+    <library logical="linear">
+      <uri>/usr/share/kicad/library/linear.lib</uri>
+    </library>
+    <library logical="transistors">
+      <uri>/usr/share/kicad/library/transistors.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3">
+      <node ref="C10" pin="1"/>
+      <node ref="J7" pin="1"/>
+      <node ref="C19" pin="1"/>
+      <node ref="U3" pin="8"/>
+      <node ref="J5" pin="13"/>
+      <node ref="U4" pin="8"/>
+      <node ref="C11" pin="1"/>
+      <node ref="U4" pin="1"/>
+      <node ref="C13" pin="1"/>
+      <node ref="C15" pin="1"/>
+      <node ref="U2" pin="8"/>
+      <node ref="C14" pin="1"/>
+      <node ref="C9" pin="1"/>
+    </net>
+    <net code="2" name="/highCurrentPart/V_SENS_POS">
+      <node ref="C6" pin="1"/>
+      <node ref="U1" pin="7"/>
+      <node ref="C4" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="J9" pin="1"/>
+      <node ref="J9" pin="2"/>
+    </net>
+    <net code="3" name="GND">
+      <node ref="C21" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="R10" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="J4" pin="1"/>
+      <node ref="J6" pin="1"/>
+      <node ref="D3" pin="2"/>
+      <node ref="C22" pin="2"/>
+      <node ref="J1" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="U3" pin="5"/>
+      <node ref="U3" pin="4"/>
+      <node ref="U5" pin="3"/>
+      <node ref="U5" pin="6"/>
+      <node ref="J5" pin="11"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="R11" pin="1"/>
+      <node ref="C4" pin="2"/>
+      <node ref="U2" pin="4"/>
+      <node ref="C1" pin="2"/>
+      <node ref="R5" pin="2"/>
+      <node ref="D1" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C12" pin="1"/>
+      <node ref="C13" pin="2"/>
+      <node ref="U4" pin="5"/>
+      <node ref="R8" pin="2"/>
+      <node ref="C18" pin="2"/>
+      <node ref="C15" pin="2"/>
+      <node ref="C14" pin="2"/>
+    </net>
+    <net code="4" name="/highCurrentPart/V_SENS_NEG">
+      <node ref="C2" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="U1" pin="5"/>
+      <node ref="J8" pin="2"/>
+      <node ref="J8" pin="1"/>
+    </net>
+    <net code="5" name="+5V">
+      <node ref="D2" pin="2"/>
+      <node ref="J4" pin="3"/>
+      <node ref="J4" pin="2"/>
+    </net>
+    <net code="6" name="/interface/ADC2">
+      <node ref="C12" pin="2"/>
+      <node ref="J4" pin="6"/>
+      <node ref="R9" pin="2"/>
+    </net>
+    <net code="7" name="/interface/ADC4">
+      <node ref="R12" pin="2"/>
+      <node ref="U3" pin="7"/>
+      <node ref="J4" pin="5"/>
+      <node ref="C16" pin="2"/>
+    </net>
+    <net code="8" name="/interface/DAC2">
+      <node ref="TP1" pin="1"/>
+      <node ref="J5" pin="2"/>
+    </net>
+    <net code="9" name="Signal">
+      <node ref="R11" pin="2"/>
+      <node ref="J5" pin="1"/>
+      <node ref="TP2" pin="1"/>
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="10" name="/interface/I2C_SCL">
+      <node ref="J5" pin="9"/>
+      <node ref="I2C1" pin="1"/>
+    </net>
+    <net code="11" name="/interface/ADC1">
+      <node ref="R4" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="J4" pin="4"/>
+    </net>
+    <net code="12" name="/interface/I2C_SDA">
+      <node ref="I2C2" pin="1"/>
+      <node ref="J5" pin="7"/>
+    </net>
+    <net code="13" name="Net-(D2-Pad1)">
+      <node ref="D2" pin="1"/>
+      <node ref="Q1" pin="3"/>
+    </net>
+    <net code="14" name="Net-(Q1-Pad2)">
+      <node ref="R10" pin="1"/>
+      <node ref="U3" pin="2"/>
+      <node ref="Q1" pin="2"/>
+    </net>
+    <net code="15" name="Net-(Q1-Pad1)">
+      <node ref="Q1" pin="1"/>
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="16" name="Net-(U4-Pad7)">
+      <node ref="U4" pin="7"/>
+    </net>
+    <net code="17" name="Net-(C17-Pad2)">
+      <node ref="C17" pin="2"/>
+      <node ref="U4" pin="4"/>
+    </net>
+    <net code="18" name="Net-(C17-Pad1)">
+      <node ref="U4" pin="2"/>
+      <node ref="C17" pin="1"/>
+    </net>
+    <net code="19" name="Net-(C16-Pad1)">
+      <node ref="R12" pin="1"/>
+      <node ref="D3" pin="1"/>
+      <node ref="C16" pin="1"/>
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="20" name="1.65V">
+      <node ref="C22" pin="1"/>
+      <node ref="U4" pin="6"/>
+      <node ref="U4" pin="3"/>
+      <node ref="C19" pin="2"/>
+      <node ref="J7" pin="2"/>
+      <node ref="C18" pin="1"/>
+      <node ref="U5" pin="1"/>
+      <node ref="U5" pin="8"/>
+    </net>
+    <net code="21" name="-1.65V">
+      <node ref="C21" pin="1"/>
+      <node ref="J6" pin="2"/>
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="22" name="Net-(U5-Pad7)">
+      <node ref="U5" pin="7"/>
+    </net>
+    <net code="23" name="Net-(C20-Pad2)">
+      <node ref="U5" pin="4"/>
+      <node ref="C20" pin="2"/>
+    </net>
+    <net code="24" name="Net-(C20-Pad1)">
+      <node ref="C20" pin="1"/>
+      <node ref="U5" pin="2"/>
+    </net>
+    <net code="25" name="Net-(R7-Pad1)">
+      <node ref="R8" pin="1"/>
+      <node ref="R7" pin="1"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="26" name="Net-(R5-Pad1)">
+      <node ref="R5" pin="1"/>
+      <node ref="U2" pin="2"/>
+      <node ref="R6" pin="1"/>
+    </net>
+    <net code="27" name="Net-(J2-Pad1)">
+      <node ref="U2" pin="1"/>
+      <node ref="R6" pin="2"/>
+      <node ref="J2" pin="1"/>
+    </net>
+    <net code="28" name="Net-(J2-Pad2)">
+      <node ref="J2" pin="2"/>
+      <node ref="U2" pin="7"/>
+      <node ref="R7" pin="2"/>
+    </net>
+    <net code="29" name="Net-(R1-Pad2)">
+      <node ref="R3" pin="1"/>
+      <node ref="R1" pin="2"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="30" name="Net-(C3-Pad1)">
+      <node ref="R4" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U1" pin="6"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="5"/>
+      <node ref="R3" pin="2"/>
+    </net>
+    <net code="31" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="32" name="Net-(C3-Pad2)">
+      <node ref="U1" pin="2"/>
+      <node ref="D1" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="C3" pin="2"/>
+    </net>
+    <net code="33" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="34" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="35" name="Net-(J3-Pad1)">
+      <node ref="R9" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="36" name="Net-(J5-Pad14)">
+      <node ref="J5" pin="14"/>
+    </net>
+    <net code="37" name="Net-(J5-Pad12)">
+      <node ref="J5" pin="12"/>
+    </net>
+    <net code="38" name="Net-(J5-Pad10)">
+      <node ref="J5" pin="10"/>
+    </net>
+    <net code="39" name="Net-(J5-Pad8)">
+      <node ref="J5" pin="8"/>
+    </net>
+    <net code="40" name="Net-(J5-Pad3)">
+      <node ref="J5" pin="3"/>
+    </net>
+    <net code="41" name="Net-(J5-Pad5)">
+      <node ref="J5" pin="5"/>
+    </net>
+    <net code="42" name="Net-(J5-Pad4)">
+      <node ref="J5" pin="4"/>
+    </net>
+    <net code="43" name="Net-(J5-Pad6)">
+      <node ref="J5" pin="6"/>
+    </net>
+  </nets>
+</export>

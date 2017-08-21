@@ -1,0 +1,50 @@
+Title,SensUs Sensor Board
+Revision,v.0.3
+Date,2017-08-20
+Generated,mån 21 aug 2017 17:07:08
+Company,UppSense Heart Failure Diagnostics
+Comment 1,
+Comment 2,
+Comment 3,
+Comment 4,
+Total Parts,56
+Total Unique Parts,29
+
+
+
+Ref,Qty,Value,Footprint,Farnell,Samtec,
+C1 C2 C11 C13 ,4,1u,Resistors_SMD:R_0805,2496946, 
+C3 ,1,26f,Embedded Caps:EMBEDDED_CAP_1mm, , 
+C4 C5 C8 C10 C12 C14 C16 ,7,100n,Resistors_SMD:R_0805,499687, 
+C6 C7 C9 C15 ,4,10n,Resistors_SMD:R_0805,1414662, 
+C17 C18 C19 C20 C21 C22 ,6,10u,Resistors_SMD:R_0805,1833812, 
+D1 ,1,BPW34,Photodiodes:BPW34FA_w_Silks,1045425, 
+D2 ,1,LED,LEDs:LED_D5.0mm, , 
+D3 ,1,BPW34,Photodiodes:BPW34FA,1045425, 
+IC21 IC22 ,2,TEST,Tespoints:TP_SMD_quadr_1mm, , 
+J1 ,1,CONN_01X01,Guard Connector:GuardConnector, , 
+J2 J3 J6 J7 J8 J9 ,6,CONN_01X02,Samtec Connectors:Samtec-PHT-1-2-01-L-S, , 
+J4 ,1,CONN_02X03,Pin_Headers:Pin_Header_Angled_2x03_Pitch2.54mm, ,TSW-103-08-G-D-RA
+J5 ,1,CONN_02X07,Pin_Headers:Pin_Header_Angled_2x07_Pitch2.54mm, ,TSW-107-08-G-D-RA
+Q1 ,1,MMBT3904,TO_SOT_Packages_SMD:SOT-23,1757935, 
+R1 ,1,100M,WithoutSilkscreen:R_0805_W_Silks,9236511, 
+R2 ,1,1k,WithoutSilkscreen:R_0805_W_Silks,9237496, 
+R3 ,1,100k,WithoutSilkscreen:R_0805_W_Silks,2447551, 
+R4 R9 ,2,2.4k,Resistors_SMD:R_0805,2502703, 
+R5 R8 ,2,1k,Resistors_SMD:R_0805,9237496, 
+R6 R11 ,2,10k,Resistors_SMD:R_0805,9237755, 
+R7 ,1,33k,Resistors_SMD:R_0805,2078965, 
+R10 ,1,100R,Resistors_SMD:R_0805,1632456, 
+R12 ,1,1M,Resistors_SMD:R_0805,1576507, 
+TP1 ,1,DAC2,Tespoints:TP_SMD_quadr_1mm, , 
+TP2 ,1,DAC1,Tespoints:TP_SMD_quadr_1mm, , 
+U1 ,1,LTC6268IS8#PBF,WithoutSilkscreen:SOIC-8-N-W-Silks,2464182, 
+U2 ,1,ADA4522-2ARZ,SMD_Packages:SOIC-8-N,2505560, 
+U3 ,1,LM358,SMD_Packages:SOIC-8-N,1564331, 
+U4 U5 ,2,ICL7660S,SMD_Packages:SOIC-8-N,1561969, 
+
+
+
+
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
+Generated mån 21 aug 2017 17:07:08
