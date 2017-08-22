@@ -155,7 +155,8 @@ ads_sample_t cADS101x::RawSample(void) {
 	ads_sample_t sample;
 	sample.gain = m_gain;
 	sample.mux = m_mux;
-	sample.rawSample = m_counter++;
+	sample.rawSample = m_counter;
+	m_counter += 16;
 	return sample;
 #else
 	OneShot();

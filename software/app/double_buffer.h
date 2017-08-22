@@ -33,12 +33,16 @@ public:
 		m_buf[1] = new BufferType[m_size];
 	}
 
+	void Reset() {
+		m_bufferIndex = !m_bufferIndex;
+		m_writeIndex = 0;
+	}
+
 	bool AddValue(BufferType i_val) {
 		m_buf[m_bufferIndex][m_writeIndex] = i_val;
 		m_writeIndex++;
 		if (m_writeIndex >= m_size) {
-			m_bufferIndex = !m_bufferIndex;
-			m_writeIndex = 0;
+			Reset();
 			return true;
 		}
 		return false;

@@ -9,6 +9,7 @@
 #define APP_SENSOR_SETTINGS_H_
 
 #include "double_buffer.h"
+#include "data_provider.h"
 
 namespace rijnfel {
 //timebase, in miliseconds.
@@ -17,11 +18,14 @@ namespace rijnfel {
 template<typename BufferType>
 class cSensorSettings {
 public:
-	cSensorSettings(void (*i_callback)(cDoubleBuffer<BufferType> & buffer),
-			uint32_t i_timeBase, uint32_t i_period) :
-			m_callback(i_callback), m_periodTimer(0), m_period(i_period), m_buffer(
-					0) {
+	cSensorSettings(uint32_t i_timeBase, uint32_t i_period) :
+			m_periodTimer(0), m_period(i_period), m_buffer(0) {
 		m_buffer.Resize((int) (i_timeBase / m_period));
+	}
+
+	void Reset() {
+		m_periodTimer = 0;
+		m_buffer.Reset();
 	}
 
 	bool ShouldSample(uint32_t i_updatePeriod) {
@@ -32,9 +36,8 @@ public:
 		}
 		return false;
 	}
-
+	cDataProvider m_samplesProvider;
 	cDoubleBuffer<BufferType> m_buffer;
-	void (*m_callback)(cDoubleBuffer<BufferType> & buffer);
 private:
 	uint32_t m_periodTimer;
 	uint32_t m_period;

@@ -6,6 +6,7 @@
  */
 
 #include "web_interface.h"
+#include "helper_structs.h"
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/Network/WebConstants.h>
 #include <SmingCore/FileSystem.h>
@@ -31,7 +32,7 @@ static void onConfiguration_json(HttpRequest &request, HttpResponse &response) {
 }
 
 cWebInterface::cWebInterface() :
-		m_serverStarted(false) {
+		m_serverStarted(false), m_adc_0(this), m_adc_1(this), m_adc_2(this), m_adc_3(this) {
 	for (int i = 0; i < 4; i++) {
 		m_adc_value_average[i] = 0;
 	}
@@ -103,36 +104,28 @@ void cWebInterface::OnRefresh(HttpRequest & i_request, HttpResponse & i_response
 void cWebInterface::OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response) {
 }
 
-void cWebInterface::UpdateAdc(cADC<ads::ads_sample_t, int32_t> & i_adc, cDoubleBuffer<ads::ads_sample_t>& i_adcBuffer) {
-	ads::ads_sample_t * buf = &i_adcBuffer.GetReadyBuffer()[0];
-	if (buf != NULL) {
-		int pos = buf->mux - ads::eInputMux::AIN_0;
-		int64_t average = 0;
-		int size = i_adcBuffer.GetSize();
-		for (int i = 0; i < size; i++) {
-			average += i_adc.ConvertSample(buf[i]);
-
-			if (pos == RAW_CHANNEL) {
-				int idx = m_adc_values_raw_cnt[RAW_CHANNEL];
-				if (idx < RAW_SAMPLES) {
-					m_adc_values_raw[RAW_CHANNEL][idx] = i_adc.ConvertSample(buf[i]);
-					m_adc_values_raw_cnt[RAW_CHANNEL]++;
-				}
-			}
-		}
-		if (size != 0) {
-			average /= size;
-		}
-
-		m_adc_value_average[pos] = static_cast<int32_t>(average);
+void cWebInterface::ReceiveCallback(void* i_data, cDataReceiver* i_receiver) {
+	int64_t average = 0;
+	sSizedArray * arr = static_cast<sSizedArray *>(i_data);
+	for (int i = 0; i < arr->size; i++) {
+		average += arr->array[i];
 	}
+	average /= arr->size;
+	if (i_receiver == &m_adc_0) {
+		m_adc_value_average[0] = static_cast<int32_t>(average);
+	} else if (i_receiver == &m_adc_1) {
+		m_adc_value_average[1] = static_cast<int32_t>(average);
+	} else if (i_receiver == &m_adc_2) {
+		m_adc_value_average[2] = static_cast<int32_t>(average);
+	} else if (i_receiver == &m_adc_3) {
+		m_adc_value_average[3] = static_cast<int32_t>(average);
+	}
+	PrintValues();
 }
+
 void cWebInterface::PrintValues() {
 	Serial.printf("c[0]: %d c[1]: %d c[2]: %d c[3]: %d\n\r", m_adc_value_average[0], m_adc_value_average[1],
 			m_adc_value_average[2], m_adc_value_average[3]);
-}
-
-void cWebInterface::UpdateTemp(cDoubleBuffer<uint32_t>& i_tempBuffer) {
 }
 
 cWebInterface::~cWebInterface() {
@@ -144,7 +137,7 @@ void cWebInterface::OnFile(HttpRequest& i_request, HttpResponse& i_response) {
 	file_t file = fileOpen(name, eFO_CreateIfNotExist | eFO_ReadWrite);
 
 	int size = m_adc_values_raw_cnt[RAW_CHANNEL];
-	Serial.printf("Size: %d\n\r",size);
+	Serial.printf("Size: %d\n\r", size);
 	char buf[12];
 	for (int i = 0; i < 4; i++) {
 		int len = sprintf(buf, "%d,", m_adc_values_raw[RAW_CHANNEL][i]);

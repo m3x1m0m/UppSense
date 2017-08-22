@@ -15,11 +15,12 @@
 
 #include "double_buffer.h"
 #include <SmingCore/SmingCore.h>
+#include "data_receiver.h"
 
 namespace rijnfel {
 #define RAW_CHANNEL 1
 #define RAW_SAMPLES 1000
-class cWebInterface {
+class cWebInterface: public cDataSink {
 public:
 	/**
 	 * Returns the global cWebInterface instance.
@@ -60,19 +61,6 @@ public:
 	void StopServer();
 
 	/**
-	 * Updates the adc on the website. Averages it
-	 * @param i_adc Instance of the adc sensor
-	 * @param i_adcBuffer Buffer containing the raw adc values
-	 */
-	void UpdateAdc(cADC<ads::ads_sample_t, int32_t> & i_adc, cDoubleBuffer<ads::ads_sample_t> & i_adcBuffer);
-
-	/**
-	 * Updates the temperature on the website
-	 * @param i_tempBuffer buffer containing temperature values
-	 */
-	void UpdateTemp(cDoubleBuffer<uint32_t> & i_tempBuffer);
-
-	/**
 	 * This is a debug function that prints out the average values
 	 * @todo remove this
 	 */
@@ -82,6 +70,19 @@ public:
 	 * Destructor
 	 */
 	virtual ~cWebInterface();
+
+	// This is what the future will look like
+	// cDataReceiver m_sensorVal[2];
+	// cDataReceiver m_battery;
+	// cDataReceiver m_ledLife;
+	// cDataReceiver m_temp;
+	// But for now...
+	cDataReceiver m_adc_0;
+	cDataReceiver m_adc_1;
+	cDataReceiver m_adc_2;
+	cDataReceiver m_adc_3;
+
+	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver);
 public:
 	/**
 	 *

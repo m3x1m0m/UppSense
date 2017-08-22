@@ -4,18 +4,23 @@
 #include "ads101x.h"
 #include <hardware.h>
 #include "excitation_light.h"
-#include "signal_processor.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
 #include "web_interface.h"
 #include <stdint.h>
+#include "ads_converter.h"
+#include "signal_process.h"
 
 using namespace rijnfel;
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason);
 void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway);
 
+cAdsConverter * adsConverter;
+
+//We want different signal processing for the channels
+cSignalProcess signalProcess[2];
 Timer procTimer;
 Timer rectangleTimer;
 ads::cADS101x adc(0, ADC_ADDRESS);
@@ -49,17 +54,6 @@ void updateSensorHub() {
 	hub.Update();
 }
 
-void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
-	channel = 0;
-	if (channel > 3) {
-		channel = 0;
-		//cWebInterface::GetInstance()->PrintValues();
-	}
-	cSignalProcessor::GetInstance()->receiveADCValues(adc, buffer);
-	//cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
-	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
-}
-
 void ready() {
 	WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);
 	//debugf("READY!");
@@ -84,6 +78,7 @@ void init() {
 	//SET higher CPU freq & disable wifi sleep
 
 	// Turn off LED for measurements
+	hub.Stop();
 	pinMode(LED_PIN, OUTPUT);
 	digitalWrite(LED_PIN, 1);
 	adc.SetMux(ads::eInputMux::AIN_0);
@@ -91,16 +86,29 @@ void init() {
 	adc.SetGain(ads::eGainAmplifier::FSR_4_096);
 	adc.SetOneShot(false);
 	hub.SetAdc(&adc);
+	adsConverter = new cAdsConverter(adc);
 
 	cSensorSettings<ads::ads_sample_t> * adcSettings;
-	adcSettings = new cSensorSettings<ads::ads_sample_t>(&adcCallback, ADC_TIMEBASE, ADC_PERIOD);
+	adcSettings = new cSensorSettings<ads::ads_sample_t>(ADC_TIMEBASE, ADC_PERIOD);
+	adcSettings->m_samplesProvider.Connect(&adsConverter->m_rawSamples);
 	hub.SetAdcSettings(adcSettings);
+
+	// Channel one and two are getting processed
+	adsConverter->m_convertedSamples[0].Connect(&signalProcess[0].m_incommingData);
+	adsConverter->m_convertedSamples[1].Connect(&signalProcess[1].m_incommingData);
+	signalProcess[0].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_0);
+	signalProcess[1].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_1);
+	// Channel three and four are not
+	adsConverter->m_convertedSamples[2].Connect(&cWebInterface::GetInstance()->m_adc_2);
+	adsConverter->m_convertedSamples[3].Connect(&cWebInterface::GetInstance()->m_adc_3);
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
 	cWebInterface::GetInstance()->StartServer();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+
+	hub.Start();
 	//procTimer.initializeMs(1000, AdcTest).start();
 	//procTimer.initializeMs(5000, SettingsTest).start();
 	//mylight.SetCurrent(5000);

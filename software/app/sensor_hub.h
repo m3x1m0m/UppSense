@@ -11,6 +11,7 @@
 #include "ads101x.h"
 #include "sensor_settings.h"
 
+
 namespace rijnfel {
 
 class cSensorHub {
@@ -19,14 +20,18 @@ public:
 	cSensorHub(uint32_t i_updatePeriod);
 	void SetAdc(ads::cADS101x * i_adc);
 	void SetAdcSettings(cSensorSettings<ads::ads_sample_t> * i_adcSettings);
+	void Stop();
+	void Start();
 	void SetTempSettings(cSensorSettings<uint32_t> * i_tempSettings);
 	void Update();
 	virtual ~cSensorHub();
+
 private:
 	uint32_t m_updatePeriod;
 	cSensorSettings<ads::ads_sample_t> * m_adcSettings;
 	cSensorSettings<uint32_t> * m_tempSettings;
 	ads::cADS101x * m_adc;
+	bool m_running;
 };
 
 } /* namespace rijnfel */
