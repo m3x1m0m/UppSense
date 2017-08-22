@@ -4,6 +4,7 @@
 #include "ads101x.h"
 #include <hardware.h>
 #include "excitation_light.h"
+#include "signal_processor.h"
 #include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
@@ -49,12 +50,13 @@ void updateSensorHub() {
 }
 
 void adcCallback(cDoubleBuffer<ads::ads_sample_t> & buffer) {
-	channel++;
+	channel = 0;
 	if (channel > 3) {
 		channel = 0;
 		//cWebInterface::GetInstance()->PrintValues();
 	}
-	cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
+	cSignalProcessor::GetInstance()->receiveADCValues(adc, buffer);
+	//cWebInterface::GetInstance()->UpdateAdc(adc, buffer);
 	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
 }
 
