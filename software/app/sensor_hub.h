@@ -8,8 +8,8 @@
 #ifndef APP_SENSOR_HUB_H_
 #define APP_SENSOR_HUB_H_
 
+#include <rijnfel_core/sensor_settings.h>
 #include "ads101x.h"
-#include "sensor_settings.h"
 
 
 namespace rijnfel {

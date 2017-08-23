@@ -7,8 +7,8 @@
 
 #ifndef APP_SIGNAL_PROCESS_H_
 #define APP_SIGNAL_PROCESS_H_
-#include "data_receiver.h"
-#include "data_provider.h"
+#include "../include/rijnfel_core/data_provider.h"
+#include "../include/rijnfel_core/data_receiver.h"
 
 namespace rijnfel {
 

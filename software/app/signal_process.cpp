@@ -6,8 +6,9 @@
  */
 
 #include "signal_process.h"
-#include "helper_structs.h"
 #include <stddef.h>
+
+#include "../include/rijnfel_core/helper_structs.h"
 //TODO remove this
 
 namespace rijnfel {

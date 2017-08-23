@@ -1,17 +1,17 @@
 #include <user_config.h>
+#include <hardware.h>
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
-#include "excitation_light.h"
-#include "sensor_settings.h"
-#include "double_buffer.h"
-#include "web_interface.h"
-#include <stdint.h>
-#include "ads_converter.h"
-#include "signal_process.h"
 #include <application.h>
-#include <hardware.h>
-#include "sensor_hub.h"
+#include <stdint.h>
+
+#include <rijnfel_core/rijnfel_core.h>
+#include "excitation_light.h"
 #include "ads101x.h"
+#include "ads_converter.h"
+#include "web_interface.h"
+#include "signal_process.h"
+#include "sensor_hub.h"
 
 using namespace rijnfel;
 

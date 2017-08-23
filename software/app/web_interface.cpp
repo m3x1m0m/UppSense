@@ -6,7 +6,6 @@
  */
 
 #include "web_interface.h"
-#include "helper_structs.h"
 #include <application.h>
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/Network/WebConstants.h>

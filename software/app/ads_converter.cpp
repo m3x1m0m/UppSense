@@ -6,8 +6,7 @@
  */
 
 #include "ads_converter.h"
-#include "double_buffer.h"
-#include "helper_structs.h"
+
 namespace rijnfel {
 
 cAdsConverter::cAdsConverter(cADC<ads::ads_sample_t, int32_t> & i_adc) :

@@ -9,7 +9,6 @@
 #define APP_DOUBLE_BUFFER_H_
 
 #include <stdint.h>
-#include <SmingCore/SmingCore.h>
 
 namespace rijnfel {
 

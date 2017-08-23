@@ -8,8 +8,8 @@
 #ifndef APP_SENSOR_SETTINGS_H_
 #define APP_SENSOR_SETTINGS_H_
 
-#include "double_buffer.h"
 #include "data_provider.h"
+#include "double_buffer.h"
 
 namespace rijnfel {
 //timebase, in miliseconds.

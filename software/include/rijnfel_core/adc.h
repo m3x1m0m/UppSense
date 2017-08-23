@@ -8,7 +8,7 @@
 #ifndef APP_ADC_H_
 #define APP_ADC_H_
 
-#include "sensor.h"
+#include "../rijnfel_core/sensor.h"
 
 namespace rijnfel {
 
