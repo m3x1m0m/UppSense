@@ -18,7 +18,9 @@ public:
 	}
 	virtual ~cDataSink() {
 	}
-	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver);
+	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver){
+
+	}
 };
 }
 
