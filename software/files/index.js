@@ -13,4 +13,74 @@ $( document ).ready(function() {
 			setTimeout(worker, 500);
 		});
 	})();
+	
+	var wsUri = "ws://" + location.host + "/ws";
+    websocket = new WebSocket(wsUri);
+    websocket.onopen = function(evt) { onOpen(evt) };
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
 });
+
+function buttonStartCallback(){
+	websocket.send("start");
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("");
+}
+
+function cleanCallback() { 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("");
+}
+
+function ch1() { 
+	document.getElementById("channel_id").innerHTML = "Channel 1" 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("Stopped");
+	websocket.send("ch1");
+}
+
+function ch2() {
+	document.getElementById("channel_id").innerHTML = "Channel 2" 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("Stopped");
+	websocket.send("ch2");
+}
+
+function ch3() {
+	document.getElementById("channel_id").innerHTML = "Channel 3" 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("Stopped");
+	websocket.send("ch3");
+}
+
+function ch4() {
+	document.getElementById("channel_id").innerHTML = "Channel 4" 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val("Stopped");
+	websocket.send("ch4");
+}
+
+
+
+function buttonStopCallback(){
+	websocket.send("stop");
+	var myTextArea = $('#raw_samples');
+}
+
+function onOpen(evt) {
+	console.log("CONNECTED"); 
+}
+
+function onClose(evt) {
+	console.log("close");
+}
+  
+function onMessage(evt) { 
+	var myTextArea = $('#raw_samples');
+	myTextArea.val(myTextArea.val() + evt.data);
+}
+
+function onError(evt){
+    console.log("error: " + evt.data); 
+}

@@ -104,9 +104,12 @@ public:
 	 * @param i_response
 	 */
 	void OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response);
-	void OnFile(HttpRequest& i_request, HttpResponse& i_response);
 	void OnConfiguration_json(HttpRequest &request, HttpResponse &response);
 	void OnConfiguration(HttpRequest &request, HttpResponse &response);
+
+	//TODO migrate this
+	WebSocketConnection * m_connectedUser;
+	bool m_sendWebsocket;
 protected:
 	/**
 	 * Initializes the variables
@@ -120,10 +123,6 @@ private:
 	int32_t m_adc_value_average[4];
 	/// Server instance
 	HttpServer m_server;
-
-	char * m_jsonBuffer;
-	int32_t m_adc_values_raw[4][RAW_SAMPLES];
-	int m_adc_values_raw_cnt[4];
 };
 
 } /* namespace rijnfel */

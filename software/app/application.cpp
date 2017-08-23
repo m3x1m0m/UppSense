@@ -1,16 +1,17 @@
 #include <user_config.h>
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/HardwareSerial.h>
-#include "ads101x.h"
-#include <hardware.h>
 #include "excitation_light.h"
-#include "sensor_hub.h"
 #include "sensor_settings.h"
 #include "double_buffer.h"
 #include "web_interface.h"
 #include <stdint.h>
 #include "ads_converter.h"
 #include "signal_process.h"
+#include <application.h>
+#include <hardware.h>
+#include "sensor_hub.h"
+#include "ads101x.h"
 
 using namespace rijnfel;
 
@@ -23,11 +24,18 @@ cAdsConverter * adsConverter;
 cSignalProcess signalProcess[2];
 Timer procTimer;
 Timer rectangleTimer;
-ads::cADS101x adc(0, ADC_ADDRESS);
 uint8_t channel = 0;
 light::cExcitationLight mylight;
-
 cSensorHub hub(HUB_PERIOD);
+ads::cADS101x ads1015(0, ADC_ADDRESS);
+
+void ChangeSampleChannel(int channel) {
+	if (channel > 0 && channel < 5) {
+		hub.Stop();
+		ads1015.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel - 1));
+		hub.Start();
+	}
+}
 
 void SettingsTest() {
 	channel++;
@@ -35,8 +43,8 @@ void SettingsTest() {
 		channel = 0;
 		cWebInterface::GetInstance()->PrintValues();
 	}
-	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
-	Serial.printf("Settings: %d\n\r", adc.GetSettings());
+	ads1015.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
+	Serial.printf("Settings: %d\n\r", ads1015.GetSettings());
 }
 
 void AdcTest() {
@@ -44,9 +52,9 @@ void AdcTest() {
 	if (channel > 3) {
 		channel = 0;
 	}
-	adc.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
-	ads::ads_sample_t sample = adc.RawSample();
-	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample, adc.ConvertSample(sample), sample.mux);
+	ads1015.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
+	ads::ads_sample_t sample = ads1015.RawSample();
+	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample, ads1015.ConvertSample(sample), sample.mux);
 }
 
 void updateSensorHub() {
@@ -81,12 +89,12 @@ void init() {
 	hub.Stop();
 	pinMode(LED_PIN, OUTPUT);
 	digitalWrite(LED_PIN, 1);
-	adc.SetMux(ads::eInputMux::AIN_0);
-	adc.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
-	adc.SetGain(ads::eGainAmplifier::FSR_4_096);
-	adc.SetOneShot(false);
-	hub.SetAdc(&adc);
-	adsConverter = new cAdsConverter(adc);
+	ads1015.SetMux(ads::eInputMux::AIN_0);
+	ads1015.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
+	ads1015.SetGain(ads::eGainAmplifier::FSR_4_096);
+	ads1015.SetOneShot(false);
+	hub.SetAdc(&ads1015);
+	adsConverter = new cAdsConverter(ads1015);
 
 	cSensorSettings<ads::ads_sample_t> * adcSettings;
 	adcSettings = new cSensorSettings<ads::ads_sample_t>(ADC_TIMEBASE, ADC_PERIOD);

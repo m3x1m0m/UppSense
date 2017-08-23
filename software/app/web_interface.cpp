@@ -7,10 +7,13 @@
 
 #include "web_interface.h"
 #include "helper_structs.h"
+#include <application.h>
 #include <SmingCore/SmingCore.h>
 #include <SmingCore/Network/WebConstants.h>
 #include <SmingCore/FileSystem.h>
 #include <third-party/http-parser/http_parser.h>
+#include <SmingCore/Network/Http/Websocket/WebsocketResource.h>
+
 namespace rijnfel {
 
 cWebInterface *cWebInterface::s_instance = 0;
@@ -31,16 +34,43 @@ static void onConfiguration_json(HttpRequest &request, HttpResponse &response) {
 	cWebInterface::GetInstance()->OnConfiguration_json(request, response);
 }
 
+void wsConnected(WebSocketConnection& socket) {
+	cWebInterface::GetInstance()->m_connectedUser = &socket;
+	Serial.printf("Connection!");
+}
+
+void wsMessageReceived(WebSocketConnection& socket, const String& message) {
+	if (message.equals("start")) {
+		cWebInterface::GetInstance()->m_sendWebsocket = true;
+	} else {
+		cWebInterface::GetInstance()->m_sendWebsocket = false;
+	}
+	if (message.equals("ch1")) {
+		ChangeSampleChannel(1);
+	} else if (message.equals("ch2")) {
+		ChangeSampleChannel(2);
+	} else if (message.equals("ch3")) {
+		ChangeSampleChannel(3);
+	} else if (message.equals("ch4")) {
+		ChangeSampleChannel(4);
+	}
+}
+
+void wsDisconnected(WebSocketConnection& socket) {
+	cWebInterface::GetInstance()->m_connectedUser = NULL;
+}
+
 cWebInterface::cWebInterface() :
-		m_serverStarted(false), m_adc_0(this), m_adc_1(this), m_adc_2(this), m_adc_3(this) {
+		m_serverStarted(false), m_adc_0(this), m_adc_1(this), m_adc_2(this), m_adc_3(this), m_connectedUser(NULL), m_sendWebsocket(
+		false) {
 	for (int i = 0; i < 4; i++) {
 		m_adc_value_average[i] = 0;
 	}
 	// Integer requires 8 digits, and one for the comma
-	m_jsonBuffer = new char[1];
-	if (m_jsonBuffer == NULL) {
-		Serial.print("Not enough ram");
-	}
+	// m_jsonBuffer = new char[1];
+	// if (m_jsonBuffer == NULL) {
+	//	Serial.print("Not enough ram");
+	//}
 	// TODO Auto-generated constructor stub
 
 }
@@ -59,19 +89,25 @@ void onFile(HttpRequest & i_request, HttpResponse & i_response) {
 }
 
 static void onChannel(HttpRequest & i_request, HttpResponse & i_response) {
-	cWebInterface::GetInstance()->OnFile(i_request, i_response);
+	//cWebInterface::GetInstance()->OnFile(i_request, i_response);
 }
 
 void cWebInterface::StartServer() {
 	if (m_serverStarted)
 		return;
+	WebsocketResource* wsResource = new WebsocketResource();
+	wsResource->setConnectionHandler(wsConnected);
+	wsResource->setMessageHandler(wsMessageReceived);
+	wsResource->setDisconnectionHandler(wsDisconnected);
 	m_server.addPath("/", onIndex);
 	m_server.addPath("/channel", onChannel);
 	m_server.addPath("/state", onRefresh);
 	m_server.addPath("/config", onConfiguration);
 	m_server.addPath("/config.json", onConfiguration_json);
+	m_server.addPath("/ws", wsResource);
 	m_server.setDefaultHandler(onFile);
 	m_server.listen(80);
+
 }
 
 void cWebInterface::StopServer() {
@@ -107,8 +143,14 @@ void cWebInterface::OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response
 void cWebInterface::ReceiveCallback(void* i_data, cDataReceiver* i_receiver) {
 	int64_t average = 0;
 	sSizedArray * arr = static_cast<sSizedArray *>(i_data);
+	char buf[12];
 	for (int i = 0; i < arr->size; i++) {
 		average += arr->array[i];
+		if (m_connectedUser != NULL && m_sendWebsocket) {
+			sprintf(buf, "%d,", arr->array[i]);
+			const String send(buf);
+			m_connectedUser->sendString(send);
+		}
 	}
 	average /= arr->size;
 	if (i_receiver == &m_adc_0) {
@@ -120,7 +162,6 @@ void cWebInterface::ReceiveCallback(void* i_data, cDataReceiver* i_receiver) {
 	} else if (i_receiver == &m_adc_3) {
 		m_adc_value_average[3] = static_cast<int32_t>(average);
 	}
-	PrintValues();
 }
 
 void cWebInterface::PrintValues() {
@@ -132,30 +173,14 @@ cWebInterface::~cWebInterface() {
 	// TODO Auto-generated destructor stub
 }
 
-void cWebInterface::OnFile(HttpRequest& i_request, HttpResponse& i_response) {
-	const String name = "Channel1";
-	file_t file = fileOpen(name, eFO_CreateIfNotExist | eFO_ReadWrite);
-
-	int size = m_adc_values_raw_cnt[RAW_CHANNEL];
-	Serial.printf("Size: %d\n\r", size);
-	char buf[12];
-	for (int i = 0; i < 4; i++) {
-		int len = sprintf(buf, "%d,", m_adc_values_raw[RAW_CHANNEL][i]);
-		fileWrite(file, buf, len);
-		fileFlush(file);
-	}
-	m_adc_values_raw_cnt[RAW_CHANNEL] = 0;
-	fileClose(file);
-	i_response.setCache(86400, true); // It's important to use cache for better performance.
-	i_response.sendFile(name);
-}
-
 void cWebInterface::ResetRawValues() {
-	for (int channel = 0; channel < 4; channel++) {
-		for (int sample = 0; sample < 1000; sample++) {
-			m_adc_values_raw[channel][sample] = 0;
-		}
-	}
+	/*
+	 for (int channel = 0; channel < 4; channel++) {
+	 for (int sample = 0; sample < 1000; sample++) {
+	 m_adc_values_raw[channel][sample] = 0;
+	 }
+	 }
+	 */
 }
 
 void cWebInterface::OnConfiguration(HttpRequest &request, HttpResponse &response) {
