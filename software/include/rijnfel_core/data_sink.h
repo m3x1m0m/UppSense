@@ -14,12 +14,11 @@ class cDataReceiver;
 
 class cDataSink {
 public:
-	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver);
-protected:
 	cDataSink() {
 	}
 	virtual ~cDataSink() {
 	}
+	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver);
 };
 }
 
