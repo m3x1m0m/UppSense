@@ -13,6 +13,8 @@
 #include "signal_process.h"
 #include "sensor_hub.h"
 
+#include "tests.h"
+
 using namespace rijnfel;
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason);
@@ -37,26 +39,6 @@ void ChangeSampleChannel(int channel) {
 	}
 }
 
-void SettingsTest() {
-	channel++;
-	if (channel > 3) {
-		channel = 0;
-		cWebInterface::GetInstance()->PrintValues();
-	}
-	ads1015.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
-	Serial.printf("Settings: %d\n\r", ads1015.GetSettings());
-}
-
-void AdcTest() {
-	channel++;
-	if (channel > 3) {
-		channel = 0;
-	}
-	ads1015.SetMux(static_cast<ads::eInputMux>(ads::eInputMux::AIN_0 + channel));
-	ads::ads_sample_t sample = ads1015.RawSample();
-	Serial.printf("raw: %d converted: %d channel: %d\n\r", sample.rawSample, ads1015.ConvertSample(sample), sample.mux);
-}
-
 void updateSensorHub() {
 	WDT.alive();
 	hub.Update();
@@ -64,10 +46,7 @@ void updateSensorHub() {
 
 void ready() {
 	WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);
-	//debugf("READY!");
-
-	// If AP is enabled:
-	//debugf("AP. ip: %s mac: %s", WifiAccessPoint.getIP().toString().c_str(), WifiAccessPoint.getMAC().c_str());
+	hub.Start();
 }
 
 void init() {
@@ -115,12 +94,6 @@ void init() {
 	cWebInterface::GetInstance()->StartServer();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
-
-	hub.Start();
-	//procTimer.initializeMs(1000, AdcTest).start();
-	//procTimer.initializeMs(5000, SettingsTest).start();
-	//mylight.SetCurrent(5000);
-	//mylight.RectangleUpdate();	
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason) {
@@ -135,5 +108,4 @@ void STAGotIP(IPAddress ip, IPAddress mask, IPAddress gateway) {
 	if (WifiAccessPoint.isEnabled()) {
 		WifiAccessPoint.enable(false);
 	}
-	// Add commands to be executed after successfully connecting to AP and got IP from it
 }
