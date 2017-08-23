@@ -94,6 +94,8 @@ void init() {
 	cWebInterface::GetInstance()->StartServer();
 
 	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	mylight.SetCurrent(500);
+	mylight.RectangleUpdate();
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason) {

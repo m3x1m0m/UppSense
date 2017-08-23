@@ -7,9 +7,7 @@
 
 #ifndef APP_SIGNAL_PROCESS_H_
 #define APP_SIGNAL_PROCESS_H_
-#include "../include/rijnfel_core/data_provider.h"
-#include "../include/rijnfel_core/data_receiver.h"
-
+#include <rijnfel_core/rijnfel_core.h>
 namespace rijnfel {
 
 class cSignalProcess: public cDataSink {

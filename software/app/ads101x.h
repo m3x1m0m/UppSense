@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 #include <hardware.h>
-#include "../include/rijnfel_core/adc.h"
+#include <rijnfel_core/rijnfel_core.h>
 
 namespace rijnfel {
 

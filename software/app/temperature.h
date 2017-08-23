@@ -8,7 +8,7 @@
 #ifndef APP_TEMPERATURE_H_
 #define APP_TEMPERATURE_H_
 
-#include "../include/rijnfel_core/rijnfel_core.h"
+#include <rijnfel_core/rijnfel_core.h>
 
 namespace rijnfel {
 template<typename Sample, typename Temperature>

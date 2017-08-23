@@ -8,7 +8,7 @@
 #ifndef APP_ADS_CONVERTER_H_
 #define APP_ADS_CONVERTER_H_
 
-#include "../include/rijnfel_core/rijnfel_core.h"
+#include <rijnfel_core/rijnfel_core.h>
 #include "ads101x.h"
 
 namespace rijnfel {
