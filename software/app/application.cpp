@@ -69,7 +69,7 @@ void init() {
 	pinMode(LED_PIN, OUTPUT);
 	digitalWrite(LED_PIN, 1);
 	ads1015.SetMux(ads::eInputMux::AIN_0);
-	ads1015.SetSampleSpeed(ads::eSampleSpeed::SPS_3300);
+	ads1015.SetSampleSpeed(ads::eSampleSpeed::SPS_2400);
 	ads1015.SetGain(ads::eGainAmplifier::FSR_4_096);
 	ads1015.SetOneShot(false);
 	hub.SetAdc(&ads1015);
@@ -83,17 +83,17 @@ void init() {
 	// Channel one and two are getting processed
 	adsConverter->m_convertedSamples[0].Connect(&signalProcess[0].m_incommingData);
 	adsConverter->m_convertedSamples[1].Connect(&signalProcess[1].m_incommingData);
-	signalProcess[0].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_0);
-	signalProcess[1].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_1);
+	//signalProcess[0].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_0);
+	//signalProcess[1].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_1);
 	// Channel three and four are not
-	adsConverter->m_convertedSamples[2].Connect(&cWebInterface::GetInstance()->m_adc_2);
-	adsConverter->m_convertedSamples[3].Connect(&cWebInterface::GetInstance()->m_adc_3);
+	//adsConverter->m_convertedSamples[2].Connect(&cWebInterface::GetInstance()->m_adc_2);
+	//adsConverter->m_convertedSamples[3].Connect(&cWebInterface::GetInstance()->m_adc_3);
 
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
 	cWebInterface::GetInstance()->StartServer();
 
-	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
+	procTimer.initializeUs(HUB_PERIOD, updateSensorHub).start();
 	mylight.SetCurrent(500);
 	mylight.RectangleUpdate();
 }

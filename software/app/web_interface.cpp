@@ -61,7 +61,7 @@ void wsDisconnected(WebSocketConnection& socket) {
 
 cWebInterface::cWebInterface() :
 		m_serverStarted(false), m_adc_0(this), m_adc_1(this), m_adc_2(this), m_adc_3(this), m_connectedUser(NULL), m_sendWebsocket(
-		false) {
+				false) {
 	for (int i = 0; i < 4; i++) {
 		m_adc_value_average[i] = 0;
 	}

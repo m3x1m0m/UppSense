@@ -7,7 +7,7 @@
 
 #include "signal_process.h"
 #include <stddef.h>
-
+#include <SmingCore/SmingCore.h>
 #include <rijnfel_core/rijnfel_core.h>
 //TODO remove this
 
@@ -33,6 +33,7 @@ void cSignalProcess::ReceiveCallback(void* i_data, cDataReceiver* i_provider) {
 }
 
 void cSignalProcess::process(uint32_t* io_array, size_t size) {
+	Serial.printf("Size:%d\n", size);
 	//Do whatever here really
 }
 
