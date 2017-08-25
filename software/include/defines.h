@@ -13,6 +13,6 @@
 
 #include "hardware.h"
 
-#define DEBUG_LEVEL 1
+#define DEBUG_LEVEL 0
 
 #endif /* APP_HARDWARE_H_ */

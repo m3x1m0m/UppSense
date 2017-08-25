@@ -44,6 +44,10 @@ void updateSensorHub() {
 	hub.Update();
 }
 
+void updateRectangle(){
+	mylight.RectangleUpdate();
+}
+
 void ready() {
 	WifiAccessPoint.config("Sensus", "", AUTH_OPEN, false, 3);
 	hub.Start();
@@ -92,10 +96,10 @@ void init() {
 	WifiEvents.onStationDisconnect(STADisconnect);
 	WifiEvents.onStationGotIP(STAGotIP);
 	cWebInterface::GetInstance()->StartServer();
-
-	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
-	mylight.SetCurrent(500);
+	mylight.SetCurrent(1000);
 	mylight.RectangleUpdate();
+	//rectangleTimer.initializeUs(RECT_PERIOD, updateRectangle).start();
+	procTimer.initializeMs(HUB_PERIOD, updateSensorHub).start();
 }
 
 void STADisconnect(String ssid, uint8_t ssid_len, uint8_t bssid[6], uint8_t reason) {

@@ -25,6 +25,7 @@ static const uint16_t RESOLUTION_DAC = 1024;
 static const int HUB_PERIOD = 5;
 static const int ADC_TIMEBASE = 250;
 static const int ADC_PERIOD = 5;
+static const int RECT_PERIOD = 2500; // in us
 
 #define LED_PIN 2 // GPIO2
 

@@ -80,7 +80,6 @@ uint8_t cDAC101C085::WriteSettings(uint16_t settings)
 	Wire.write( (uint8_t) (settings >> 8) ); // Most significant byte
 	Wire.write( (uint8_t) (settings & 0xFF) ); // Least significant byte
 	error = Wire.endTransmission();
-	Serial.println(settings);
 	return I2CError(error); // Pass to error parser	
 }
 
