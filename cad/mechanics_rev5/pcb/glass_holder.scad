@@ -41,7 +41,10 @@ module glass_holder()
 			cylinder(r = led_illuminator_dia/2, h = 20, center = true);
 			// Cut out a "window" where the receiver photodiode is sitting
 			translate([glass_slide_width/2 - led_pos_x, glass_slide_depth/2, 2])
-			cube([window_size, 10, 10], center = true);	
+			cube([window_size, 12, 10], center = true);	
+			// Cut out a "window" where the receiver photodiode is sitting
+			translate([-glass_slide_width/2, -glass_slide_depth/2, 2])
+			cube([window_size, 15, 10], center = true);	
 			// Cut out holes for screws
 			translate([0, 0, -holder_bottom_side_thickness + 0.5])
 			rotate([180, 0, 0])

@@ -50,7 +50,7 @@ color(myColor1)
 	legs();
 	
 	translate([glass_slide_width/2 - led_pos_x, 0, led_illuminator_height/2 + 0.01])	
-	//translate([0, 0, (led_illuminator_height + allowance03)/2])
-	//rotate([0, 180 ,0])
+	!translate([0, 0, (led_illuminator_height + allowance03)/2])
+	rotate([0, 180 ,0])
 	illuminator();
 }

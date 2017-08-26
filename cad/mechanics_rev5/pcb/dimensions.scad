@@ -15,7 +15,7 @@ glass_slide_depth = 26 + allowance05;
 glass_slide_width = 76;
 
 // Holder dimensions
-window_size = 20;
+window_size = 25;
 holder_height = 3 + glass_slide_height + allowance05;
 holder_depth = glass_slide_depth + allowance05 + 4;
 holder_width = 80; // Width of the PCB
@@ -25,7 +25,7 @@ holder_bottom_side_thickness = 2;
 // LED illuminator dimensions
 led_illuminator_thickness = 2; 
 led_illuminator_dia = 12.5 - led_illuminator_thickness;
-led_illuminator_height = 12;
+led_illuminator_height = 9;
 led_illuminator_leg1_pos_y = -6.25;
 led_illuminator_leg2_pos_y = 4;
 led_illuminator_leg2_pos_x = -4.75;
