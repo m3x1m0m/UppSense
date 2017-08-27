@@ -11,6 +11,8 @@
 #ifndef APP_HARDWARE_H_
 #define APP_HARDWARE_H_
 
+#include <signal_processing.h>
+
 #define REV_1
 
 //-------------------------------------I2C ADRESSES---------------------------------------------------------------------------
@@ -22,9 +24,10 @@ static const uint16_t CURR_MAX_UAMP = 10000; // 10 mA max.
 static const uint16_t VREF_DAC = 3300; // in mV
 static const uint16_t RESOLUTION_DAC = 1024;
 
-static const int HUB_PERIOD = 800;
-static const int ADC_TIMEBASE = 800;
-static const int ADC_PERIOD = 800;
+static const int HUB_PERIOD = 500;
+static const int ADC_PERIOD = 500;		// f_samp = 2 kHz
+static const int ADC_TIMEBASE = ADC_PERIOD * SAMPLES * 4;
+
 
 #define LED_PIN 2 // GPIO2
 

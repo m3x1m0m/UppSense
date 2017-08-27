@@ -8,6 +8,7 @@
 #ifndef APP_SIGNAL_PROCESS_H_
 #define APP_SIGNAL_PROCESS_H_
 #include <rijnfel_core/rijnfel_core.h>
+#include <signal_processing.h>
 namespace rijnfel {
 
 class cSignalProcess: public cDataSink {
@@ -22,8 +23,8 @@ protected:
 	uint32_t * m_currentBuffer;
 	uint32_t m_currentIndex;
 	uint32_t m_currentMaxIndex;
+	void print(double* vData);
 };
-
 } /* namespace rijnfel */
 
 #endif /* APP_SIGNAL_PROCESS_H_ */
