@@ -40,8 +40,10 @@ void wsConnected(WebSocketConnection& socket) {
 
 void wsMessageReceived(WebSocketConnection& socket, const String& message) {
 	if (message.equals("start")) {
+		StartSensorStation(1);
 		cWebInterface::GetInstance()->m_sendWebsocket = true;
 	} else {
+		StopSensorStation();
 		cWebInterface::GetInstance()->m_sendWebsocket = false;
 	}
 	if (message.equals("ch1")) {

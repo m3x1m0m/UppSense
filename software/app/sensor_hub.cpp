@@ -24,7 +24,6 @@ void cSensorHub::Update() {
 	if (m_adcSettings) {
 		if (m_adcSettings->ShouldSample(m_updatePeriod)) {
 			if (m_adcSettings->m_buffer.AddValue(m_adc->RawSample())) {
-				//m_adcSettings->m_callback(m_adcSettings->m_buffer);
 				m_adcSettings->m_samplesProvider.Push(static_cast<void*>(&m_adcSettings->m_buffer));
 			}
 		}

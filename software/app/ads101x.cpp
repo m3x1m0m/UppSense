@@ -120,7 +120,8 @@ uint16_t cADS101x::GetSettings(void) {
 }
 ads_voltage_t cADS101x::ConvertSample(ads_sample_t & sample) {
 	//Raw sample is in (parts of) millivolts, go to micro to remove fractions
-	ads_voltage_t returnType = (sample.rawSample >> 4); //Multiply for extra precision
+	ads_voltage_t returnType = (sample.rawSample >> 4);
+	//Multiply for extra precision
 	switch (sample.gain) {
 	case eGainAmplifier::FSR_0_256:
 		//one lsb is  0.125 mv = 125 uv
@@ -156,7 +157,7 @@ ads_sample_t cADS101x::RawSample(void) {
 	sample.gain = m_gain;
 	sample.mux = m_mux;
 	sample.rawSample = m_counter;
-	m_counter += 16;
+	m_counter += 8;
 	return sample;
 #else
 	OneShot();

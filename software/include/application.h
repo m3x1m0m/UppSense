@@ -9,6 +9,8 @@
 #define INCLUDE_APPLICATION_H_
 
 //Disgusting
+void StartSensorStation(int seconds);
+void StopSensorStation(void);
 void ChangeSampleChannel(int channel);
 
 #endif /* INCLUDE_APPLICATION_H_ */
