@@ -2,9 +2,9 @@
 
 UppSense- Open Source sensor for chemical analysis based on fuoresence consisting of hardware and software. 
 ## Hardware
-The hardware consists out of three PCBs so far: An analog PCB, a digital PCB and a active Backplane.
 ![Hardware Block Diagram](http://uppsense.eu/github_pics/block_smaller.png)
+The hardware consists out of three PCBs so far: An analog PCB, a digital PCB and an active Backplane. Two PCBs are developed with KiCAD. One is developed with Altium. 
 ## Software
 ## Web & Contact
-www.uppsense.eu
-contact@uppsense.eu
+Website: www.uppsense.eu
+Email: contact@uppsense.eu
