@@ -8,7 +8,7 @@
 #ifndef APP_SENSOR_HUB_H_
 #define APP_SENSOR_HUB_H_
 
-#include <rijnfel_core/sensor_settings.h>
+#include <rijnfel_core/rijnfel_core.h>
 #include "ads101x.h"
 
 
@@ -25,7 +25,7 @@ public:
 	void SetTempSettings(cSensorSettings<uint32_t> * i_tempSettings);
 	void Update();
 	virtual ~cSensorHub();
-
+	cDataProvider m_adc_output[4];
 private:
 	uint32_t m_updatePeriod;
 	cSensorSettings<ads::ads_sample_t> * m_adcSettings;

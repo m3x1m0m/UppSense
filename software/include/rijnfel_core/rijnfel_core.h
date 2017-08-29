@@ -13,6 +13,8 @@
 #include "data_receiver.h"
 #include "data_sink.h"
 #include "double_buffer.h"
+#include "provider_averager.h"
+#include "provider_buffer.h"
 #include "helper_structs.h"
 #include "sensor_settings.h"
 

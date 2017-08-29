@@ -62,17 +62,11 @@ void wsDisconnected(WebSocketConnection& socket) {
 }
 
 cWebInterface::cWebInterface() :
-		m_serverStarted(false), m_adc_0(this), m_adc_1(this), m_adc_2(this), m_adc_3(this), m_connectedUser(NULL), m_sendWebsocket(
-				false) {
+		m_serverStarted(false), m_adcAverage { { this }, { this }, { this }, { this } }, m_sensorValRaw(this), m_connectedUser(
+		NULL), m_sendWebsocket(false) {
 	for (int i = 0; i < 4; i++) {
-		m_adc_value_average[i] = 0;
+		m_adcAverageVal[i] = 0;
 	}
-	// Integer requires 8 digits, and one for the comma
-	// m_jsonBuffer = new char[1];
-	// if (m_jsonBuffer == NULL) {
-	//	Serial.print("Not enough ram");
-	//}
-	// TODO Auto-generated constructor stub
 
 }
 
@@ -126,11 +120,11 @@ void cWebInterface::OnRefresh(HttpRequest & i_request, HttpResponse & i_response
 	JsonObjectStream* stream = new JsonObjectStream();
 	JsonObject& json = stream->getRoot();
 
-	json["adc_1"] = m_adc_value_average[0];
-	json["adc_2"] = m_adc_value_average[1];
+	json["adc_1"] = m_adcAverageVal[0];
+	json["adc_2"] = m_adcAverageVal[1];
 #ifdef REV_1
-	json["adc_3"] = m_adc_value_average[3];
-	json["adc_4"] = m_adc_value_average[2];
+	json["adc_3"] = m_adcAverageVal[3];
+	json["adc_4"] = m_adcAverageVal[2];
 #else
 	json["adc_3"] = m_adc_value_average[2];
 	json["adc_4"] = m_adc_value_average[3];
@@ -142,32 +136,33 @@ void cWebInterface::OnRawUpdate(HttpRequest& i_request, HttpResponse& i_response
 }
 
 void cWebInterface::ReceiveCallback(void* i_data, cDataReceiver* i_receiver) {
-	int64_t average = 0;
-	sSizedArray * arr = static_cast<sSizedArray *>(i_data);
-	char buf[12];
-	for (int i = 0; i < arr->size; i++) {
-		average += arr->array[i];
+	if (i_receiver == &m_sensorValRaw) {
 		if (m_connectedUser != NULL && m_sendWebsocket) {
-			sprintf(buf, "%d,", arr->array[i]);
-			const String send(buf);
-			m_connectedUser->sendString(send);
+			sSizedArray * arr = static_cast<sSizedArray *>(i_data);
+			Serial.printf("Web Size: %d\n", arr->size);
+			char buf[12];
+			for (size_t i = 0; i < arr->size; i++) {
+				sprintf(buf, "%d,", arr->u_array[i]);
+				const String sendString(buf);
+				m_connectedUser->sendString(sendString);
+				if (i % 10 == 0)
+					WDT.alive();
+			}
 		}
-	}
-	average /= arr->size;
-	if (i_receiver == &m_adc_0) {
-		m_adc_value_average[0] = static_cast<int32_t>(average);
-	} else if (i_receiver == &m_adc_1) {
-		m_adc_value_average[1] = static_cast<int32_t>(average);
-	} else if (i_receiver == &m_adc_2) {
-		m_adc_value_average[2] = static_cast<int32_t>(average);
-	} else if (i_receiver == &m_adc_3) {
-		m_adc_value_average[3] = static_cast<int32_t>(average);
+	} else {
+		for (int i = 0; i < 4; i++) {
+			if (i_receiver == &m_adcAverage[i]) {
+				m_adcAverageVal[i] = *static_cast<int32_t *>(i_data);
+				PrintValues();
+				break;
+			}
+		}
 	}
 }
 
 void cWebInterface::PrintValues() {
-	Serial.printf("c[0]: %d c[1]: %d c[2]: %d c[3]: %d\n\r", m_adc_value_average[0], m_adc_value_average[1],
-			m_adc_value_average[2], m_adc_value_average[3]);
+	Serial.printf("c[0]: %d c[1]: %d c[2]: %d c[3]: %d\n\r", m_adcAverageVal[0], m_adcAverageVal[1], m_adcAverageVal[2],
+			m_adcAverageVal[3]);
 }
 
 cWebInterface::~cWebInterface() {

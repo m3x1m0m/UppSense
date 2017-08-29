@@ -15,8 +15,7 @@
 #include <rijnfel_core/rijnfel_core.h>
 
 namespace rijnfel {
-#define RAW_CHANNEL 1
-#define RAW_SAMPLES 1000
+
 class cWebInterface: public cDataSink {
 public:
 	/**
@@ -74,10 +73,8 @@ public:
 	// cDataReceiver m_ledLife;
 	// cDataReceiver m_temp;
 	// But for now...
-	cDataReceiver m_adc_0;
-	cDataReceiver m_adc_1;
-	cDataReceiver m_adc_2;
-	cDataReceiver m_adc_3;
+	cDataReceiver m_sensorValRaw;
+	cDataReceiver m_adcAverage[4];
 
 	virtual void ReceiveCallback(void * i_data, cDataReceiver * i_receiver);
 public:
@@ -117,7 +114,7 @@ private:
 	/// Whether the server has started or not
 	bool m_serverStarted;
 	/// Holds the average for all the channels
-	int32_t m_adc_value_average[4];
+	int32_t m_adcAverageVal[4];
 	/// Server instance
 	HttpServer m_server;
 };

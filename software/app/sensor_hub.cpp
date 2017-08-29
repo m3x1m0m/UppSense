@@ -23,9 +23,9 @@ void cSensorHub::Update() {
 		return;
 	if (m_adcSettings) {
 		if (m_adcSettings->ShouldSample(m_updatePeriod)) {
-			if (m_adcSettings->m_buffer.AddValue(m_adc->RawSample())) {
-				m_adcSettings->m_samplesProvider.Push(static_cast<void*>(&m_adcSettings->m_buffer));
-			}
+			ads::ads_sample_t sample = m_adc->RawSample();
+			ads::ads_voltage_t voltage = m_adc->ConvertSample(sample);
+			m_adc_output[sample.mux - ads::eInputMux::AIN_0].Push(&voltage);
 		}
 	}
 }
@@ -50,7 +50,7 @@ void cSensorHub::Stop() {
 		m_running = false;
 		//if (m_adcSettings) {
 		//	m_adcSettings->m_samplesProvider.Push(static_cast<void*>(&m_adcSettings->m_buffer));
-			m_adcSettings->Reset();
+		m_adcSettings->Reset();
 		//}
 	}
 }

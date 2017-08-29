@@ -29,12 +29,12 @@ void cAdsConverter::ReceiveCallback(void* i_data, cDataReceiver* i_provider) {
 		int64_t average = 0;
 		int size = i_adcBuffer->GetSize();
 		arr.size = size;
-		arr.array = new uint32_t[size];
+		arr.u_array = new uint32_t[size];
 		for (int i = 0; i < size; i++) {
-			arr.array[i] = m_adc.ConvertSample(buf[i]);
+			arr.u_array[i] = m_adc.ConvertSample(buf[i]);
 		}
 		m_convertedSamples[pos].Push(static_cast<void *>(&arr));
-		delete arr.array;
+		delete arr.u_array;
 	}
 }
 

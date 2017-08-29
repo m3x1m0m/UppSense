@@ -22,6 +22,13 @@ cAdsConverter * adsConverter;
 
 //We want different signal processing for the channels
 cSignalProcess signalProcess[2];
+
+cProviderAverager<uint16_t, uint32_t> averagers[4];
+cProviderBuffer<uint32_t> bufferChannels[2] { { 1024 }, { 1024 } };
+
+cProviderAverager<uint16_t, uint32_t> processedAveragers[2] { { 10 }, { 10 } };
+cProviderAverager<uint16_t, uint32_t> processedAveragersBuffer[2] { { 10 }, { 10 } };
+
 Timer procTimer;
 Timer rectangleTimer;
 Timer _stopTimer;
@@ -112,14 +119,20 @@ void init() {
 	hub.SetAdcSettings(adcSettings);
 
 	// Channel one and two are getting processed
-	adsConverter->m_convertedSamples[0].Connect(&signalProcess[0].m_incommingData);
-	adsConverter->m_convertedSamples[1].Connect(&signalProcess[1].m_incommingData);
-	signalProcess[0].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_0);
-	signalProcess[1].m_processedData.Connect(&cWebInterface::GetInstance()->m_adc_1);
-	// Channel three and four are not
-	adsConverter->m_convertedSamples[2].Connect(&cWebInterface::GetInstance()->m_adc_2);
-	adsConverter->m_convertedSamples[3].Connect(&cWebInterface::GetInstance()->m_adc_3);
+	// adc:uint16 -- buffer:sSizedArray[] -- signal:sSizedArray[] -- average:uint16 -- web
+	for (int i = 0; i < 2; i++) {
+		hub.m_adc_output[i].Connect(&bufferChannels[i].m_input);
+		bufferChannels[i].m_output.Connect(&signalProcess[i].m_incommingData);
+		signalProcess[i].m_processedData.Connect(&processedAveragers[i].m_input);
+		processedAveragers[i].m_output.Connect(&processedAveragersBuffer[i].m_input);
+		processedAveragersBuffer[i].m_output.Connect(&cWebInterface::GetInstance()->m_sensorValRaw);
 
+	}
+
+	for (int i = 0; i < 4; i++) {
+		hub.m_adc_output[i].Connect(&averagers[i].m_input);
+		averagers[i].m_output.Connect(&cWebInterface::GetInstance()->m_adcAverage[i]);
+	}
 	cWebInterface::GetInstance()->StartServer();
 
 	mylight.SetCurrent(500);
