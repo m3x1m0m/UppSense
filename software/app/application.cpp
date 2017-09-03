@@ -135,7 +135,7 @@ void init() {
 	}
 	cWebInterface::GetInstance()->StartServer();
 
-	mylight.SetCurrent(500);
+	mylight.SetCurrent(5000);
 	mylight.RectangleUpdate();
 }
 

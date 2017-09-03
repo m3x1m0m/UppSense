@@ -126,8 +126,8 @@ void cWebInterface::OnRefresh(HttpRequest & i_request, HttpResponse & i_response
 	json["adc_3"] = m_adcAverageVal[3];
 	json["adc_4"] = m_adcAverageVal[2];
 #else
-	json["adc_3"] = m_adc_value_average[2];
-	json["adc_4"] = m_adc_value_average[3];
+	json["adc_3"] = m_adcAverageVal[2];
+	json["adc_4"] = m_adcAverageVal[3];
 #endif
 	i_response.sendJsonObject(stream);
 }
