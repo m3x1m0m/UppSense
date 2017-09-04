@@ -37,7 +37,7 @@ use <lid_t_b.scad>
 // Vars
 /////////////////////////////////////////////////////////////////////////////////
 // 0 = put lids, 1 = remove lids
-close = 0;
+close = 1;
 // Set minimum angle of a fragment
 $fa = 0.5;
 // Set minimum size of a fragment
@@ -71,7 +71,7 @@ lid_f_b(1,0);
 // Lid back
 translate([0, +housing_outside_depth/2 + close*20, 0])
 rotate([-90, 180, 0])
-rotate([0, 180, 0])
+//rotate([0, 180, 0])
 lid_f_b(1,1);
 
 color(myColor1, 0.8)
@@ -80,7 +80,7 @@ translate([0, 0, close*10 +0.0])
 //rotate([0,180,0])
 box_male();
 translate([0, 0, -close*10 -0.0])
-!translate([0, 0, housing_outside_height/2])
+//translate([0, 0, housing_outside_height/2])
 box_female();
 }
 }
