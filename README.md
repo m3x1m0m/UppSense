@@ -21,7 +21,7 @@ The software is written in C++ leveraging the
 [Sming](https://github.com/SmingHub/Sming) framework. This enables IoT
 applications very easily.
 
-In the UML diagram above it is examplary shown how the software works. Providers
+In the UML diagram above it is examplarily shown how the software works. Providers
 and receivers can be tied together in pairs to enable an easy way to exchange
 data. 
 
