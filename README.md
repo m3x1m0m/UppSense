@@ -25,5 +25,7 @@ In the UML diagram above it is examplarily shown how the software works. Provide
 and receivers can be tied together in pairs to enable an easy way to exchange
 data. 
 
+[Software Documentation](http://uppsense.eu/swdoc/)
+
 ## Web & Contact
 Website: www.uppsense.eu | Email: contact@uppsense.eu
