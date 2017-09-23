@@ -10,7 +10,7 @@ The hardware consists out of three PCBs so far: An analog PCB, a digital PCB and
 A transimpedance amplifier is used to convert light into a voltage. With a
 second stage this voltage is amplified. Both outputs are available for the ADC. 
 
-On the digital board there is besides an ESP8266, an ADC, an DAC and a temperature
+On the digital board there is besides an ESP8266, an ADC, a DAC and a temperature
 sensor. The DAC is needed to steer the LED driver circuit, that excites the
 sample. 
  
